@@ -1,0 +1,2347 @@
+app:
+  description: ''
+  icon: 6e8db26e-08ff-486d-a91d-543741745d75
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 测试使用
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: aisphere/faq:0.0.1@0d1bb6bcb72c129584f3454fd29333a77d3a84faa3a012c4e0f523a9867d1baf
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: aisphere/ole:0.3.55@018e983139e03c0ea1fc6d0c816f8387519f1141f87e2078bb4b4f49d9e098e9
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables:
+  - description: 用于记录用户上下文
+    id: 205f2021-8e3d-4444-8b40-4cc66984251b
+    name: historyQuery
+    selector:
+    - conversation
+    - historyQuery
+    value: []
+    value_type: array[string]
+  environment_variables:
+  - description: ''
+    id: 94134051-0e69-45dc-958a-45e4ed02890f
+    name: feedback
+    selector:
+    - env
+    - feedback
+    value: 答案不满意？反馈到<a target="_blank" href="https://odocs.myoas.com/sheets/aBAYVXKZ6xUMeD3j/MODOC?lang=zh-CN&zone=%2B8&tt_versionCode=800&mobileMsgShowStyle=1&pcMsgShowStyle=1">员服助手-AI问题登记表📝</a>，我们速跟进，一起让我更好用！
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 100
+        batch_count_limit: 5
+        file_size_limit: 100
+        image_file_size_limit: 20
+        video_file_size_limit: 200
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    long_term_memory:
+      enabled: false
+      memory_duration: 30
+      memory_prompt: ''
+    opening_statement: 嗨～我是 HR 员服智能助手👩💼！有啥 HR 相关问题都能问我，随时随地为您高效服务✨～现在就可以提问啦，比如 “我要查剩余年假”📅、“我要申请周六加班”⏰、“我要开具在职证明”📄等～
+    opening_statement_en: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    suggested_questions_en: []
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1757640048870-source-1757643815906-target
+      selected: false
+      source: '1757640048870'
+      sourceHandle: source
+      target: '1757643815906'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1757643815906-source-1757643968751-target
+      selected: false
+      source: '1757643815906'
+      sourceHandle: source
+      target: '1757643968751'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1757643968751-source-1757647183402-target
+      selected: false
+      source: '1757643968751'
+      sourceHandle: source
+      target: '1757647183402'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: rag
+        targetType: llm
+      id: 1757647893965-source-1757666454059-target
+      selected: false
+      source: '1757647893965'
+      sourceHandle: source
+      target: '1757666454059'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1757666454059-source-1757647922955-target
+      selected: false
+      source: '1757666454059'
+      sourceHandle: source
+      target: '1757647922955'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: assigner
+      id: 1757672093084-source-1757672655011-target
+      selected: false
+      source: '1757672093084'
+      sourceHandle: source
+      target: '1757672655011'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: assigner
+        targetType: if-else
+      id: 1757672655011-source-1757672847277-target
+      selected: false
+      source: '1757672655011'
+      sourceHandle: source
+      target: '1757672847277'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1757672847277-7dec77eb-5460-4907-bcd3-482b35ab3565-1757916494908-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: 7dec77eb-5460-4907-bcd3-482b35ab3565
+      target: '1757916494908'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1757672847277-5e631d5f-792b-4a12-ac97-bb011e027003-1757916566763-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: 5e631d5f-792b-4a12-ac97-bb011e027003
+      target: '1757916566763'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1757916566763-f5f6cab7-a690-4537-92be-9468d3a4ff63-1757916861724-target
+      selected: false
+      source: '1757916566763'
+      sourceHandle: f5f6cab7-a690-4537-92be-9468d3a4ff63
+      target: '1757916861724'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1757916861724-false-1757916961864-target
+      selected: false
+      source: '1757916861724'
+      sourceHandle: 'false'
+      target: '1757916961864'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1757672847277-true-17579170931180-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: 'true'
+      target: '17579170931180'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 17579170931180-false-1757917227892-target
+      selected: false
+      source: '17579170931180'
+      sourceHandle: 'false'
+      target: '1757917227892'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1757672847277-bee96c9d-0774-4c42-bb41-2315177f61c4-17579173554440-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: bee96c9d-0774-4c42-bb41-2315177f61c4
+      target: '17579173554440'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 17579173554440-false-1757917227892-target
+      selected: false
+      source: '17579173554440'
+      sourceHandle: 'false'
+      target: '1757917227892'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1757672847277-66c14d5e-a142-48f6-b691-6225fd076423-17579178627670-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: 66c14d5e-a142-48f6-b691-6225fd076423
+      target: '17579178627670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 17579178627670-false-1757917227892-target
+      selected: false
+      source: '17579178627670'
+      sourceHandle: 'false'
+      target: '1757917227892'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1757672847277-d8db1495-89d5-4a6f-94d8-df3afe6b6dd9-17579179137520-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: d8db1495-89d5-4a6f-94d8-df3afe6b6dd9
+      target: '17579179137520'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 17579179137520-false-1757917227892-target
+      selected: false
+      source: '17579179137520'
+      sourceHandle: 'false'
+      target: '1757917227892'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1757920028074-source-1757920034309-target
+      selected: false
+      source: '1757920028074'
+      sourceHandle: source
+      target: '1757920034309'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 17579179137520-true-1757920028074-target
+      selected: false
+      source: '17579179137520'
+      sourceHandle: 'true'
+      target: '1757920028074'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 17579173554440-true-1757920463049-target
+      selected: false
+      source: '17579173554440'
+      sourceHandle: 'true'
+      target: '1757920463049'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1757920463049-source-1757920479819-target
+      selected: false
+      source: '1757920463049'
+      sourceHandle: source
+      target: '1757920479819'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 17579178627670-true-1757920514125-target
+      selected: false
+      source: '17579178627670'
+      sourceHandle: 'true'
+      target: '1757920514125'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1757920514125-source-1757920522350-target
+      selected: false
+      source: '1757920514125'
+      sourceHandle: source
+      target: '1757920522350'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1757672847277-false-1758010715501-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: 'false'
+      target: '1758010715501'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1758018291277-source-1758014571378-target
+      selected: false
+      source: '1758018291277'
+      sourceHandle: source
+      target: '1758014571378'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1757916566763-true-1758018291277-target
+      selected: false
+      source: '1757916566763'
+      sourceHandle: 'true'
+      target: '1758018291277'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1757916861724-true-1758018291277-target
+      selected: false
+      source: '1757916861724'
+      sourceHandle: 'true'
+      target: '1758018291277'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1758012390269-source-1758090440425-target
+      selected: false
+      source: '1758012390269'
+      sourceHandle: source
+      target: '1758090440425'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1758090440425-source-1758089565634-target
+      selected: false
+      source: '1758090440425'
+      sourceHandle: source
+      target: '1758089565634'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: rag
+      id: 1758089565634-true-1757647893965-target
+      selected: false
+      source: '1758089565634'
+      sourceHandle: 'true'
+      target: '1757647893965'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1757672847277-1e41b396-cddb-40bc-8757-a2baf2f67692-1758012390269-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: 1e41b396-cddb-40bc-8757-a2baf2f67692
+      target: '1758012390269'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: assigner
+        targetType: if-else
+      id: 17581636153740-source-17581631510290-target
+      selected: false
+      source: '17581636153740'
+      sourceHandle: source
+      target: '17581631510290'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1758089565634-false-1758187635574-target
+      selected: false
+      source: '1758089565634'
+      sourceHandle: 'false'
+      target: '1758187635574'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1757647183402-true-1757672093084-target
+      source: '1757647183402'
+      sourceHandle: 'true'
+      target: '1757672093084'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 17579170931180-true-1758854775405-target
+      source: '17579170931180'
+      sourceHandle: 'true'
+      target: '1758854775405'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1758854775405-source-1757919864956-target
+      source: '1758854775405'
+      sourceHandle: source
+      target: '1757919864956'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: ole
+          max_length: 256
+          options: []
+          required: false
+          type: text-input
+          variable: ole_cardData
+      height: 90
+      id: '1757640048870'
+      position:
+        x: 30
+        y: 406.5
+      positionAbsolute:
+        x: 30
+        y: 406.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: gsm
+        auth_label: ''
+        cus_tool_configurations:
+          areaCode: china
+          envid: UAT
+        default_value:
+        - key: text
+          type: string
+          value: ''
+        - key: json
+          type: array[object]
+          value: '[]'
+        desc: ''
+        error_strategy: default-value
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 用户工号
+            ja_JP: 用户工号
+            pt_BR: 用户工号
+            zh_Hans: 用户工号
+          label:
+            en_US: userId
+            ja_JP: userId
+            pt_BR: userId
+            zh_Hans: userId
+          llm_description: 用户工号
+          max: null
+          min: null
+          name: userId
+          options: []
+          placeholder:
+            en_US: 用户工号
+            ja_JP: 用户工号
+            pt_BR: 用户工号
+            zh_Hans: 用户工号
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          userId: ''
+        provider_app_id: ''
+        provider_id: 6c54da1d-6fd7-4abf-802a-0c91c975311d
+        provider_name: 根据userId获取4A用户信息
+        provider_source: ''
+        provider_type: api
+        selected: false
+        title: 根据工号查询用户v3
+        tool_configurations: {}
+        tool_description: '接口使用说明：https://gsm.myoas.com/apiMarket/apiMarketDetail?groupId=oppo-4a&id=71&type=doc&docsId=4653
+
+          接口返回字段：https://gsm.myoas.com/apiMarket/apiMarketDetail?groupId=oppo-4a&id=71&type=doc&docsId=3616'
+        tool_label: 根据工号查询用户v3
+        tool_name: G-MagicBox-M4A-API0007
+        tool_parameters:
+          userId:
+            type: mixed
+            value: '{{#sys.user_id#}}'
+        type: tool
+        version: '2'
+      height: 90
+      id: '1757643815906'
+      position:
+        x: 334
+        y: 406.5
+      positionAbsolute:
+        x: 334
+        y: 406.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(input_text):\n    \"\"\"\n    从输入的JSON文本中提取员工信息\n\
+          \    \n    Args:\n        input_text (str): JSON格式的员工数据文本\n        \n  \
+          \  Returns:\n        dict: 包含员工集合ID、员工ID、员工类型、工作地的JSON对象\n    \"\"\"\n \
+          \   try:\n        # 解析JSON\n        data = json.loads(input_text)\n    \
+          \    \n        # 检查是否有data字段\n        if 'data' not in data:\n         \
+          \   return {\"error\": \"输入数据中缺少data字段\"}\n            \n        employee_data\
+          \ = data['data']\n        \n        # 提取所需字段\n        result = {\n     \
+          \       \"员工集合ID\": employee_data.get(\"businessUnit\", \"\"),\n       \
+          \     \"员工ID\": employee_data.get(\"id\", \"\"),\n            \"员工类型编码\"\
+          : employee_data.get(\"userClass\", \"\"),\n            \"员工类型\": employee_data.get(\"\
+          userClassDesc\", \"\"),\n            \"所属组织路径编码\": employee_data.get(\"\
+          directDepartIdPath\", \"\"),\n            \"所属组织路径\": employee_data.get(\"\
+          directDepartNamePath\", \"\"),\n            \"工作地编码\": employee_data.get(\"\
+          workLocaltion\", \"\"),\n            \"工作地\": employee_data.get(\"workLocaltionDesc\"\
+          , \"\")\n        }\n        \n        return {\"result\":result,\n     \
+          \   \"setid\": employee_data.get(\"businessUnit\", \"\"),\n            \"\
+          userClass\": employee_data.get(\"userClass\", \"\"),\n            \"userClassDesc\"\
+          : employee_data.get(\"userClassDesc\", \"\"),\n            \"deptPath\"\
+          : employee_data.get(\"directDepartIdPath\", \"\"),\n            \"deptPathDesc\"\
+          : employee_data.get(\"directDepartNamePath\", \"\"),\n            \"workLocaltion\"\
+          : employee_data.get(\"workLocaltion\", \"\"),\n            \"workLocaltionDesc\"\
+          : employee_data.get(\"workLocaltionDesc\", \"\")\n        }\n    except\
+          \ json.JSONDecodeError as e:\n        return {\"error\": f\"JSON解析错误: {str(e)}\"\
+          }\n    except Exception as e:\n        return {\"error\": f\"处理错误: {str(e)}\"\
+          }"
+        code_language: python3
+        desc: ''
+        outputs:
+          deptPath:
+            children: null
+            type: string
+          deptPathDesc:
+            children: null
+            type: string
+          result:
+            children: null
+            type: object
+          setid:
+            children: null
+            type: string
+          userClass:
+            children: null
+            type: string
+          userClassDesc:
+            children: null
+            type: string
+          workLocaltion:
+            children: null
+            type: string
+          workLocaltionDesc:
+            children: null
+            type: string
+        selected: false
+        title: 用户信息提取
+        type: code
+        variables:
+        - value_selector:
+          - '1757643815906'
+          - text
+          variable: input_text
+      height: 54
+      id: '1757643968751'
+      position:
+        x: 638
+        y: 406.5
+      positionAbsolute:
+        x: 638
+        y: 406.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: c16fa913-0704-47da-ab04-4b3339e6cd39
+            value: OPP10
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - setid
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 是否OPPO
+        type: if-else
+      height: 126
+      id: '1757647183402'
+      position:
+        x: 942
+        y: 406.5
+      positionAbsolute:
+        x: 942
+        y: 406.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - L1-1h3egddgowa8wiknw3vn7pn21lg0us93htw0
+        desc: ''
+        enhanced_generation:
+          enabled: false
+          model:
+            completion_params:
+              temperature: 0.7
+            mode: chat
+            name: ''
+            provider: ''
+          source_tracking_enabled: false
+          user_instruction: ''
+        query_variable_selector:
+        - sys
+        - query
+        recall_config:
+          context_top_n: 3
+          context_window_size: 3
+          sort: relevance
+          top_k: 5
+        retrieval_mode: single
+        selected: false
+        title: Ozone RAG
+        type: rag
+        variables: []
+      height: 96
+      id: '1757647893965'
+      position:
+        x: 3636.2330337977673
+        y: 2136.3381571894947
+      positionAbsolute:
+        x: 3636.2330337977673
+        y: 2136.3381571894947
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1757666454059.text#}}'
+        desc: ''
+        selected: false
+        title: 知识库检索回复
+        type: answer
+        variables: []
+      height: 104
+      id: '1757647922955'
+      position:
+        x: 4274.090651823241
+        y: 2136.3381571894947
+      positionAbsolute:
+        x: 4274.090651823241
+        y: 2136.3381571894947
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: AndesGPT-32B
+          provider: aisphere/ole/ole
+        prompt_template:
+        - id: 99fa50f9-bc63-4ae3-a04b-30d8fa5b9814
+          role: system
+          text: ''
+        - id: c0de8354-ad64-4ae3-8753-2c5583b6a1c3
+          role: user
+          text: '# 以下内容是基于用户发送的消息的搜索结果:
+
+            {{#1757647893965.result#}}
+
+            在我给你的搜索结果中，每个结果都是[file X begin]...[file X end]格式的，X代表每篇文章的数字索引。如果引用的来源文件有查看链接，请在答案末尾按每篇文件的数字索引顺序列出所有引用文件的查看链接<a
+            needAuth /target="_blank" href="PC端链接地址" mobile_url="移动端链接地址">文件名称<\a>。
+
+            在回答时，请注意以下几点：
+
+            - 并非搜索结果的所有内容都与用户的问题密切相关，你需要结合问题，对搜索结果进行甄别、筛选。
+
+            - 对于列举类的问题（如列举所有航班信息），尽量将答案控制在10个要点以内，并告诉用户可以查看搜索来源、获得完整信息。优先提供信息完整、最相关的列举项；如非必要，不要主动告诉用户搜索结果未提供的内容。
+
+            - 对于创作类的问题（如写论文），你需要解读并概括用户的题目要求，选择合适的格式，充分利用搜索结果并抽取重要信息，生成符合用户要求、极具思想深度、富有创造力与专业性的答案。你的创作篇幅需要尽可能延长，对于每一个要点的论述要推测用户的意图，给出尽可能多角度的回答要点，且务必信息量大、论述详尽。
+
+            - 如果回答很长，请尽量结构化、分段落总结。如果需要分点作答，尽量控制在5个点以内，并合并相关的内容。
+
+            - 对于客观类的问答，如果问题的答案非常简短，可以适当补充一到两句相关信息，以丰富内容。
+
+            - 你需要根据用户要求和回答内容选择合适、美观的回答格式，确保可读性强。
+
+            - 你的回答应该综合多个相关网页来回答，不能重复引用一个网页。
+
+            - 除非用户要求，否则你回答的语言需要和用户提问的语言保持一致。
+
+            # 当前用户信息为：
+
+            - 工号：{{#sys.user_id#}}
+
+            # 用户消息为：
+
+            {{#sys.query#}}
+
+
+            '
+        selected: false
+        title: 知识库总结
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1757666454059'
+      position:
+        x: 3957.6835662894
+        y: 2136.3381571894947
+      positionAbsolute:
+        x: 3957.6835662894
+        y: 2136.3381571894947
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: AISphere-DeepSeek-V3_1
+          provider: aisphere/ole/ole
+        prompt_template:
+        - id: 1601dda6-68eb-4768-8c89-735c6f7884a9
+          role: system
+          text: ''
+        - id: 30a07178-56b3-4686-822d-bb1f4616b46d
+          role: user
+          text: "# HR多轮对话意图分类器\n你是专门处理HR领域的上下文感知意图分类器。**严格要求：仅输出单个分类编号，禁止任何其他内容**\n\
+            \n## 核心分类原则\n**优先级排序**：1 > 2 > 3 > 4 > 15 > 16 > 17（数字越小优先级越高）  \n**冲突处理补充规则**：若输入同时包含多类关键词，需先判断「核心意图」——即用户最终要解决的需求本质，而非仅依赖关键词出现顺序；当「薪资扣除/薪酬计算」意图明确时，优先级高于「请假」类标签。\n\
+            **判断是否为“制度类问题”，这类问题划分为15类：\n   若问题符合以下任一特征，直接归类为“制度类”：\n   - 询问“时间标准”：如“XX情况（出差/请假/加班后）的最晚/最早打卡时间”“XX时段需几点打卡”；\n\
+            \   - 询问“规则后果”：如“迟到/未打卡的影响”“违反XX要求会怎样”；\n   - 询问“条件是否允许”：如“XX情况（周日加班）能否晚打卡”“XX情形是否符合打卡规则”。**\n\
+            \n## 上下文处理机制\n### 多轮对话分析\n1. **记忆窗口**：分析最近3轮完整对话（历史输入+当前输入）\n2. **指代消解**：识别代词指向（\"\
+            这个\"、\"那个\"、\"它\"等），若历史提及\"请假\"，当前问\"扣工资\"，则\"这个\"指向\"请假行为的薪资影响\"\n3.\
+            \ **转折检测**：识别话题切换信号词\n   - **强转折**：但是、不过、另外、对了、还有、顺便问下\n   - **弱转折**：然后、接着、还想问\n\
+            \   - **特殊处理**：若转折前为\"请假咨询\"，转折后为\"薪资问题\"，按转折后内容的核心意图分类（优先15类）\n4. 【新增上下文处理规则】：\n\
+            -判断是否“同一事务”：看新问题是否围绕“上一轮的核心事务”（如上一轮是“开收入证明”，新问题“年收入版”就是同一事务；上一轮是“请假打卡”，新问题“出差打卡”就是不同事务）；\n\
+            - 同一事务（如“开收入证明”→“年收入版”）：必须关联上下文，直接推进事务，不重复问“您要办什么”；\n-不同事务（如“请假打卡”→“出差打卡”）：独立分析新问题场景，忽略上一轮答案，按新场景给规则；\n\
+            -关键提醒：只有“同一事务的追问”才用上下文，不同事务的新问题坚决不粘连历史答案。**\n【同一事务示例】：\n- 用户：要开收入证明→智能体：要年收入版还是月收入版？→用户：年收入版→智能体：年收入版需提供XXX（关联上下文）\n\
+            \n### 意图判断决策树（新增薪资意图判断节点）\n当前输入 → \n├─ 包含强转折词？\n│  ├─ 是 → 按当前输入独立分类（重点分析转折后内容的核心意图）\n\
+            │  └─ 否 → 继续分析\n├─ 当前输入是否包含「薪资扣除/薪酬计算」相关关键词？\n│  ├─ 是 → 核心意图为薪酬咨询，归类15类（即使含请假关键词）\n\
+            │  └─ 否 → 继续分析\n├─ 当前输入意图明确？\n│  ├─ 是 → 直接分类\n│  └─ 否 → 结合历史上下文分析\n└─\
+            \ 历史输入提供线索？\n   ├─ 是 → 意图继承或升级（历史为请假，当前问薪资→升级为15类）\n   └─ 否 → 按16处理\n\n\
+            ## 分类体系\n**注意：编号5-14预留用于后续扩展**\n\n### 1. 请假\n**核心判断**：仅涉及「休假行为本身」的申请、时长查询、流程咨询，不包含休假后的薪资影响、福利变化等关联问题。\n\
+            - **强匹配关键词**：请假、年假、病假、事假、产假、陪产假、婚假、丧假、探亲假、调休\n- **申请动作词**：我要休、帮我申请、直接请掉、申请休假、休假申请（仅指向\"\
+            申请休假\"动作）\n- **查询关键词**：假期余额、剩余天数、已用天数、请假流程（仅指\"如何申请休假\"）、假期时长（如\"病假能休几天\"\
+            ）\n- **正例**：\n  - \"我要请病假3天\" / \"帮我申请年假，下周一到周三\"\n  - \"我的年假还有几天？\" /\
+            \ \"产假可以休多长时间？\"\n  - \"请假需要什么流程？\" / \"事假怎么申请？\"\n- **负例（明确排除）**：\n \
+            \ - 请假后的薪资扣除问题（如\"病假扣工资怎么扣\"→15）\n  - 请假期间的工资发放问题（如\"病假有工资吗\"→15）\n  -\
+            \ 迟到早退（→3）、放假（→15）\n\n### 2. 加班\n**核心判断**：加班申请、加班相关查询、调休管理\n- **强匹配关键词**：加班、调休、加班费、加班补贴、值班、夜班、周末上班\n\
+            - **申请动作词**：申请加班、要加班、需要值班、周末工作\n- **查询关键词**：加班时长、调休余额、加班工资、补贴标准、加班规定\n\
+            - **正例**：\n  - \"我要申请加班\" / \"周末需要值班，怎么申请？\"\n- **负例**：请假申请（→1）、打卡相关（→3）、加班后的调休（→1）\n\
+            \n### 3. 补签\n**核心判断**：考勤打卡记录的补录、修正，与出勤时间相关的异常处理\n- **强匹配关键词**：补签、忘记打卡、补打卡、考勤异常、迟到、早退、旷工\n\
+            - **申请动作词**：帮我补签、需要补卡、申请补签、补考勤记录\n- **查询关键词**：打卡记录、考勤查询、出勤统计、异常原因\n- **正例**：\n\
+            \  - \"忘记打卡了怎么办？\" / \"帮我补签昨天的考勤\"\n  - \"考勤异常如何处理？\" / \"迟到了需要补签吗？\"\n\
+            \  - \"我的打卡记录有问题\"\n- **负例**：\n  - 工卡丢失/补办（→15）\n  - 工卡功能问题（→15）\n  -\
+            \ 请假流程（→1）、加班打卡（→2）\n\n### 4. 证明办理\n**核心判断**：各类工作相关证明文件申请和咨询\n- **强匹配关键词**：证明、在职证明、收入证明、工作证明、离职证明、实习证明\n\
+            - **申请动作词**：开证明、申请证明、需要证明、帮我办理\n- **查询关键词**：证明模板、办理流程、所需材料、办理时间\n- **正例**：\n\
+            \  - \"需要开在职证明\" / \"怎么申请收入证明？\"\n  - \"工作证明几天能办好？\" / \"离职证明怎么开？\"\n\
+            \  - \"证明需要什么材料？\"\n- **负例**：\n  - 离职手续办理（→15）\n  - 离职申请提交（→15）\n  - 合同相关，如劳动合同（→15）\n\
+            \  - 其他文件申请，如工资条查看（→15）\n\n### 15. HR领域其他类型\n**核心判断**：明确属于HR范畴但不符合上述1-4类的问题，**重点包含薪酬福利计算类需求**。\n\
+            - **常见领域**：薪酬福利（含休假薪资扣除、生日积分、婚育积分、消费贷）、入离职、培训发展、绩效管理、员工关系、员工物品管理、招聘调配、合同、集体户、\n\
+            - **重点强化1：休假薪资扣除专项**\n  - **核心区分公式**：请假关键词（如病假）+ 薪资动作词（扣、算、发、有/无）= 归类15类\n\
+            \  - **强匹配关键词**：扣工资、工资扣除、病假扣薪、事假扣款、休假薪资、请假影响工资、病假工资、事假工资、产假薪资\n  - **典型提问句式**：\n\
+            \    - \"XX假扣工资怎么扣\"（如\"病假扣工资怎么扣\"）\n    - \"请XX假有工资吗\"（如\"事假有工资吗\"）\n\
+            \    - \"XX假期间工资怎么算\"（如\"产假工资怎么算\"）\n  - **正例**：\n    - \"病假扣工资怎么扣\" /\
+            \ \"事假会扣多少钱\"\n    - \"年假期间工资正常发吗\" / \"产假薪资怎么计算\"\n- **重点强化2：工卡相关**\n\
+            \  - 核心区分：实体工卡/虚拟工卡的申领、补办、功能问题（→15）vs 打卡记录补签（→3）\n  - 强匹配关键词：工卡、补工卡、工作证、员工卡、工牌、饭卡、门禁卡\n\
+            \  - 相关动作：补办工卡、申请工卡、工卡丢失、工卡损坏、工卡激活、工卡失效\n- **重点强化3：离职相关**\n  - 核心区分：离职申请/手续（→15）\
+            \ vs 离职证明（→4）\n  - 强匹配关键词：离职申请、辞职、辞职报告、离职手续、离职流程、办理离职、申请离职\n  - 动作词：我要离职、申请辞职、提交辞职报告、办理离职手续\n\
+            - **其他关键词**：工资、薪酬、福利、社保、公积金、入职、培训、绩效、档案、住房贷款\n- **正例**：\n  - \"我的工卡丢了，需要补办\"\
+            \ / \"我要申请离职\"\n  - \"工资条怎么查看？\" / \"社保缴费基数是多少？\"\n  - \"入职需要准备什么？\" /\
+            \ \"公司福利有哪些？\"\n- **判断原则**：若输入同时包含\"请假类关键词\"和\"薪资类关键词\"，优先按\"薪酬计算\"的核心意图归类为15类。\n\
+            \n### 16. 非HR领域问题  \n**核心判断**：与HR完全无关的问题\n- **常见类型**：技术问题、生活咨询、系统操作、其他业务\n\
+            - **正例**：\n  - \"今天天气怎么样？\" / \"系统怎么登录？\"\n  - \"食堂菜品推荐\" / \"公司wifi密码是什么？\"\
+            \n  - \"如何使用打印机？\" / \"会议室怎么预订？\"\n- **判断原则**：明显不属于人力资源管理范畴\n\n### 17.\
+            \ 转人工客服\n**核心判断**：用户明确表达要寻求人工帮助\n- **强匹配关键词**：转人工、人工客服、联系客服、人工服务、客服、人工\n\
+            - **表达方式**：\n  - 直接要求：\"转人工\" / \"人工客服\" / \"找客服\"\n  - 间接表达：\"能帮我联系人工吗？\"\
+            \ / \"我要找真人\"\n  - 不满意表达：\"机器人解决不了\" / \"我要投诉\"\n\n## 复杂情况处理案例（新增薪资与请假区分专项）\n\
+            ### 专项案例：请假与薪资扣除区分\n场景1：纯请假申请（→1）\n输入：\"我要请3天病假\"\n决策：仅申请休假，无薪资相关需求 →\
+            \ 输出：1\n\n场景2：病假扣工资咨询（→15）\n输入：\"病假扣工资怎么扣\"\n决策：含\"病假\"（请假关键词）+ \"扣工资\"\
+            （薪资关键词），核心意图是薪酬计算 → 输出：15\n\n场景3：请假+薪资混合提问（→15）\n输入：\"我想请5天事假，扣工资怎么扣\"\
+            \n决策：虽提及请假，但核心需求是\"扣工资规则\"，按核心意图归类 → 输出：15\n\n场景4：历史请假+当前薪资提问（→15）\n历史：\"\
+            我昨天请了病假\"（→1）\n当前：\"这个病假会扣工资吗\"\n决策：\"这个\"指代\"病假\"，但当前需求是薪资影响，意图升级为薪酬类\
+            \ → 输出：15\n\n场景5：纯薪资咨询（→15）\n输入：\"病假有工资吗\"\n决策：无请假申请动作，仅咨询薪资政策 → 输出：15\n\
+            \n### 工卡与补签区分（原有案例保留）\n场景1：工卡补办（→15）\n输入：\"我的工卡丢了，需要补工卡\"\n决策：属于工卡物品管理，非考勤记录补签\
+            \ → 输出：15\n\n场景2：补签打卡记录（→3）\n输入：\"昨天忘记打卡，需要补签\"\n决策：属于考勤记录补录 → 输出：3\n\n\
+            ### 离职相关区分（原有案例保留）\n场景1：离职申请（→15）\n输入：\"我想申请离职\"\n决策：属于离职手续范畴，非证明办理 →\
+            \ 输出：15\n\n场景2：离职证明（→4）\n输入：\"我需要开离职证明\"\n决策：明确要求办理证明文件 → 输出：4\n\n## 边界情况判断规则（新增薪资专项规则）\n\
+            ### 规则1：模糊输入处理\n- **有上下文线索**：优先结合历史判断（若历史为请假，当前问薪资→归15类；若历史为证明办理，当前回复证明类型如年收入、月收入→归类4类）\n\
+            - **无上下文线索**：含\"薪资扣除/工资计算\"关键词时，无论是否有请假关键词，均归15类\n- **完全无法理解**：输出16\n\n\
+            ### 规则2：HR边界判断（新增薪资判断节点）\n判断流程：\n输入内容 → \n├─ 明显非HR？ → 输出：16\n├─ 明确含\"\
+            薪资扣除/薪酬计算\"关键词？ → 输出：15  \n├─ 明确HR但非1-4类且非薪资类？ → 输出：15  \n├─ 符合1-4类纯业务特征（无薪资关联）？\
+            \ → 按优先级输出\n└─ 不确定？ → 默认输出：16\n\n### 规则3：多重意图处理（补充薪资优先级）\n- 识别所有可能分类（如\"\
+            病假\"属1类，\"扣工资\"属15类）\n- 优先判断\"核心需求\"：若需求是\"了解薪资影响\"，即使含1类关键词，仍归15类\n-\
+            \ 突破编号优先级限制：薪资类需求优先级 > 请假类编号优先级\n\n### 规则4：时间和动作判断（补充薪资场景）\n- **过去时态**：已请假天数（→1）、已扣工资金额（→15）\n\
+            - **将来时态**：要请假（→1）、担心请假扣工资（→15）\n- **疑问句式含\"怎么扣/是否有/怎么算\"**：优先归15类（薪酬咨询）\n\
+            \n### 新增规则5：离职相关专门判断（原有保留）\n- 当输入包含\"离职申请\"、\"辞职\"、\"申请离职\"等词汇时，优先归类为15（HR其他）\n\
+            - 仅当明确提及\"离职证明\"时，才归类为4（证明办理）\n- 区分原则：流程手续（15）vs 证明文件（4）\n\n### 新增规则6：工卡与补签专门判断（原有保留）\n\
+            - 核心区分：\"补工卡\"是补实体/虚拟卡片（→15），\"补签\"是补考勤记录（→3）\n- 当输入包含\"工卡\"、\"工作证\"、\"\
+            工牌\"等词汇时，优先判断是否为物品管理问题\n- 仅当明确涉及\"打卡记录补录\"、\"考勤补签\"时，才归类为3（补签）\n\n###\
+            \ 新增规则7：请假与薪资扣除专门判断（核心优化）\n- **关键词权重**：\"扣工资\"、\"工资计算\"、\"薪资\"等薪酬类关键词权重\
+            \ > \"病假\"、\"事假\"等请假类关键词\n- **意图判定优先级**：\n  1. 若输入有\"申请休假\"动作（如\"我要请病假\"\
+            ）→ 1类\n  2. 若输入无申请动作，仅问\"休假时长/流程\"（如\"病假能休几天\"）→ 1类\n  3. 若输入问\"休假与薪资的关联\"\
+            （如\"病假扣工资怎么扣\"）→ 15类\n- **典型场景排除**：明确将\"XX假扣工资\"、\"XX假工资\"类提问排除在1类之外，归入15类\n\
+            \n## 执行指令\n### 输出要求\n- **格式**：仅输出单个数字（1/2/3/4/15/16/17）\n- **禁止**：任何文字解释、分析过程、额外符号\n\
+            - **错误示例**：❌ \"分类结果：1\" / ❌ \"→1\" / ❌ \"输出：1\"  \n- **正确示例**：✅ \"1\"\n\
+            \n### 决策流程（新增薪资判断节点，优先执行）\n步骤1：检查转人工意图（17） → 是则输出17，否则继续\n步骤2：判断是否HR领域\
+            \ → 非HR则输出16，是HR则继续  \n步骤3：**特别检查是否涉及\"薪资扣除/薪酬计算\"（含请假+薪资关键词）** → 是则输出15，否则继续\n\
+            步骤4：特别检查是否涉及工卡相关问题 → 是则输出15，否则继续\n步骤5：特别检查是否涉及离职申请/手续 → 是则输出15，否则继续\n\
+            步骤6：依次匹配1→2→3→4（仅匹配无薪资关联的纯业务场景）→ 匹配到则输出，否则继续\n步骤7：确认HR领域但非以上类型 → 输出15\n\
+            步骤8：完全无法判断 → 默认输出16\n\n### 质量检查点（补充薪资判断标准）\n- **关键词权重**：薪酬类关键词（扣工资、薪资计算、XX假工资）>\
+            \ 请假类关键词（病假、事假）> 申请/查询动作词 > 模糊关联词\n- **上下文权重**：强转折词切换话题 > 指代消解（历史请假→当前薪资，优先薪资）>\
+            \ 意图继承\n- **优先级原则**：核心意图优先级 > 编号数字优先级（薪资类需求优先于请假类）\n- **边界情况**：疑虑时选择16（非HR）而非15（HR其他）\n\
+            - **专项检查**：所有含\"XX假扣工资\"的提问，必须归类为15类，禁止归入1类\n\n## 分类速查表（更新薪资相关特征）\n| 编号\
+            \ | 分类名称 | 核心特征 | 典型关键词 |\n|------|----------|----------|------------|\n\
+            | **1** | 请假 | 纯休假申请/时长/流程（无薪资关联） | 请假、年假、病假、休假申请、假期余额、请假流程 |\n| **2**\
+            \ | 加班 | 加班申请/查询/调休管理 | 加班、调休、值班、加班工资（仅加班相关） |\n| **3** | 补签 | 考勤记录补录/异常处理\
+            \ | 补签、忘记打卡、考勤异常 |\n| **4** | 证明办理 | 各类证明申请/咨询 | 证明、在职证明、收入证明、离职证明 |\n\
+            | **15** | HR其他 | 薪酬福利（含休假扣薪）、离职手续、工卡等 | 扣工资、病假扣薪、工资计算、离职申请、工卡、补工卡 |\n\
+            |\n## 预留扩展机制\n\n**编号5-14预留规则：**\n- 新增业务分类时按5→6→7顺序使用\n- 维持优先级：1>2>3>4>新增>15>16>17\n\
+            - 新类别需明确定义核心特征和关键词\n- 更新时同步修改决策流程和速查表\n    \n\n现在请分类以下对话：\n历史输入：\n{{#conversation.historyQuery#}}\n\
+            当前输入：{{#sys.query#}}"
+        selected: false
+        title: 意图识别
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1757672093084'
+      position:
+        x: 1550
+        y: 406.5
+      positionAbsolute:
+        x: 1550
+        y: 406.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: append
+          value:
+          - sys
+          - query
+          variable_selector:
+          - conversation
+          - historyQuery
+          write_mode: over-write
+        selected: false
+        title: 保存用户输入
+        type: assigner
+        version: '2'
+      height: 86
+      id: '1757672655011'
+      position:
+        x: 1854
+        y: 406.5
+      positionAbsolute:
+        x: 1854
+        y: 406.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: de9ab55f-c452-4e68-978f-547c1cb9bbd9
+            value: '1'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: bee96c9d-0774-4c42-bb41-2315177f61c4
+          conditions:
+          - comparison_operator: is
+            id: 5656c204-9b0f-4985-af12-b5fdcddcc969
+            value: '2'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: bee96c9d-0774-4c42-bb41-2315177f61c4
+          logical_operator: and
+        - case_id: 66c14d5e-a142-48f6-b691-6225fd076423
+          conditions:
+          - comparison_operator: is
+            id: 5dd7ed9f-646a-4251-b127-5e8cbc9d384f
+            value: '3'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: 66c14d5e-a142-48f6-b691-6225fd076423
+          logical_operator: and
+        - case_id: d8db1495-89d5-4a6f-94d8-df3afe6b6dd9
+          conditions:
+          - comparison_operator: is
+            id: f76f4abf-3a0c-4606-9dfb-4cd1c519734a
+            value: '4'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: d8db1495-89d5-4a6f-94d8-df3afe6b6dd9
+          logical_operator: and
+        - case_id: 1e41b396-cddb-40bc-8757-a2baf2f67692
+          conditions:
+          - comparison_operator: is
+            id: 6f55ae04-539a-49de-9ee0-bc15f4f8ee9b
+            value: '15'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: 1e41b396-cddb-40bc-8757-a2baf2f67692
+          logical_operator: and
+        - case_id: 7dec77eb-5460-4907-bcd3-482b35ab3565
+          conditions:
+          - comparison_operator: is
+            id: 5111ee3c-02fc-456b-a3e4-466cc1709f97
+            value: '16'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: 7dec77eb-5460-4907-bcd3-482b35ab3565
+          logical_operator: and
+        - case_id: 5e631d5f-792b-4a12-ac97-bb011e027003
+          conditions:
+          - comparison_operator: is
+            id: b24f3232-1d34-41ae-a50a-ff1bd414f963
+            value: '17'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: 5e631d5f-792b-4a12-ac97-bb011e027003
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 意图分类后分支处理
+        type: if-else
+      height: 414
+      id: '1757672847277'
+      position:
+        x: 2158
+        y: 406.5
+      positionAbsolute:
+        x: 2158
+        y: 406.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '抱歉，非HR领域的问题暂时无法为您解决。
+
+          {{#env.feedback#}}'
+        desc: ''
+        selected: false
+        title: 非HR领域问题回复
+        type: answer
+        variables: []
+      height: 120
+      id: '1757916494908'
+      position:
+        x: 2462
+        y: 436.5
+      positionAbsolute:
+        x: 2462
+        y: 436.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 0d34311d-cf03-4ab3-ab8a-50a31d348851
+            value: 正式员工
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 6f3a1d01-ac8c-42ae-8dde-e768928c76eb
+            value: 实习生
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 0072a218-23ba-409c-944e-428396a39eab
+            value: 劳务派遣
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: 'true'
+          logical_operator: or
+        - case_id: f5f6cab7-a690-4537-92be-9468d3a4ff63
+          conditions:
+          - comparison_operator: is
+            id: 892a1008-ebd7-462a-9ec9-f8058bb21548
+            value: 人力外包
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: f5f6cab7-a690-4537-92be-9468d3a4ff63
+          logical_operator: and
+        - case_id: 998e55d1-8f05-46bc-aefd-b922cfb6b41d
+          conditions:
+          - comparison_operator: contains
+            id: 0d14d729-ab43-417e-a501-0957d05fa95c
+            value: 项目外包
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: f5057803-fc86-455f-b17f-38fa40ed3fc2
+            value: 顾问
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: 998e55d1-8f05-46bc-aefd-b922cfb6b41d
+          logical_operator: or
+        desc: ''
+        selected: false
+        title: 转人工判断员工类型
+        type: if-else
+      height: 300
+      id: '1757916566763'
+      position:
+        x: 2462
+        y: 594.5
+      positionAbsolute:
+        x: 2462
+        y: 594.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 97bf07f4-1b2b-43a9-a13e-cfdd9a4332b2
+            value: 人力资源系统
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - deptPathDesc
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 判断所属组织
+        type: if-else
+      height: 126
+      id: '1757916861724'
+      position:
+        x: 2810
+        y: 723.4999999999995
+      positionAbsolute:
+        x: 2810
+        y: 723.4999999999995
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 抱歉，您当前不在人工服务范围，请您联系对应接口人，谢谢~
+        desc: ''
+        selected: false
+        title: 转人工范围不支持回复
+        type: answer
+        variables: []
+      height: 118
+      id: '1757916961864'
+      position:
+        x: 3153.9999999999995
+        y: 676.4999999999999
+      positionAbsolute:
+        x: 3153.9999999999995
+        y: 676.4999999999999
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 0d34311d-cf03-4ab3-ab8a-50a31d348851
+            value: 正式员工
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 6f3a1d01-ac8c-42ae-8dde-e768928c76eb
+            value: 实习生
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 0072a218-23ba-409c-944e-428396a39eab
+            value: 劳务派遣
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: 'true'
+          logical_operator: or
+        desc: ''
+        selected: false
+        title: 请假判断员工类型
+        type: if-else
+      height: 178
+      id: '17579170931180'
+      position:
+        x: 2462
+        y: 934.5
+      positionAbsolute:
+        x: 2462
+        y: 934.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 抱歉，您当前的员工类型暂时不在服务范围，请您联系对应接口人，谢谢~
+        desc: ''
+        selected: false
+        title: 员工类型不在服务范围回复
+        type: answer
+        variables: []
+      height: 118
+      id: '1757917227892'
+      position:
+        x: 2766
+        y: 1115.5
+      positionAbsolute:
+        x: 2766
+        y: 1115.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 0d34311d-cf03-4ab3-ab8a-50a31d348851
+            value: 正式员工
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 0072a218-23ba-409c-944e-428396a39eab
+            value: 劳务派遣
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: 'true'
+          logical_operator: or
+        desc: ''
+        selected: false
+        title: 加班判断员工类型
+        type: if-else
+      height: 152
+      id: '17579173554440'
+      position:
+        x: 2462
+        y: 1152.5
+      positionAbsolute:
+        x: 2462
+        y: 1152.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 0d34311d-cf03-4ab3-ab8a-50a31d348851
+            value: 正式员工
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 6f3a1d01-ac8c-42ae-8dde-e768928c76eb
+            value: 实习生
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 0072a218-23ba-409c-944e-428396a39eab
+            value: 劳务派遣
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: 'true'
+          logical_operator: or
+        desc: ''
+        selected: false
+        title: 补签判断员工类型
+        type: if-else
+      height: 178
+      id: '17579178627670'
+      position:
+        x: 2462
+        y: 1344.5
+      positionAbsolute:
+        x: 2462
+        y: 1344.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 0d34311d-cf03-4ab3-ab8a-50a31d348851
+            value: 正式员工
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 6f3a1d01-ac8c-42ae-8dde-e768928c76eb
+            value: 实习生
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: 'true'
+          logical_operator: or
+        desc: ''
+        selected: false
+        title: 证明判断员工类型
+        type: if-else
+      height: 152
+      id: '17579179137520'
+      position:
+        x: 2462
+        y: 1562.5
+      positionAbsolute:
+        x: 2462
+        y: 1562.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1758854775405.text#}}'
+        desc: ''
+        selected: false
+        title: 请假助手回复
+        type: answer
+        variables: []
+      height: 104
+      id: '1757919864956'
+      position:
+        x: 3070
+        y: 1005.5
+      positionAbsolute:
+        x: 3070
+        y: 1005.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: ''
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas: []
+        params: {}
+        provider_app_id: 5b72c5f4-ae0f-464f-8877-3b24eb9e681c
+        provider_id: 241ab3f9-75d5-4e40-b86a-eb454fd87666
+        provider_name: 证明办理助手
+        provider_source: owner
+        provider_type: workflow
+        selected: false
+        title: 证明办理助手
+        tool_configurations: {}
+        tool_description: 证明办理助手_TEST
+        tool_label: 证明办理助手
+        tool_name: CERT_CHATFLOW_TEST
+        tool_parameters: {}
+        type: tool
+        version: '2'
+      height: 70
+      id: '1757920028074'
+      position:
+        x: 2766
+        y: 1711.0223196735315
+      positionAbsolute:
+        x: 2766
+        y: 1711.0223196735315
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1757920028074.text#}}'
+        desc: ''
+        selected: false
+        title: 证明助手回复
+        type: answer
+        variables: []
+      height: 104
+      id: '1757920034309'
+      position:
+        x: 3070
+        y: 1711.0223196735315
+      positionAbsolute:
+        x: 3070
+        y: 1711.0223196735315
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: ''
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas: []
+        params: {}
+        provider_app_id: 05085cd3-95be-45a1-8abd-c0c5d9173e7b
+        provider_id: eb34ceb2-ce68-4c28-a710-669760bc332a
+        provider_name: 员服AI 加班助手
+        provider_source: owner
+        provider_type: workflow
+        selected: false
+        title: 员服AI 加班助手
+        tool_configurations: {}
+        tool_description: 用于快捷申请加班
+        tool_label: 员服AI 加班助手
+        tool_name: OverTimeAssistant
+        tool_parameters: {}
+        type: tool
+        version: '2'
+      height: 70
+      id: '1757920463049'
+      position:
+        x: 2766
+        y: 1324.5
+      positionAbsolute:
+        x: 2766
+        y: 1324.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1757920463049.text#}}'
+        desc: ''
+        selected: false
+        title: 加班助手回复
+        type: answer
+        variables: []
+      height: 104
+      id: '1757920479819'
+      position:
+        x: 3070
+        y: 1324.5
+      positionAbsolute:
+        x: 3070
+        y: 1324.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: ''
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas: []
+        params: {}
+        provider_app_id: 058a1de0-a1c0-43bc-b32f-839405b3c152
+        provider_id: 1de0301e-c316-4095-b03f-c2d40da0db02
+        provider_name: 员服AI 补签助手
+        provider_source: owner
+        provider_type: workflow
+        selected: false
+        title: 员服AI 补签助手
+        tool_configurations: {}
+        tool_description: 用于快捷发起补签
+        tool_label: 员服AI 补签助手
+        tool_name: AttendanceMakeUpAssistant
+        tool_parameters: {}
+        type: tool
+        version: '2'
+      height: 70
+      id: '1757920514125'
+      position:
+        x: 2766
+        y: 1529.5
+      positionAbsolute:
+        x: 2766
+        y: 1529.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1757920514125.text#}}'
+        desc: ''
+        selected: false
+        title: 补签助手回复
+        type: answer
+        variables: []
+      height: 104
+      id: '1757920522350'
+      position:
+        x: 3070
+        y: 1529.5
+      positionAbsolute:
+        x: 3070
+        y: 1529.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 请您明确具体业务类型（如补签 / 加班 / 请假 / 证明办理）
+        desc: ''
+        selected: false
+        title: 追问
+        type: answer
+        variables: []
+      height: 118
+      id: '1758010715501'
+      position:
+        x: 2462
+        y: 1754.5
+      positionAbsolute:
+        x: 2462
+        y: 1754.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: ''
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: user question
+            ja_JP: user question
+            pt_BR: user question
+            zh_Hans: 用户问题
+          label:
+            en_US: user question
+            ja_JP: user question
+            pt_BR: user question
+            zh_Hans: 用户问题
+          llm_description: user question
+          max: null
+          min: null
+          name: question
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: robot ID
+            ja_JP: robot ID
+            pt_BR: robot ID
+            zh_Hans: 机器人ID
+          label:
+            en_US: robot ID
+            ja_JP: robot ID
+            pt_BR: robot ID
+            zh_Hans: 机器人ID
+          llm_description: robot ID
+          max: null
+          min: null
+          name: robotId
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: robot code
+            ja_JP: robot code
+            pt_BR: robot code
+            zh_Hans: 机器人编码
+          label:
+            en_US: robot code
+            ja_JP: robot code
+            pt_BR: robot code
+            zh_Hans: 机器人编码
+          llm_description: robot code
+          max: null
+          min: null
+          name: robotCode
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: dimensions
+            ja_JP: dimensions
+            pt_BR: dimensions
+            zh_Hans: 维度对象
+          label:
+            en_US: dimensions
+            ja_JP: dimensions
+            pt_BR: dimensions
+            zh_Hans: 维度对象
+          llm_description: dimensions
+          max: null
+          min: null
+          name: dimensions
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: userId
+            ja_JP: userId
+            pt_BR: userId
+            zh_Hans: 用户ID
+          label:
+            en_US: userId
+            ja_JP: userId
+            pt_BR: userId
+            zh_Hans: 用户ID
+          llm_description: userId
+          max: null
+          min: null
+          name: userId
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: session ID
+            ja_JP: session ID
+            pt_BR: session ID
+            zh_Hans: 会话ID
+          label:
+            en_US: session ID
+            ja_JP: session ID
+            pt_BR: session ID
+            zh_Hans: 会话ID
+          llm_description: session ID
+          max: null
+          min: null
+          name: sessionId
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: record ID
+            ja_JP: record ID
+            pt_BR: record ID
+            zh_Hans: 对话ID
+          label:
+            en_US: record ID
+            ja_JP: record ID
+            pt_BR: record ID
+            zh_Hans: 对话ID
+          llm_description: record ID
+          max: null
+          min: null
+          name: recordId
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: tags
+            ja_JP: tags
+            pt_BR: tags
+            zh_Hans: 标签
+          label:
+            en_US: tags
+            ja_JP: tags
+            pt_BR: tags
+            zh_Hans: 标签
+          llm_description: tags
+          max: null
+          min: null
+          name: tags
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: app code
+            ja_JP: app code
+            pt_BR: app code
+            zh_Hans: APP编码
+          label:
+            en_US: app code
+            ja_JP: app code
+            pt_BR: app code
+            zh_Hans: APP编码
+          llm_description: app code
+          max: null
+          min: null
+          name: appCode
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: APP ID
+            ja_JP: APP ID
+            pt_BR: APP ID
+            zh_Hans: APP编码
+          label:
+            en_US: APP ID
+            ja_JP: APP ID
+            pt_BR: APP ID
+            zh_Hans: APP ID
+          llm_description: APP ID
+          max: null
+          min: null
+          name: appId
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: command name
+            ja_JP: command name
+            pt_BR: command name
+            zh_Hans: 机器人命令
+          label:
+            en_US: command name
+            ja_JP: command name
+            pt_BR: command name
+            zh_Hans: 机器人命令
+          llm_description: command name
+          max: null
+          min: null
+          name: commandName
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: tenant code
+            ja_JP: tenant code
+            pt_BR: tenant code
+            zh_Hans: 租户编码
+          label:
+            en_US: tenant code
+            ja_JP: tenant code
+            pt_BR: tenant code
+            zh_Hans: 租户编码
+          llm_description: tenant code
+          max: null
+          min: null
+          name: tenantCode
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: app code
+            ja_JP: app code
+            pt_BR: app code
+            zh_Hans: 是否调试模式
+          label:
+            en_US: app code
+            ja_JP: app code
+            pt_BR: app code
+            zh_Hans: 是否调试模式
+          llm_description: app code
+          max: null
+          min: null
+          name: isServiceDeskOpsChat
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          appCode: ''
+          appId: ''
+          commandName: ''
+          dimensions: ''
+          isServiceDeskOpsChat: ''
+          question: ''
+          recordId: ''
+          robotCode: ''
+          robotId: ''
+          sessionId: ''
+          tags: ''
+          tenantCode: ''
+          userId: ''
+        provider_app_id: ''
+        provider_id: aisphere/faq/faq
+        provider_name: aisphere/faq/faq
+        provider_source: ''
+        provider_type: builtin
+        selected: false
+        title: FAQ问答插件
+        tool_configurations: {}
+        tool_description: 一个调用FAQ知识库的工具
+        tool_label: FAQ问答插件
+        tool_name: ask
+        tool_parameters:
+          appCode:
+            type: mixed
+            value: Ky07xWOW
+          appId:
+            type: mixed
+            value: Ky07xWOW
+          commandName:
+            type: mixed
+            value: mbRobotConversationCommand
+          dimensions:
+            type: mixed
+            value: '{"brand":"{{#1757643968751.setid#}}","platform":"GHR","location":"SD"}'
+          isServiceDeskOpsChat:
+            type: mixed
+            value: 'false'
+          question:
+            type: mixed
+            value: '{{#sys.query#}}'
+          recordId:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          robotCode:
+            type: mixed
+            value: AISD
+          robotId:
+            type: constant
+            value: 71
+          sessionId:
+            type: mixed
+            value: '{{#sys.conversation_id#}}'
+          tags:
+            type: mixed
+            value: '{{#1757643968751.deptPath#}}'
+          tenantCode:
+            type: mixed
+            value: oppo
+          userId:
+            type: mixed
+            value: '{{#sys.user_id#}}'
+        type: tool
+        version: '2'
+      height: 54
+      id: '1758012390269'
+      position:
+        x: 2462
+        y: 2054.5
+      positionAbsolute:
+        x: 2462
+        y: 2054.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1758018291277.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 13
+        type: answer
+        variables: []
+      height: 104
+      id: '1758014571378'
+      position:
+        x: 3488.8513016450033
+        y: 553.5000000000009
+      positionAbsolute:
+        x: 3488.8513016450033
+        y: 553.5000000000009
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: 来源空间：超级助理
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 卡片数据
+            ja_JP: 卡片数据
+            pt_BR: 卡片数据
+            zh_Hans: 卡片数据
+          label:
+            en_US: 卡片数据
+            ja_JP: 卡片数据
+            pt_BR: 卡片数据
+            zh_Hans: 卡片数据
+          llm_description: 卡片数据
+          max: null
+          min: null
+          name: card_data
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          label:
+            en_US: 平台
+            ja_JP: 平台
+            pt_BR: 平台
+            zh_Hans: 平台
+          llm_description: ''
+          max: null
+          min: null
+          name: subPlatform
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          card_data: ''
+          subPlatform: ''
+        provider_app_id: c32568de-32fc-4eab-9b9c-3a6114170d03
+        provider_id: 12772c9e-1990-4a46-95b1-01c8e393bbe5
+        provider_name: 转人工插件Chatflow试试
+        provider_source: other
+        provider_type: workflow
+        selected: false
+        title: 转人工插件Chatflow试试
+        tool_configurations: {}
+        tool_description: ''
+        tool_label: 转人工插件Chatflow试试
+        tool_name: test_HumanAgentTransfer
+        tool_parameters:
+          card_data:
+            type: mixed
+            value: '{{#1757640048870.ole_cardData#}}'
+          subPlatform:
+            type: mixed
+            value: GHR
+        type: tool
+        version: '2'
+      height: 70
+      id: '1758018291277'
+      position:
+        x: 3182
+        y: 553.5000000000009
+      positionAbsolute:
+        x: 3182
+        y: 553.5000000000009
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: <
+            id: f57f62ff-ab92-4cf0-b4f0-b13dbdcb8a77
+            value: '0.7'
+            varType: number
+            variable_selector:
+            - '1758090440425'
+            - confidence
+          - comparison_operator: is not
+            id: ec0b1f54-762b-47d4-be7c-d9ef493138ce
+            value: success
+            varType: string
+            variable_selector:
+            - '1758090440425'
+            - result
+          id: 'true'
+          logical_operator: or
+        desc: ''
+        selected: false
+        title: 判断FAQ是否命中
+        type: if-else
+      height: 152
+      id: '1758089565634'
+      position:
+        x: 3070
+        y: 1968.5
+      positionAbsolute:
+        x: 3070
+        y: 1968.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(input_text: str) -> dict:\n    try:\n     \
+          \   # 首先将输入的字符串解析为字典\n        data = json.loads(input_text)\n        \n\
+          \        # 然后获取 confidence 值\n        confidence = data.get('answer', {}).get('confidence',\
+          \ None)\n        content = data.get('answer', {}).get('content', None)\n\
+          \        \n        return {'result': 'success', 'confidence': confidence,\"\
+          content\":content}\n    \n    except json.JSONDecodeError:\n        return\
+          \ {'result': 'error', 'confidence': None,'content':None, 'message': 'Invalid\
+          \ JSON format'}\n    except Exception as e:\n        return {'result': 'error',\
+          \ 'confidence': None,'content':None, 'message': str(e)}"
+        code_language: python3
+        desc: ''
+        outputs:
+          confidence:
+            children: null
+            type: number
+          content:
+            children: null
+            type: string
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 判断置信度
+        type: code
+        variables:
+        - value_selector:
+          - '1758012390269'
+          - text
+          variable: input_text
+      height: 54
+      id: '1758090440425'
+      position:
+        x: 2766
+        y: 2000.5
+      positionAbsolute:
+        x: 2766
+        y: 2000.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1758012390269.text#}}
+
+          {{#env.feedback#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 16
+        type: answer
+        variables: []
+      height: 122
+      id: '1758187635574'
+      position:
+        x: 3581.913692707297
+        y: 1875.612946093906
+      positionAbsolute:
+        x: 3581.913692707297
+        y: 1875.612946093906
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: ''
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas: []
+        params: {}
+        provider_app_id: 1523cdf2-a29d-4ef7-97e1-048e4aeabf1e
+        provider_id: 599dc148-fd77-4200-98c0-62d7eb9badf8
+        provider_name: 员服AI 请假助手-张婷修改
+        provider_source: owner
+        provider_type: workflow
+        selected: false
+        title: 员服AI 请假助手-张婷修改
+        tool_configurations: {}
+        tool_description: 让请假从“走流程”变“一句话的事”！
+        tool_label: 员服AI 请假助手-张婷修改
+        tool_name: leave_application
+        tool_parameters:
+          sys.query:
+            type: mixed
+            value: null
+        type: tool
+        version: '2'
+      height: 70
+      id: '1758854775405'
+      position:
+        x: 2753.3643180950326
+        y: 979.5819194757569
+      positionAbsolute:
+        x: 2753.3643180950326
+        y: 979.5819194757569
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -2771.019193245551
+      y: -1331.059015423718
+      zoom: 0.8705505632961246

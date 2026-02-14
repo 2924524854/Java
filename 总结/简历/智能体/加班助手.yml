@@ -1,0 +1,2209 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 员服AI 加班助手
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: aisphere/card_message:0.0.1@cf86c1e65c4a3277e6dd0b5f28095202e2c0c715ba6a3b1a16ef87c464cacc8b
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: aisphere/ole:0.3.55@018e983139e03c0ea1fc6d0c816f8387519f1141f87e2078bb4b4f49d9e098e9
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables: []
+  environment_variables:
+  - description: ''
+    id: 8a30cdff-3173-41e4-aef0-1d9417adda91
+    name: keyWords
+    selector:
+    - env
+    - keyWords
+    value: 月薪制员工加班管理
+    value_type: string
+  - description: ''
+    id: 6ed4e50f-06f5-4686-a5f7-59a01f67ef85
+    name: TT_INDEX_URL
+    selector:
+    - env
+    - TT_INDEX_URL
+    value: https://hr-uat.oasqa.com/mobile/workbench/overtimeApplication
+    value_type: string
+  - description: ''
+    id: 8499c6d6-0054-4407-b713-113c0a18bfaa
+    name: TT_APP_ID
+    selector:
+    - env
+    - TT_APP_ID
+    value: '14182'
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 100
+        batch_count_limit: 5
+        file_size_limit: 100
+        image_file_size_limit: 20
+        video_file_size_limit: 200
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    long_term_memory:
+      enabled: false
+      memory_duration: 30
+      memory_prompt: ''
+    opening_statement: 我是你的智能补签助手，随时为你服务。你可以对我说以下内容：
+    opening_statement_en: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions:
+    - 我要申请周六晚上加班，19:00-23:00
+    - 我要申请周日加班13点到18点半；工作未完成
+    - 我要申请8月17日加班13点到18点半；工作未完成
+    suggested_questions_after_answer:
+      enabled: false
+    suggested_questions_en: []
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 17518724535910-source-17518724506250-target
+      selected: false
+      source: '17518724535910'
+      sourceHandle: source
+      target: '17518724506250'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: tool
+      id: 17518724621140-source-17518724535910-target
+      selected: false
+      source: '17518724621140'
+      sourceHandle: source
+      target: '17518724535910'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1751872370527-source-17518786954840-target
+      selected: false
+      source: '1751872370527'
+      sourceHandle: source
+      target: '17518786954840'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: ozone-knowledge-retrieval
+        targetType: llm
+      id: 1751882030830-source-1751882277034-target
+      selected: false
+      source: '1751882030830'
+      sourceHandle: source
+      target: '1751882277034'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1751882277034-source-1751882213146-target
+      selected: false
+      source: '1751882277034'
+      sourceHandle: source
+      target: '1751882213146'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1752485774247-source-1752487097803-target
+      selected: false
+      source: '1752485774247'
+      sourceHandle: source
+      target: '1752487097803'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1752487097803-true-1752487200860-target
+      selected: false
+      source: '1752487097803'
+      sourceHandle: 'true'
+      target: '1752487200860'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 17518786954840-source-1752545506151-target
+      selected: false
+      source: '17518786954840'
+      sourceHandle: source
+      target: '1752545506151'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1752545506151-true-17525456703910-target
+      selected: false
+      source: '1752545506151'
+      sourceHandle: 'true'
+      target: '17525456703910'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1752545506151-false-1753070029920-target
+      selected: false
+      source: '1752545506151'
+      sourceHandle: 'false'
+      target: '1753070029920'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1753070029920-source-17530700344530-target
+      selected: false
+      source: '1753070029920'
+      sourceHandle: source
+      target: '17530700344530'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1751872370527-source-17530807213590-target
+      selected: false
+      source: '1751872370527'
+      sourceHandle: source
+      target: '17530807213590'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1751872370527-source-17530807913760-target
+      selected: false
+      source: '1751872370527'
+      sourceHandle: source
+      target: '17530807913760'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1751872370527-source-17530808063150-target
+      selected: false
+      source: '1751872370527'
+      sourceHandle: source
+      target: '17530808063150'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 17530807213590-source-1752545506151-target
+      selected: false
+      source: '17530807213590'
+      sourceHandle: source
+      target: '1752545506151'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 17530807913760-source-1752545506151-target
+      selected: false
+      source: '17530807913760'
+      sourceHandle: source
+      target: '1752545506151'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 17530808063150-source-1752545506151-target
+      selected: false
+      source: '17530808063150'
+      sourceHandle: source
+      target: '1752545506151'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1752487097803-false-1753082066462-target
+      selected: false
+      source: '1752487097803'
+      sourceHandle: 'false'
+      target: '1753082066462'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: 1753082066462-true-17518724621140-target
+      source: '1753082066462'
+      sourceHandle: 'true'
+      target: '17518724621140'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1753082066462-false-1753083043649-target
+      source: '1753082066462'
+      sourceHandle: 'false'
+      target: '1753083043649'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1753083043649-source-1753082278061-target
+      source: '1753083043649'
+      sourceHandle: source
+      target: '1753082278061'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: ozone-knowledge-retrieval
+      id: 1753174515828-1-1751882030830-target
+      source: '1753174515828'
+      sourceHandle: '1'
+      target: '1751882030830'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: code
+      id: 1753174515828-2-1752485774247-target
+      source: '1753174515828'
+      sourceHandle: '2'
+      target: '1752485774247'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1746774995615-source-17518759572710-target
+      source: '1746774995615'
+      sourceHandle: source
+      target: '17518759572710'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1746774995615-source-1753239726246-target
+      source: '1746774995615'
+      sourceHandle: source
+      target: '1753239726246'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1753239726246-source-1753432368680-target
+      source: '1753239726246'
+      sourceHandle: source
+      target: '1753432368680'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 17518759572710-source-1753432368680-target
+      source: '17518759572710'
+      sourceHandle: source
+      target: '1753432368680'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1753432368680-source-1751872370527-target
+      source: '1753432368680'
+      sourceHandle: source
+      target: '1751872370527'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: question-classifier
+      id: 17530700344530-source-1753174515828-target
+      source: '17530700344530'
+      sourceHandle: source
+      target: '1753174515828'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 54
+      id: '1746774995615'
+      position:
+        x: 30
+        y: 257.5
+      positionAbsolute:
+        x: 30
+        y: 257.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 5
+        model:
+          completion_params: {}
+          mode: chat
+          name: AndesGPT-32B
+          provider: aisphere/ole/ole
+        prompt_config:
+          jinja2_variables:
+          - value_selector:
+            - '17518759572710'
+            - text
+            variable: text
+          - value_selector:
+            - sys
+            - query
+            variable: query
+          - value_selector:
+            - '1753432368680'
+            - text
+            variable: body
+        prompt_template:
+        - edition_type: jinja2
+          id: 56c42d10-63d3-4211-9a90-55a4c454c250
+          jinja2_text: "\U0001F4CC 提示词优化版：HR 加班申请信息提取助手\r\n你是一个 HR 信息处理助手，负责从员工提交的加班申请中准确提取关键字段，并以指定\
+            \ JSON 格式输出。请严格按照以下步骤和规则进行信息提取。\r\n### 步骤一：信息提取任务\r\n请从用户输入中提取以下字段并输出为\
+            \ 标准 JSON 格式，如下所示：\r\n{\r\n  \"dateDay\": \"2025-07-07\",\r\n  \"startDttm\"\
+            : \"16:00\",\r\n  \"endDttm\": \"18:00\",\r\n  \"durationDays\": \"2.5\"\
+            ,\r\n  \"enddttmMode\": \"A\",\r\n  \"reason\": \"\"\r\n}\r\n\r\n### 步骤二：字段说明与提取规则\r\
+            \n字段名\t描述\t规则说明\r\ndateDay\t        提取加班的具体日期，精确到天\t格式：yyyy-MM-dd，若未提及具体日期，则基于当前时间推算（见下文），用户未提及不得默认当天；\r\
+            \n如果提取到中文节日则使用{{ body }}中的日期替换（解析Json根据localName获取data）\r\nstartDttm\t\
+            \    提取加班开始时间\t格式：HH:mm，未提取到则为空字符串 \"\"\r\nendDttm\t        提取加班结束时间\t\
+            格式：HH:mm，未提取到则为空字符串 \"\"\r\ndurationDays\t计算加班总时长（单位：小时）\t若提供时间段，则自动计算小时数；若仅提供“半天”、“一天”等模糊描述，请转换为默认值（半天=4小时，一天=8小时）\r\
+            \nenddttmMode\t    判断是否跨天\t若结束时间早于开始时间（如加班至次日凌晨），设为 \"B\"，否则默认为 \"A\"\r\
+            \nresaon      从 {{ query }}中智能总结，删除多余字段，没有原因则设置为空\r\n\r\n### 步骤三：日期推算逻辑\r\
+            \n基于系统当前时间：{{ text }}\r\n如果用户未明确给出具体日期（如“明天晚上加班”、“下周三”等），请根据当前时间推算出对应的\
+            \ dateDay。\r\n如果用户给出相对日期（如“今天”、“明天”、“后天”），也应换算成具体日期。\r\n\r\n### 步骤四：格式与限制要求\r\
+            \n❌ 不得添加任何额外内容，例如解释语句、分析性语言、注释等。\r\n❌ 不能使用联想推测时间，没有提供时间时，保持空字符串 \"\"。\r\
+            \n❌ 禁止使用非 JSON 输出，禁止添加标题、说明文字。\r\n❌ 用户未提及不得默认当天\r\n✅ 输出必须是标准 JSON，且只包含指定字段。\r\
+            \n\r\n### 示例输入与输出\r\n示例输入：\r\n我要申请周四晚上加班，19:00-23:00\r\n示例输出：\r\n{\r\n\
+            \  \"dateDay\": \"2025-07-10\",\r\n  \"startDttm\": \"19:00\",\r\n  \"\
+            endDttm\": \"23:00\",\r\n  \"durationDays\": \"4.5\",\r\n  \"enddttmMode\"\
+            : \"A\",\r\n  \"reason\": \"\"\r\n}\r\n\r\n### 最终输出要求\r\n请直接输出提取后的 JSON\
+            \ 数据，不要包含任何其他文本或解释。\r\n当前输入：{{ query }}"
+          role: system
+          text: ''
+        selected: false
+        title: 意图识别
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1751872370527'
+      position:
+        x: 942.4822022531844
+        y: 262.7233033797768
+      positionAbsolute:
+        x: 942.4822022531844
+        y: 262.7233033797768
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#17518724535910.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 104
+      id: '17518724506250'
+      position:
+        x: 4273
+        y: 825.5
+      positionAbsolute:
+        x: 4273
+        y: 825.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: card data
+            ja_JP: card data
+            pt_BR: card data
+            zh_Hans: 卡片数据
+          label:
+            en_US: card data
+            ja_JP: card data
+            pt_BR: card data
+            zh_Hans: 卡片数据
+          llm_description: card data to be processed
+          max: null
+          min: null
+          name: card_data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: card template to be processed
+            ja_JP: card template to be processed
+            pt_BR: card template to be processed
+            zh_Hans: 卡片模板
+          label:
+            en_US: card template
+            ja_JP: card template
+            pt_BR: card template
+            zh_Hans: 卡片模板
+          llm_description: card template to be processed
+          max: null
+          min: null
+          name: card_template
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: call back url
+            ja_JP: call back url
+            pt_BR: call back url
+            zh_Hans: 回调地址
+          label:
+            en_US: call back url
+            ja_JP: call back url
+            pt_BR: call back url
+            zh_Hans: 回调地址
+          llm_description: ''
+          max: null
+          min: null
+          name: call_back_url
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: app id
+            ja_JP: app id
+            pt_BR: app id
+            zh_Hans: 应用ID
+          label:
+            en_US: app id
+            ja_JP: app id
+            pt_BR: app id
+            zh_Hans: 应用ID
+          llm_description: ''
+          max: null
+          min: null
+          name: app_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: form
+          human_description:
+            en_US: env_id
+            ja_JP: env_id
+            pt_BR: env_id
+            zh_Hans: 环境标识
+          label:
+            en_US: env_id
+            ja_JP: env_id
+            pt_BR: env_id
+            zh_Hans: 环境标识
+          llm_description: ''
+          max: null
+          min: null
+          name: env_id
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          app_id: ''
+          call_back_url: ''
+          card_data: ''
+          card_template: ''
+          env_id: ''
+        provider_id: aisphere/card_message/card_message
+        provider_name: aisphere/card_message/card_message
+        provider_type: builtin
+        selected: false
+        title: 构建TT卡片消息
+        tool_configurations:
+          app_id:
+            type: constant
+            value: null
+          call_back_url:
+            type: constant
+            value: null
+          env_id:
+            type: constant
+            value: null
+        tool_label: 构建TT卡片消息
+        tool_name: build
+        tool_parameters:
+          card_data:
+            type: mixed
+            value: '{{#17518724621140.result#}}'
+          card_template:
+            type: mixed
+            value: "{\n\t\"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\"\
+              ,\n\t\"type\": \"AdaptiveCard\",\n\t\"body\": [\n\t\t{\n\t\t\t\"_tag\"\
+              : \"promptText\",\n\t\t\t\"type\": \"Container\",\n\t\t\t\"spacing\"\
+              : \"default\",\n\t\t\t\"isVisible\": \"${promptStatus}\",\n\t\t\t\"\
+              items\": [\n\t\t\t\t{\n\t\t\t\t\t\"_tag\": \"title\",\n\t\t\t\t\t\"\
+              spacing\": \"Medium\",\n\t\t\t\t\t\"type\": \"TextBlock\",\n\t\t\t\t\
+              \t\"text\": \"${prompt}\",\n\t\t\t\t\t\"wrap\": true\n\t\t\t\t}\n\t\t\
+              \t]\n\t\t},\n\t\t{\n\t\t\t\"type\": \"Container\",\n\t\t\t\"isVisible\"\
+              : \"${!promptStatus}\",\n\t\t\t\"spacing\": \"default\",\n\t\t\t\"items\"\
+              : [\n\t\t\t\t{\n\t\t\t\t\t\"_tag\": \"title\",\n\t\t\t\t\t\"spacing\"\
+              : \"Medium\",\n\t\t\t\t\t\"type\": \"TextBlock\",\n\t\t\t\t\t\"size\"\
+              : \"Medium\",\n\t\t\t\t\t\"weight\": \"Bolder\",\n\t\t\t\t\t\"maxLines\"\
+              : 1,\n\t\t\t\t\t\"text\": \"${leaveTitle}\",\n\t\t\t\t\t\"wrap\": true\n\
+              \t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"_tag\": \"leaveType\",\n\t\t\t\t\t\
+              \"spacing\": \"Medium\",\n\t\t\t\t\t\"type\": \"ColumnSet\",\n\t\t\t\
+              \t\t\"columns\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"Column\"\
+              ,\n\t\t\t\t\t\t\t\"verticalContentAlignment\": \"Center\",\n\t\t\t\t\
+              \t\t\t\"width\": \"100px\",\n\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\
+              \t\t{\n\t\t\t\t\t\t\t\t\t\"type\": \"TextBlock\",\n\t\t\t\t\t\t\t\t\t\
+              \"text\": \"**加班日期**\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\
+              \t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"Column\",\n\t\t\t\t\
+              \t\t\t\"verticalContentAlignment\": \"Center\",\n\t\t\t\t\t\t\t\"items\"\
+              : [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"type\": \"TextBlock\",\n\
+              \t\t\t\t\t\t\t\t\t\"text\": \"${dateDay}\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\
+              \t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t]\n\t\t\t\t},\n\t\t        {\n\t\
+              \t\t\t\t\"_tag\": \"leaveType\",\n\t\t\t\t\t\"spacing\": \"Medium\"\
+              ,\n\t\t\t\t\t\"type\": \"ColumnSet\",\n\t\t\t\t\t\"columns\": [\n\t\t\
+              \t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"Column\",\n\t\t\t\t\t\t\t\"verticalContentAlignment\"\
+              : \"Center\",\n\t\t\t\t\t\t\t\"width\": \"100px\",\n\t\t\t\t\t\t\t\"\
+              items\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"type\": \"TextBlock\"\
+              ,\n\t\t\t\t\t\t\t\t\t\"text\": \"**开始时间**\"\n\t\t\t\t\t\t\t\t}\n\t\t\
+              \t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\":\
+              \ \"Column\",\n\t\t\t\t\t\t\t\"verticalContentAlignment\": \"Center\"\
+              ,\n\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\
+              \"type\": \"TextBlock\",\n\t\t\t\t\t\t\t\t\t\"text\": \"${startDttm}\"\
+              \n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t]\n\t\
+              \t\t\t},\n\t\t        {\n\t\t\t\t\t\"_tag\": \"leaveType\",\n\t\t\t\t\
+              \t\"spacing\": \"Medium\",\n\t\t\t\t\t\"type\": \"ColumnSet\",\n\t\t\
+              \t\t\t\"columns\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"Column\"\
+              ,\n\t\t\t\t\t\t\t\"verticalContentAlignment\": \"Center\",\n\t\t\t\t\
+              \t\t\t\"width\": \"100px\",\n\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\
+              \t\t{\n\t\t\t\t\t\t\t\t\t\"type\": \"TextBlock\",\n\t\t\t\t\t\t\t\t\t\
+              \"text\": \"**结束时间**\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\
+              \t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"Column\",\n\t\t\t\t\
+              \t\t\t\"verticalContentAlignment\": \"Center\",\n\t\t\t\t\t\t\t\"items\"\
+              : [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"type\": \"TextBlock\",\n\
+              \t\t\t\t\t\t\t\t\t\"text\": \"${endDttm}\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\
+              \t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t]\n\t\t\t\t},\n\t\t        {\n\t\
+              \t\t\t\t\"_tag\": \"leaveType\",\n\t\t\t\t\t\"spacing\": \"Medium\"\
+              ,\n\t\t\t\t\t\"type\": \"ColumnSet\",\n\t\t\t\t\t\"columns\": [\n\t\t\
+              \t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"Column\",\n\t\t\t\t\t\t\t\"verticalContentAlignment\"\
+              : \"Center\",\n\t\t\t\t\t\t\t\"width\": \"100px\",\n\t\t\t\t\t\t\t\"\
+              items\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"type\": \"TextBlock\"\
+              ,\n\t\t\t\t\t\t\t\t\t\"text\": \"**加班时长**\"\n\t\t\t\t\t\t\t\t}\n\t\t\
+              \t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\":\
+              \ \"Column\",\n\t\t\t\t\t\t\t\"verticalContentAlignment\": \"Center\"\
+              ,\n\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\
+              \"type\": \"TextBlock\",\n\t\t\t\t\t\t\t\t\t\"text\": \"${durationDays}\"\
+              \n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t]\n\t\
+              \t\t\t},\n\t\t        {\n\t\t\t\t\t\"_tag\": \"leaveType\",\n\t\t\t\t\
+              \t\"spacing\": \"Medium\",\n\t\t\t\t\t\"type\": \"ColumnSet\",\n\t\t\
+              \t\t\t\"columns\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"Column\"\
+              ,\n\t\t\t\t\t\t\t\"verticalContentAlignment\": \"Center\",\n\t\t\t\t\
+              \t\t\t\"width\": \"100px\",\n\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\
+              \t\t{\n\t\t\t\t\t\t\t\t\t\"type\": \"TextBlock\",\n\t\t\t\t\t\t\t\t\t\
+              \"text\": \"**结束日**\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\
+              \t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"Column\",\n\t\t\t\t\t\
+              \t\t\"verticalContentAlignment\": \"Center\",\n\t\t\t\t\t\t\t\"items\"\
+              : [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\"type\": \"TextBlock\",\n\
+              \t\t\t\t\t\t\t\t\t\"text\": \"${enddttmModeDesc}\"\n\t\t\t\t\t\t\t\t\
+              }\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\t\t\t]\n\t\t\t\t},\n       \
+              \          {\n\t\t\t\t\t\"_tag\": \"leaveType\",\n\t\t\t\t\t\"spacing\"\
+              : \"Medium\",\n\t\t\t\t\t\"type\": \"ColumnSet\",\n\t\t\t\t\t\"columns\"\
+              : [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"type\": \"Column\",\n\t\t\t\t\t\t\
+              \t\"verticalContentAlignment\": \"Center\",\n\t\t\t\t\t\t\t\"width\"\
+              : \"50px\",\n\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\t\
+              \t\t\t\t\t\"type\": \"TextBlock\",\n\t\t\t\t\t\t\t\t\t\"text\": \"**原因**\"\
+              \n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\
+              \t\t\t\t\t\t\t\"type\": \"Column\",\n\t\t\t\t\t\t\t\"verticalContentAlignment\"\
+              : \"Center\",\n\t\t\t\t\t\t\t\"items\": [\n\t\t\t\t\t\t\t\t{\n\t\t\t\
+              \t\t\t\t\t\t\"type\": \"TextBlock\",\n\t\t\t\t\t\t\t\t\t\"text\": \"\
+              ${reason}\"\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t]\n\t\t\t\t\t\t}\n\t\t\
+              \t\t\t]\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"_tag\": \"text\",\n\t\t\t\
+              \t\t\"type\": \"TextBlock\",\n\t\t\t\t\t\"maxLines\": 2,\n\t\t\t\t\t\
+              \"text\": \"${leaveDesc}\",\n\t\t\t\t\t\"wrap\": true\n\t\t\t\t}\n\t\
+              \t\t]\n\t\t},\n\t\t{\n\t\t\t\"type\": \"ActionSet\",\n\t\t\t\"spacing\"\
+              : \"Medium\",\n\t\t\t\"isVisible\": \"${btnStatus}\",\n\t\t\t\"actions\"\
+              : [\n\t\t\t\t{\n\t\t\t\t\t\"style\": \"positive\",\n\t\t\t\t\t\"type\"\
+              : \"Action.OpenUrl\",\n\t\t\t\t\t\"title\": \"${btnTitle}\",\n\t\t\t\
+              \t\t\"url\": \"${btnUrl}\"\n\t\t\t\t}\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\
+              \"_tag\": \"feet\",\n\t\t\t\"isVisible\": \"${!promptStatus}\",\n\t\t\
+              \t\"type\": \"TextBlock\",\n\t\t\t\"color\": \"light\",\n\t\t\t\"maxLines\"\
+              : 2,\n\t\t\t\"text\": \"以上内容由欧乐识别填写，请点击按钮前往确认。\",\n\t\t\t\"wrap\": true\n\
+              \t\t}\n\t],\n\t\"version\": \"1.4\"\n}"
+        type: tool
+        version: '2'
+      height: 142
+      id: '17518724535910'
+      position:
+        x: 3970
+        y: 825.5
+      positionAbsolute:
+        x: 3970
+        y: 825.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "function main({ttAppUrl, ttAppId, arg} = {}) {\n    let replaceStr\
+          \ = '';\n    let data;\n\n    // JSON提取逻辑保持不变\n    if (arg.includes('```')\
+          \ || arg.includes('```json') || arg.includes('\\n```')) {\n        replaceStr\
+          \ = extractJson(arg).replace(/\\n/g, '').replace(/\\\\\"/g, '\"');\n   \
+          \ } else {\n        replaceStr = arg.replace(/\\n/g, '').replace(/\\\\\"\
+          /g, '\"');\n    }\n\n    // 数据结构解析逻辑保持不变\n    if (isJSON(replaceStr)) {\n\
+          \        data = JSON.parse(replaceStr);\n    } else {\n        data = {\
+          \ \"type\": \"\", \"query\": replaceStr };\n    }\n\n    // 加班流程相关字段获取\n\
+          \    let dateDay = data['dateDay'];\n    const startDttm = data['startDttm'];\n\
+          \    const endDttm = data['endDttm'];\n    const durationDays = data['durationDays'];\n\
+          \    const enddttmMode = data['enddttmMode'];\n    const reason = data['reason'];\n\
+          \    let enddttmModeDesc = data['enddttmMode'];\n\n    // 格式化 dateDay 为\
+          \ yyyy/MM/dd\n    if (dateDay) {\n        dateDay = convertDateFormat(dateDay);\
+          \ \n    }\n    // 处理结束日描述\n    if (enddttmModeDesc) {\n        if (enddttmMode\
+          \ === 'A') {\n            enddttmModeDesc = '当日';\n        } else if (enddttmMode\
+          \ === 'B') {\n            enddttmModeDesc = '次日';\n        } else {\n  \
+          \          enddttmModeDesc = '未知'; // 可选：处理非法值的情况\n        }\n    }\n\n\n\
+          \    // 修复点1：模板字符串和URL编码\n    const buildBaseUrl = () => `cloudhub://mult?appid=${ttAppId}&pc=${encodeURIComponent(ttAppUrl)}&pcMode=window&windowSize=small`;\n\
+          \n    if (!dateDay || dateDay == '') {\n        return {\n            \"\
+          result\": JSON.stringify({\n                \"prompt\": data.errors || \"\
+          请补充具体日期和时间？\",\n                \"cardType\": \"time\",\n              \
+          \  \"btnStatus\": false,\n                \"promptStatus\": true,\n    \
+          \            \"leaveStatus\": false,\n                \"btnTitle\": \"前往GHR申请\"\
+          ,\n                \"btnUrl\": buildBaseUrl() // 使用统一URL构建方法\n         \
+          \   }),\n            \"type\": 'card'\n        };\n    }\n\n    // 修复点3：安全的URL参数构建\n\
+          \    const urlParams = new URLSearchParams({\n        dateDay: dateDay,\n\
+          \        startDttm: startDttm,\n        endDttm: endDttm,\n        durationDays:\
+          \ durationDays,\n        enddttmMode: enddttmMode,\n        reason:reason\n\
+          \    }).toString();\n\n    // 修复点4：避免双&&符号\n    const formUrl = `${ttAppUrl}?${urlParams}`;\n\
+          \    const encodedUrl = encodeURIComponent(formUrl);\n\n    // 修复点5：正确的模板字符串\n\
+          \    const btnUrl = `cloudhub://mult?appid=${ttAppId}&pc=${encodedUrl}&pcMode=window&windowSize=small&mobileMode=drawerHalf&mobile=${encodedUrl}`;\n\
+          \n    return {\n        \"result\": JSON.stringify({\n            \"btnTitle\"\
+          : \"前往完善信息\",\n            \"cardType\": \"time\",\n            \"dateDay\"\
+          : dateDay,\n            \"startDttm\": startDttm,\n            \"endDttm\"\
+          : endDttm,\n            \"durationDays\": durationDays,\n            \"\
+          reason\": reason,\n            \"enddttmMode\": enddttmMode,\n         \
+          \   \"enddttmModeDesc\": enddttmModeDesc,\n            \"btnUrl\": btnUrl,\n\
+          \            \"promptStatus\": false,\n            \"leaveStatus\": true,\n\
+          \            \"prompt\": \"\",\n            \"leaveTitle\": \"请确认加班信息\"\
+          ,\n            \"leaveDesc\": \"\"\n        }),\n        \"type\": 'card'\n\
+          \    };\n\n}\n\n// 工具函数保持不变\nfunction convertDateFormat(s) { return s.replace(/-/g,\
+          \ '/'); }\nfunction extractJson(str) { return (/```(?:json)?\\n([\\s\\S]*?)\\\
+          n```/.exec(str) || [,str])[1]; }\nfunction isJSON(str) { try{ JSON.parse(str);\
+          \ return true } catch(e){ return false } }"
+        code_language: javascript
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+          type:
+            children: null
+            type: string
+        selected: false
+        title: 提取参数
+        type: code
+        variables:
+        - value_selector:
+          - env
+          - TT_INDEX_URL
+          variable: ttAppUrl
+        - value_selector:
+          - env
+          - TT_APP_ID
+          variable: ttAppId
+        - value_selector:
+          - '1751872370527'
+          - text
+          variable: arg
+      height: 54
+      id: '17518724621140'
+      position:
+        x: 3667
+        y: 825.5
+      positionAbsolute:
+        x: 3667
+        y: 825.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: '%Y-%m-%d %H:%M:%S'
+          form: form
+          human_description:
+            en_US: Time format in strftime standard.
+            ja_JP: Time format in strftime standard.
+            pt_BR: Time format in strftime standard.
+            zh_Hans: strftime 标准的时间格式。
+          label:
+            en_US: Format
+            ja_JP: Format
+            pt_BR: Format
+            zh_Hans: 格式
+          llm_description: null
+          max: null
+          min: null
+          name: format
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: UTC
+          form: form
+          human_description:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          label:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          llm_description: null
+          max: null
+          min: null
+          name: timezone
+          options:
+          - label:
+              en_US: UTC
+              ja_JP: UTC
+              pt_BR: UTC
+              zh_Hans: UTC
+            value: UTC
+          - label:
+              en_US: America/New_York
+              ja_JP: America/New_York
+              pt_BR: America/New_York
+              zh_Hans: 美洲/纽约
+            value: America/New_York
+          - label:
+              en_US: America/Los_Angeles
+              ja_JP: America/Los_Angeles
+              pt_BR: America/Los_Angeles
+              zh_Hans: 美洲/洛杉矶
+            value: America/Los_Angeles
+          - label:
+              en_US: America/Chicago
+              ja_JP: America/Chicago
+              pt_BR: America/Chicago
+              zh_Hans: 美洲/芝加哥
+            value: America/Chicago
+          - label:
+              en_US: America/Sao_Paulo
+              ja_JP: America/Sao_Paulo
+              pt_BR: América/São Paulo
+              zh_Hans: 美洲/圣保罗
+            value: America/Sao_Paulo
+          - label:
+              en_US: Asia/Shanghai
+              ja_JP: Asia/Shanghai
+              pt_BR: Asia/Shanghai
+              zh_Hans: 亚洲/上海
+            value: Asia/Shanghai
+          - label:
+              en_US: Asia/Ho_Chi_Minh
+              ja_JP: Asia/Ho_Chi_Minh
+              pt_BR: Ásia/Ho Chi Minh
+              zh_Hans: 亚洲/胡志明市
+            value: Asia/Ho_Chi_Minh
+          - label:
+              en_US: Asia/Tokyo
+              ja_JP: Asia/Tokyo
+              pt_BR: Asia/Tokyo
+              zh_Hans: 亚洲/东京
+            value: Asia/Tokyo
+          - label:
+              en_US: Asia/Dubai
+              ja_JP: Asia/Dubai
+              pt_BR: Asia/Dubai
+              zh_Hans: 亚洲/迪拜
+            value: Asia/Dubai
+          - label:
+              en_US: Asia/Kolkata
+              ja_JP: Asia/Kolkata
+              pt_BR: Asia/Kolkata
+              zh_Hans: 亚洲/加尔各答
+            value: Asia/Kolkata
+          - label:
+              en_US: Asia/Seoul
+              ja_JP: Asia/Seoul
+              pt_BR: Asia/Seoul
+              zh_Hans: 亚洲/首尔
+            value: Asia/Seoul
+          - label:
+              en_US: Asia/Singapore
+              ja_JP: Asia/Singapore
+              pt_BR: Asia/Singapore
+              zh_Hans: 亚洲/新加坡
+            value: Asia/Singapore
+          - label:
+              en_US: Europe/London
+              ja_JP: Europe/London
+              pt_BR: Europe/London
+              zh_Hans: 欧洲/伦敦
+            value: Europe/London
+          - label:
+              en_US: Europe/Berlin
+              ja_JP: Europe/Berlin
+              pt_BR: Europe/Berlin
+              zh_Hans: 欧洲/柏林
+            value: Europe/Berlin
+          - label:
+              en_US: Europe/Moscow
+              ja_JP: Europe/Moscow
+              pt_BR: Europe/Moscow
+              zh_Hans: 欧洲/莫斯科
+            value: Europe/Moscow
+          - label:
+              en_US: Australia/Sydney
+              ja_JP: Australia/Sydney
+              pt_BR: Australia/Sydney
+              zh_Hans: 澳大利亚/悉尼
+            value: Australia/Sydney
+          - label:
+              en_US: Pacific/Auckland
+              ja_JP: Pacific/Auckland
+              pt_BR: Pacific/Auckland
+              zh_Hans: 太平洋/奥克兰
+            value: Pacific/Auckland
+          - label:
+              en_US: Africa/Cairo
+              ja_JP: Africa/Cairo
+              pt_BR: Africa/Cairo
+              zh_Hans: 非洲/开罗
+            value: Africa/Cairo
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          format: ''
+          timezone: ''
+        provider_id: time
+        provider_name: time
+        provider_type: builtin
+        selected: false
+        title: '获取当前时间 '
+        tool_configurations:
+          format:
+            type: constant
+            value: '%Y-%m-%d %H:%M:%S'
+          timezone:
+            type: constant
+            value: Asia/Shanghai
+        tool_description: 一个用于获取当前时间的工具。
+        tool_label: 获取当前时间
+        tool_name: current_time
+        tool_parameters: {}
+        type: tool
+        version: '2'
+      height: 116
+      id: '17518759572710'
+      position:
+        x: 315.67752495416687
+        y: 339.78175646770717
+      positionAbsolute:
+        x: 315.67752495416687
+        y: 339.78175646770717
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "function main({ arg }) {\n    let replaceStr = '';\n    let data;\n\
+          \n    // JSON提取逻辑保持不变\n    if (arg.includes('```') || arg.includes('```json')\
+          \ || arg.includes('\\n```')) {\n        replaceStr = extractJson(arg).replace(/\\\
+          n/g, '').replace(/\\\\\"/g, '\"');\n    } else {\n        replaceStr = arg.replace(/\\\
+          n/g, '').replace(/\\\\\"/g, '\"');\n    }\n\n    // 数据结构解析逻辑保持不变\n    if\
+          \ (isJSON(replaceStr)) {\n        data = JSON.parse(replaceStr);\n    }\
+          \ else {\n        data = { \"dateDay\": \"\"};\n    }\n    \n    return\
+          \ {\n        result: data.dateDay\n    };\n}\n\n// 工具函数保持不变\nfunction convertDateFormat(s)\
+          \ { return s.replace(/-/g, '/'); }\nfunction extractJson(str) { return (/```(?:json)?\\\
+          n([\\s\\S]*?)\\n```/.exec(str) || [,str])[1]; }\nfunction isJSON(str) {\
+          \ try{ JSON.parse(str); return true } catch(e){ return false } }"
+        code_language: javascript
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 提取加班日期
+        type: code
+        variables:
+        - value_selector:
+          - '1751872370527'
+          - text
+          variable: arg
+      height: 54
+      id: '17518786954840'
+      position:
+        x: 1243
+        y: 257.5
+      positionAbsolute:
+        x: 1243
+        y: 257.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - hio-knowledge-1453
+        - hio-folder-667557
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: false
+          top_k: 4
+        query_variable_selector:
+        - env
+        - keyWords
+        retrieval_mode: multiple
+        selected: false
+        title: Ozone检索
+        type: ozone-knowledge-retrieval
+      height: 120
+      id: '1751882030830'
+      position:
+        x: 2758
+        y: 481.5
+      positionAbsolute:
+        x: 2758
+        y: 481.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1751882277034.text#}}'
+        desc: ''
+        selected: false
+        title: 制度总结回复
+        type: answer
+        variables: []
+      height: 104
+      id: '1751882213146'
+      position:
+        x: 3364
+        y: 481.5
+      positionAbsolute:
+        x: 3364
+        y: 481.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1751882030830'
+          - result
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: AndesGPT-32B
+          provider: aisphere/ole/ole
+        prompt_config:
+          jinja2_variables:
+          - value_selector:
+            - '1753070029920'
+            - text
+            variable: failReason
+        prompt_template:
+        - edition_type: jinja2
+          id: 929787d7-f9c2-4414-9d7e-afc8f16d29c8
+          jinja2_text: "你是一个 HR 政策解读助手，具备理解公司制度文档并从中提取关键信息的能力。\r\n\r\n请根据提供的知识库内容，总结员工的计薪方式及相关规定，包括但不限于以下方面：\r\
+            \n员工计薪方式的加班规则\r\n休息日加班如何处理（调休假生成、折算加班费）；\r\n法定节假日加班如何计算加班费；\r\n使用的具体公式和薪资构成。\r\
+            \n\r\n\r\n请以结构清晰、语言简洁准确的方式输出总结内容，并确保引用相关条款来源（如文档名称、章节号等），以便用户进一步查阅。\r\n\
+            \r\n{{ failReason }}总结中文校验失败原因，并将\"校验失败原因：\"等字段转换为\"发起加班失败原因：\"，然后将这段文字加在输出内容的头部并加粗;\r\
+            \n注意：\r\n    -只输出中文\r\n    -只输出中文\r\n    -只输出中文"
+          role: system
+          text: '你是一个 HR 政策解读助手，具备理解公司制度文档并从中提取关键信息的能力。
+
+
+            请根据提供的知识库内容，总结员工的计薪方式及相关规定，包括但不限于以下方面：
+
+            加班工资计算规则：
+
+            休息日加班如何处理（调休假生成、折算加班费）；
+
+            法定节假日加班如何计算加班费；
+
+            使用的具体公式和薪资构成。
+
+            调休假管理：
+
+            调休假的生成条件；
+
+            使用周期及未使用调休假的处理方式（顺延或折算）；
+
+            离职员工调休假的处理流程。
+
+            加班时长认定标准：
+
+            加班有效时长的最小单位；
+
+            在公司/出差期间加班时长的计算方式。
+
+            其他与薪酬相关的福利补贴：
+
+            如交通补贴、食补、房补等发放标准；
+
+            加班打车报销政策。
+
+            请以结构清晰、语言简洁准确的方式输出总结内容，并确保引用相关条款来源（如文档名称、章节号等），以便用户进一步查阅。
+
+            在输出的头部加上“月薪制员工不能拟制非法定节假日加班申请”这句话'
+        selected: false
+        title: 总结知识库
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1751882277034'
+      position:
+        x: 3061
+        y: 481.5
+      positionAbsolute:
+        x: 3061
+        y: 481.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "function main({ttAppUrl, ttAppId, arg} = {}) {\n    let replaceStr\
+          \ = '';\n    let data;\n    let flag = '1';\n\n    // JSON提取逻辑保持不变\n   \
+          \ if (arg.includes('```') || arg.includes('```json') || arg.includes('\\\
+          n```')) {\n        replaceStr = extractJson(arg).replace(/\\n/g, '').replace(/\\\
+          \\\"/g, '\"');\n    } else {\n        replaceStr = arg.replace(/\\n/g, '').replace(/\\\
+          \\\"/g, '\"');\n    }\n\n    // 数据结构解析逻辑保持不变\n    if (isJSON(replaceStr))\
+          \ {\n        data = JSON.parse(replaceStr);\n    } else {\n        data\
+          \ = { \"type\": \"\", \"query\": replaceStr };\n    }\n\n    // 加班流程相关字段获取\n\
+          \    const dateDay = data['dateDay'];\n    const startDttm = data['startDttm'];\n\
+          \    const endDttm = data['endDttm'];\n    const durationDays = data['durationDays'];\n\
+          \    const enddttmMode = data['enddttmMode'];\n    const reason = data['reason'];\n\
+          \n    if(!dateDay || dateDay ==='' || !startDttm || startDttm ==='' || !endDttm\
+          \ || endDttm ==='') {\n        flag = '0';\n    }\n    return {\n      \
+          \  \"result\": flag\n    };\n}\n\n// 工具函数保持不变\nfunction convertDateFormat(s)\
+          \ { return s.replace(/-/g, '/'); }\nfunction extractJson(str) { return (/```(?:json)?\\\
+          n([\\s\\S]*?)\\n```/.exec(str) || [,str])[1]; }\nfunction isJSON(str) {\
+          \ try{ JSON.parse(str); return true } catch(e){ return false } }"
+        code_language: javascript
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 加班时间空值判断
+        type: code
+        variables:
+        - value_selector:
+          - '1751872370527'
+          - text
+          variable: arg
+      height: 54
+      id: '1752485774247'
+      position:
+        x: 2758
+        y: 683.5
+      positionAbsolute:
+        x: 2758
+        y: 683.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 0697153d-c011-440b-bad2-575cebb1cf4d
+            value: '0'
+            varType: string
+            variable_selector:
+            - '1752485774247'
+            - result
+          id: 'true'
+          logical_operator: and
+        desc: '0：追问具体时间
+
+          1：生成TT卡片'
+        selected: false
+        title: 加班时间空值判断
+        type: if-else
+      height: 170
+      id: '1752487097803'
+      position:
+        x: 3061
+        y: 610.5
+      positionAbsolute:
+        x: 3061
+        y: 610.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 请补充具体加班开始结束时间
+        desc: ''
+        selected: false
+        title: 加班时间空值判断回复
+        type: answer
+        variables: []
+      height: 102
+      id: '1752487200860'
+      position:
+        x: 3364
+        y: 651.5
+      positionAbsolute:
+        x: 3364
+        y: 651.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: empty
+            id: b7c4fdc2-bb9c-4ed4-ba0a-7a4a228e0d79
+            value: ''
+            varType: string
+            variable_selector:
+            - '17518786954840'
+            - result
+          id: 'true'
+          logical_operator: and
+        desc: 加班日期为空则直接回复，补充具体时间和日期
+        selected: false
+        title: 加班日期空值判断
+        type: if-else
+      height: 170
+      id: '1752545506151'
+      position:
+        x: 1546
+        y: 350.5
+      positionAbsolute:
+        x: 1546
+        y: 350.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 请补充具体日期？
+        desc: ''
+        selected: false
+        title: '加班日期空值回复 '
+        type: answer
+        variables: []
+      height: 102
+      id: '17525456703910'
+      position:
+        x: 1849
+        y: 350.5
+      positionAbsolute:
+        x: 1849
+        y: 350.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: gsm
+        auth_label: ''
+        cus_tool_configurations:
+          areaCode: china
+          envid: UAT
+        desc: 是否可申请加班校验
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 加班日期
+            ja_JP: 加班日期
+            pt_BR: 加班日期
+            zh_Hans: 加班日期
+          label:
+            en_US: datetime
+            ja_JP: datetime
+            pt_BR: datetime
+            zh_Hans: datetime
+          llm_description: 加班日期
+          max: null
+          min: null
+          name: datetime
+          options: []
+          placeholder:
+            en_US: 加班日期
+            ja_JP: 加班日期
+            pt_BR: 加班日期
+            zh_Hans: 加班日期
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 员工id
+            ja_JP: 员工id
+            pt_BR: 员工id
+            zh_Hans: 员工id
+          label:
+            en_US: emplid
+            ja_JP: emplid
+            pt_BR: emplid
+            zh_Hans: emplid
+          llm_description: 员工id
+          max: null
+          min: null
+          name: emplid
+          options: []
+          placeholder:
+            en_US: 员工id
+            ja_JP: 员工id
+            pt_BR: 员工id
+            zh_Hans: 员工id
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 工时类型 A:当天 跨天
+            ja_JP: 工时类型 A:当天 跨天
+            pt_BR: 工时类型 A:当天 跨天
+            zh_Hans: 工时类型 A:当天 跨天
+          label:
+            en_US: enddateMode
+            ja_JP: enddateMode
+            pt_BR: enddateMode
+            zh_Hans: enddateMode
+          llm_description: 工时类型 A:当天 跨天
+          max: null
+          min: null
+          name: enddateMode
+          options: []
+          placeholder:
+            en_US: 工时类型 A:当天 跨天
+            ja_JP: 工时类型 A:当天 跨天
+            pt_BR: 工时类型 A:当天 跨天
+            zh_Hans: 工时类型 A:当天 跨天
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 开始时间
+            ja_JP: 开始时间
+            pt_BR: 开始时间
+            zh_Hans: 开始时间
+          label:
+            en_US: startDttm
+            ja_JP: startDttm
+            pt_BR: startDttm
+            zh_Hans: startDttm
+          llm_description: 开始时间
+          max: null
+          min: null
+          name: startDttm
+          options: []
+          placeholder:
+            en_US: 开始时间
+            ja_JP: 开始时间
+            pt_BR: 开始时间
+            zh_Hans: 开始时间
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 结束时间
+            ja_JP: 结束时间
+            pt_BR: 结束时间
+            zh_Hans: 结束时间
+          label:
+            en_US: endDttm
+            ja_JP: endDttm
+            pt_BR: endDttm
+            zh_Hans: endDttm
+          llm_description: 结束时间
+          max: null
+          min: null
+          name: endDttm
+          options: []
+          placeholder:
+            en_US: 结束时间
+            ja_JP: 结束时间
+            pt_BR: 结束时间
+            zh_Hans: 结束时间
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          datetime: ''
+          emplid: ''
+          endDttm: ''
+          enddateMode: ''
+          startDttm: ''
+        provider_id: aec04613-d37c-4f5e-87cb-2e2e1e5d4217
+        provider_name: 加班申请aiPS校验加班规则
+        provider_type: api
+        selected: false
+        title: 加班申请ai PS校验加班规则
+        tool_configurations: {}
+        tool_description: 加班申请ai PS校验加班规则
+        tool_label: 加班申请ai PS校验加班规则
+        tool_name: CHR-API0180
+        tool_parameters:
+          datetime:
+            type: mixed
+            value: '{{#17518786954840.result#}}'
+          emplid:
+            type: mixed
+            value: '{{#sys.user_id#}}'
+          endDttm:
+            type: mixed
+            value: '{{#17530808063150.result#}}'
+          enddateMode:
+            type: mixed
+            value: '{{#17530807213590.result#}}'
+          startDttm:
+            type: mixed
+            value: '{{#17530807913760.result#}}'
+        type: tool
+        version: '2'
+      height: 82
+      id: '1753070029920'
+      position:
+        x: 1849
+        y: 491.5
+      positionAbsolute:
+        x: 1849
+        y: 491.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "function main({arg}) {\r\n    let replaceStr = '';\r\n    let data;\r\
+          \n\r\n    // JSON提取逻辑保持不变\r\n    if (arg.includes('```') || arg.includes('```json')\
+          \ || arg.includes('\\n```')) {\r\n        replaceStr = extractJson(arg).replace(/\\\
+          n/g, '').replace(/\\\\\"/g, '\"');\r\n    } else {\r\n        replaceStr\
+          \ = arg.replace(/\\n/g, '').replace(/\\\\\"/g, '\"');\r\n    }\r\n\r\n \
+          \   // 数据结构解析逻辑保持不变\r\n    if (isJSON(replaceStr)) {\r\n        let dataList\
+          \ = JSON.parse(replaceStr);\r\n        data = dataList.data.code;\r\n  \
+          \  } else {\r\n        data = \"N\";\r\n    }\r\n\r\n    return {\r\n  \
+          \      \"result\":  data\r\n    };\r\n}\r\n\r\n// 工具函数保持不变\r\nfunction convertDateFormat(s)\
+          \ { return s.replace(/-/g, '/'); }\r\nfunction extractJson(str) { return\
+          \ (/```(?:json)?\\n([\\s\\S]*?)\\n```/.exec(str) || [,str])[1]; }\r\nfunction\
+          \ isJSON(str) { try{ JSON.parse(str); return true } catch(e){ return false\
+          \ } }"
+        code_language: javascript
+        desc: 'Y:可加班
+
+          N:不可加班'
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 提取加班校验结果
+        type: code
+        variables:
+        - value_selector:
+          - '1753070029920'
+          - text
+          variable: arg
+      height: 98
+      id: '17530700344530'
+      position:
+        x: 2152
+        y: 481.5
+      positionAbsolute:
+        x: 2152
+        y: 481.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "function main({ arg }) {\n    let replaceStr = '';\n    let data;\n\
+          \n    // JSON提取逻辑保持不变\n    if (arg.includes('```') || arg.includes('```json')\
+          \ || arg.includes('\\n```')) {\n        replaceStr = extractJson(arg).replace(/\\\
+          n/g, '').replace(/\\\\\"/g, '\"');\n    } else {\n        replaceStr = arg.replace(/\\\
+          n/g, '').replace(/\\\\\"/g, '\"');\n    }\n\n    // 数据结构解析逻辑保持不变\n    if\
+          \ (isJSON(replaceStr)) {\n        data = JSON.parse(replaceStr);\n    }\
+          \ else {\n        data = { \"enddttmMode\": \"\"};\n    }\n    \n    return\
+          \ {\n        result: data.enddttmMode\n    };\n}\n\n// 工具函数保持不变\nfunction\
+          \ convertDateFormat(s) { return s.replace(/-/g, '/'); }\nfunction extractJson(str)\
+          \ { return (/```(?:json)?\\n([\\s\\S]*?)\\n```/.exec(str) || [,str])[1];\
+          \ }\nfunction isJSON(str) { try{ JSON.parse(str); return true } catch(e){\
+          \ return false } }"
+        code_language: javascript
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 提取工时类型
+        type: code
+        variables:
+        - value_selector:
+          - '1751872370527'
+          - text
+          variable: arg
+      height: 54
+      id: '17530807213590'
+      position:
+        x: 1243
+        y: 350.5
+      positionAbsolute:
+        x: 1243
+        y: 350.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "function main({ arg }) {\n    let replaceStr = '';\n    let data;\n\
+          \n    // JSON提取逻辑保持不变\n    if (arg.includes('```') || arg.includes('```json')\
+          \ || arg.includes('\\n```')) {\n        replaceStr = extractJson(arg).replace(/\\\
+          n/g, '').replace(/\\\\\"/g, '\"');\n    } else {\n        replaceStr = arg.replace(/\\\
+          n/g, '').replace(/\\\\\"/g, '\"');\n    }\n\n    // 数据结构解析逻辑保持不变\n    if\
+          \ (isJSON(replaceStr)) {\n        data = JSON.parse(replaceStr);\n    }\
+          \ else {\n        data = { \"startDttm\": \"\"};\n    }\n    \n    return\
+          \ {\n        result: data.startDttm\n    };\n}\n\n// 工具函数保持不变\nfunction\
+          \ convertDateFormat(s) { return s.replace(/-/g, '/'); }\nfunction extractJson(str)\
+          \ { return (/```(?:json)?\\n([\\s\\S]*?)\\n```/.exec(str) || [,str])[1];\
+          \ }\nfunction isJSON(str) { try{ JSON.parse(str); return true } catch(e){\
+          \ return false } }"
+        code_language: javascript
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 提取开始时间
+        type: code
+        variables:
+        - value_selector:
+          - '1751872370527'
+          - text
+          variable: arg
+      height: 54
+      id: '17530807913760'
+      position:
+        x: 1243
+        y: 443.5
+      positionAbsolute:
+        x: 1243
+        y: 443.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "function main({ arg }) {\n    let replaceStr = '';\n    let data;\n\
+          \n    // JSON提取逻辑保持不变\n    if (arg.includes('```') || arg.includes('```json')\
+          \ || arg.includes('\\n```')) {\n        replaceStr = extractJson(arg).replace(/\\\
+          n/g, '').replace(/\\\\\"/g, '\"');\n    } else {\n        replaceStr = arg.replace(/\\\
+          n/g, '').replace(/\\\\\"/g, '\"');\n    }\n\n    // 数据结构解析逻辑保持不变\n    if\
+          \ (isJSON(replaceStr)) {\n        data = JSON.parse(replaceStr);\n    }\
+          \ else {\n        data = { \"endDttm\": \"\"};\n    }\n    \n    return\
+          \ {\n        result: data.endDttm\n    };\n}\n\n// 工具函数保持不变\nfunction convertDateFormat(s)\
+          \ { return s.replace(/-/g, '/'); }\nfunction extractJson(str) { return (/```(?:json)?\\\
+          n([\\s\\S]*?)\\n```/.exec(str) || [,str])[1]; }\nfunction isJSON(str) {\
+          \ try{ JSON.parse(str); return true } catch(e){ return false } }"
+        code_language: javascript
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 提取结束时间
+        type: code
+        variables:
+        - value_selector:
+          - '1751872370527'
+          - text
+          variable: arg
+      height: 54
+      id: '17530808063150'
+      position:
+        x: 1243
+        y: 536.5
+      positionAbsolute:
+        x: 1243
+        y: 536.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 7488aab4-ea1d-4387-8a6b-c60ec428054c
+            value: Y
+            varType: string
+            variable_selector:
+            - '17530700344530'
+            - result
+          id: 'true'
+          logical_operator: and
+        desc: 'Y:可加班
+
+          N:不可加班'
+        selected: false
+        title: 是否可加班判断
+        type: if-else
+      height: 170
+      id: '1753082066462'
+      position:
+        x: 3364
+        y: 792.5
+      positionAbsolute:
+        x: 3364
+        y: 792.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1753083043649.text#}}'
+        desc: ''
+        selected: false
+        title: 员工不可申请原因回复
+        type: answer
+        variables: []
+      height: 104
+      id: '1753082278061'
+      position:
+        x: 3970
+        y: 1006.5
+      positionAbsolute:
+        x: 3970
+        y: 1006.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params: {}
+          mode: chat
+          name: AndesGPT-32B
+          provider: aisphere/ole/ole
+        prompt_config:
+          jinja2_variables:
+          - value_selector:
+            - '1753070029920'
+            - text
+            variable: data
+        prompt_template:
+        - edition_type: jinja2
+          id: 8169e816-f420-4d82-863e-e218b138ab7a
+          jinja2_text: "请帮我用简洁明了的语言总结下面接口的报错信息\r\n\r\n### 步骤一：要求\r\n1、要求简明扼要地归纳报错的主要原因用于展示给用户。\r\
+            \n2、不得出现报错、异常等字眼\r\n\r\n### 禁止\r\n出现主要原因：等字段\r\n接口：{{ data }}\r\n\r\n\r\
+            \n\r\n\r\n"
+          role: system
+          text: ''
+        selected: false
+        title: 总结员工不可申请原因
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753083043649'
+      position:
+        x: 3667
+        y: 969.5
+      positionAbsolute:
+        x: 3667
+        y: 969.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: 月薪制员工不能拟制非法定节假日加班申请
+        - id: '2'
+          name: 其他
+        desc: '1、计薪方式不满足/不可申请，检索考勤制度中关于员工“计薪方式”的加班规则
+
+          2、其他报错直接回复'
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: AndesGPT-32B
+          provider: aisphere/ole/ole
+        query_variable_selector:
+        - '1753070029920'
+        - text
+        selected: true
+        title: 问题分类器
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 248
+      id: '1753174515828'
+      position:
+        x: 2455
+        y: 481.5
+      positionAbsolute:
+        x: 2455
+        y: 481.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: ''
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: '%Y-%m-%d %H:%M:%S'
+          form: form
+          human_description:
+            en_US: Time format in strftime standard.
+            ja_JP: Time format in strftime standard.
+            pt_BR: Time format in strftime standard.
+            zh_Hans: strftime 标准的时间格式。
+          label:
+            en_US: Format
+            ja_JP: Format
+            pt_BR: Format
+            zh_Hans: 格式
+          llm_description: null
+          max: null
+          min: null
+          name: format
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: UTC
+          form: form
+          human_description:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          label:
+            en_US: Timezone
+            ja_JP: Timezone
+            pt_BR: Timezone
+            zh_Hans: 时区
+          llm_description: null
+          max: null
+          min: null
+          name: timezone
+          options:
+          - label:
+              en_US: UTC
+              ja_JP: UTC
+              pt_BR: UTC
+              zh_Hans: UTC
+            value: UTC
+          - label:
+              en_US: America/New_York
+              ja_JP: America/New_York
+              pt_BR: America/New_York
+              zh_Hans: 美洲/纽约
+            value: America/New_York
+          - label:
+              en_US: America/Los_Angeles
+              ja_JP: America/Los_Angeles
+              pt_BR: America/Los_Angeles
+              zh_Hans: 美洲/洛杉矶
+            value: America/Los_Angeles
+          - label:
+              en_US: America/Chicago
+              ja_JP: America/Chicago
+              pt_BR: America/Chicago
+              zh_Hans: 美洲/芝加哥
+            value: America/Chicago
+          - label:
+              en_US: America/Sao_Paulo
+              ja_JP: America/Sao_Paulo
+              pt_BR: América/São Paulo
+              zh_Hans: 美洲/圣保罗
+            value: America/Sao_Paulo
+          - label:
+              en_US: Asia/Shanghai
+              ja_JP: Asia/Shanghai
+              pt_BR: Asia/Shanghai
+              zh_Hans: 亚洲/上海
+            value: Asia/Shanghai
+          - label:
+              en_US: Asia/Ho_Chi_Minh
+              ja_JP: Asia/Ho_Chi_Minh
+              pt_BR: Ásia/Ho Chi Minh
+              zh_Hans: 亚洲/胡志明市
+            value: Asia/Ho_Chi_Minh
+          - label:
+              en_US: Asia/Tokyo
+              ja_JP: Asia/Tokyo
+              pt_BR: Asia/Tokyo
+              zh_Hans: 亚洲/东京
+            value: Asia/Tokyo
+          - label:
+              en_US: Asia/Dubai
+              ja_JP: Asia/Dubai
+              pt_BR: Asia/Dubai
+              zh_Hans: 亚洲/迪拜
+            value: Asia/Dubai
+          - label:
+              en_US: Asia/Kolkata
+              ja_JP: Asia/Kolkata
+              pt_BR: Asia/Kolkata
+              zh_Hans: 亚洲/加尔各答
+            value: Asia/Kolkata
+          - label:
+              en_US: Asia/Seoul
+              ja_JP: Asia/Seoul
+              pt_BR: Asia/Seoul
+              zh_Hans: 亚洲/首尔
+            value: Asia/Seoul
+          - label:
+              en_US: Asia/Singapore
+              ja_JP: Asia/Singapore
+              pt_BR: Asia/Singapore
+              zh_Hans: 亚洲/新加坡
+            value: Asia/Singapore
+          - label:
+              en_US: Europe/London
+              ja_JP: Europe/London
+              pt_BR: Europe/London
+              zh_Hans: 欧洲/伦敦
+            value: Europe/London
+          - label:
+              en_US: Europe/Berlin
+              ja_JP: Europe/Berlin
+              pt_BR: Europe/Berlin
+              zh_Hans: 欧洲/柏林
+            value: Europe/Berlin
+          - label:
+              en_US: Europe/Moscow
+              ja_JP: Europe/Moscow
+              pt_BR: Europe/Moscow
+              zh_Hans: 欧洲/莫斯科
+            value: Europe/Moscow
+          - label:
+              en_US: Australia/Sydney
+              ja_JP: Australia/Sydney
+              pt_BR: Australia/Sydney
+              zh_Hans: 澳大利亚/悉尼
+            value: Australia/Sydney
+          - label:
+              en_US: Pacific/Auckland
+              ja_JP: Pacific/Auckland
+              pt_BR: Pacific/Auckland
+              zh_Hans: 太平洋/奥克兰
+            value: Pacific/Auckland
+          - label:
+              en_US: Africa/Cairo
+              ja_JP: Africa/Cairo
+              pt_BR: Africa/Cairo
+              zh_Hans: 非洲/开罗
+            value: Africa/Cairo
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: select
+        params:
+          format: ''
+          timezone: ''
+        provider_id: time
+        provider_name: time
+        provider_type: builtin
+        selected: false
+        title: 获取当前年份
+        tool_configurations:
+          format:
+            type: constant
+            value: '%Y'
+          timezone:
+            type: constant
+            value: Asia/Shanghai
+        tool_description: 一个用于获取当前时间的工具。
+        tool_label: 获取当前时间
+        tool_name: current_time
+        tool_parameters: {}
+        type: tool
+        version: '2'
+      height: 116
+      id: '1753239726246'
+      position:
+        x: 321.09079840598974
+        y: 158.15880245469054
+      positionAbsolute:
+        x: 321.09079840598974
+        y: 158.15880245469054
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: gsm
+        auth_label: ''
+        cus_tool_configurations:
+          areaCode: china
+          envid: UAT
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 员工工号
+            ja_JP: 员工工号
+            pt_BR: 员工工号
+            zh_Hans: 员工工号
+          label:
+            en_US: emplid
+            ja_JP: emplid
+            pt_BR: emplid
+            zh_Hans: emplid
+          llm_description: 员工工号
+          max: null
+          min: null
+          name: emplid
+          options: []
+          placeholder:
+            en_US: 员工工号
+            ja_JP: 员工工号
+            pt_BR: 员工工号
+            zh_Hans: 员工工号
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 不传时默认为当前年
+            ja_JP: 不传时默认为当前年
+            pt_BR: 不传时默认为当前年
+            zh_Hans: 不传时默认为当前年
+          label:
+            en_US: year
+            ja_JP: year
+            pt_BR: year
+            zh_Hans: year
+          llm_description: 不传时默认为当前年
+          max: null
+          min: null
+          name: year
+          options: []
+          placeholder:
+            en_US: 不传时默认为当前年
+            ja_JP: 不传时默认为当前年
+            pt_BR: 不传时默认为当前年
+            zh_Hans: 不传时默认为当前年
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          emplid: ''
+          year: ''
+        provider_id: 4c2b9e86-fdfe-49db-84da-652b20b8adc8
+        provider_name: 加班_查询法定节假日
+        provider_type: api
+        selected: false
+        title: 查询法定节假日
+        tool_configurations: {}
+        tool_description: 通过员工工号和年份查询指定年份所有法定节假日信息
+        tool_label: 查询法定节假日
+        tool_name: CHR-API0181
+        tool_parameters:
+          emplid:
+            type: mixed
+            value: '{{#sys.user_id#}}'
+          year:
+            type: mixed
+            value: '{{#1753239726246.text#}}'
+        type: tool
+        version: '2'
+      height: 54
+      id: '1753432368680'
+      position:
+        x: 631.1034332349012
+        y: 296.0040718578125
+      positionAbsolute:
+        x: 631.1034332349012
+        y: 296.0040718578125
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -406.1345000254944
+      y: 173.970658858861
+      zoom: 0.4352752816480622

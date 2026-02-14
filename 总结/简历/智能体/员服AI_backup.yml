@@ -1,0 +1,2347 @@
+﻿app:
+  description: ''
+  icon: 6e8db26e-08ff-486d-a91d-543741745d75
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: 娴嬭瘯浣跨敤
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: aisphere/faq:0.0.1@0d1bb6bcb72c129584f3454fd29333a77d3a84faa3a012c4e0f523a9867d1baf
+- current_identifier: null
+  type: package
+  value:
+    plugin_unique_identifier: aisphere/ole:0.3.55@018e983139e03c0ea1fc6d0c816f8387519f1141f87e2078bb4b4f49d9e098e9
+kind: app
+version: 0.3.0
+workflow:
+  conversation_variables:
+  - description: 鐢ㄤ簬璁板綍鐢ㄦ埛涓婁笅鏂?
+    id: 205f2021-8e3d-4444-8b40-4cc66984251b
+    name: historyQuery
+    selector:
+    - conversation
+    - historyQuery
+    value: []
+    value_type: array[string]
+  environment_variables:
+  - description: ''
+    id: 94134051-0e69-45dc-958a-45e4ed02890f
+    name: feedback
+    selector:
+    - env
+    - feedback
+    value: 绛旀涓嶆弧鎰忥紵鍙嶉鍒?a target="_blank" href="https://odocs.myoas.com/sheets/aBAYVXKZ6xUMeD3j/MODOC?lang=zh-CN&zone=%2B8&tt_versionCode=800&mobileMsgShowStyle=1&pcMsgShowStyle=1">鍛樻湇鍔╂墜-AI闂鐧昏琛煋?/a>锛屾垜浠€熻窡杩涳紝涓€璧疯鎴戞洿濂界敤锛?
+    value_type: string
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 100
+        batch_count_limit: 5
+        file_size_limit: 100
+        image_file_size_limit: 20
+        video_file_size_limit: 200
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    long_term_memory:
+      enabled: false
+      memory_duration: 30
+      memory_prompt: ''
+    opening_statement: 鍡綖鎴戞槸 HR 鍛樻湇鏅鸿兘鍔╂墜馃懇馃捈锛佹湁鍟?HR 鐩稿叧闂閮借兘闂垜锛岄殢鏃堕殢鍦颁负鎮ㄩ珮鏁堟湇鍔♀湪锝炵幇鍦ㄥ氨鍙互鎻愰棶鍟︼紝姣斿 鈥滄垜瑕佹煡鍓╀綑骞村亣鈥濔煋呫€佲€滄垜瑕佺敵璇峰懆鍏姞鐝€濃彴銆佲€滄垜瑕佸紑鍏峰湪鑱岃瘉鏄庘€濔煋勭瓑锝?
+    opening_statement_en: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    suggested_questions_en: []
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: tool
+      id: 1757640048870-source-1757643815906-target
+      selected: false
+      source: '1757640048870'
+      sourceHandle: source
+      target: '1757643815906'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1757643815906-source-1757643968751-target
+      selected: false
+      source: '1757643815906'
+      sourceHandle: source
+      target: '1757643968751'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1757643968751-source-1757647183402-target
+      selected: false
+      source: '1757643968751'
+      sourceHandle: source
+      target: '1757647183402'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: rag
+        targetType: llm
+      id: 1757647893965-source-1757666454059-target
+      selected: false
+      source: '1757647893965'
+      sourceHandle: source
+      target: '1757666454059'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1757666454059-source-1757647922955-target
+      selected: false
+      source: '1757666454059'
+      sourceHandle: source
+      target: '1757647922955'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: assigner
+      id: 1757672093084-source-1757672655011-target
+      selected: false
+      source: '1757672093084'
+      sourceHandle: source
+      target: '1757672655011'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: assigner
+        targetType: if-else
+      id: 1757672655011-source-1757672847277-target
+      selected: false
+      source: '1757672655011'
+      sourceHandle: source
+      target: '1757672847277'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1757672847277-7dec77eb-5460-4907-bcd3-482b35ab3565-1757916494908-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: 7dec77eb-5460-4907-bcd3-482b35ab3565
+      target: '1757916494908'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1757672847277-5e631d5f-792b-4a12-ac97-bb011e027003-1757916566763-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: 5e631d5f-792b-4a12-ac97-bb011e027003
+      target: '1757916566763'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1757916566763-f5f6cab7-a690-4537-92be-9468d3a4ff63-1757916861724-target
+      selected: false
+      source: '1757916566763'
+      sourceHandle: f5f6cab7-a690-4537-92be-9468d3a4ff63
+      target: '1757916861724'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1757916861724-false-1757916961864-target
+      selected: false
+      source: '1757916861724'
+      sourceHandle: 'false'
+      target: '1757916961864'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1757672847277-true-17579170931180-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: 'true'
+      target: '17579170931180'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 17579170931180-false-1757917227892-target
+      selected: false
+      source: '17579170931180'
+      sourceHandle: 'false'
+      target: '1757917227892'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1757672847277-bee96c9d-0774-4c42-bb41-2315177f61c4-17579173554440-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: bee96c9d-0774-4c42-bb41-2315177f61c4
+      target: '17579173554440'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 17579173554440-false-1757917227892-target
+      selected: false
+      source: '17579173554440'
+      sourceHandle: 'false'
+      target: '1757917227892'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1757672847277-66c14d5e-a142-48f6-b691-6225fd076423-17579178627670-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: 66c14d5e-a142-48f6-b691-6225fd076423
+      target: '17579178627670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 17579178627670-false-1757917227892-target
+      selected: false
+      source: '17579178627670'
+      sourceHandle: 'false'
+      target: '1757917227892'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: if-else
+      id: 1757672847277-d8db1495-89d5-4a6f-94d8-df3afe6b6dd9-17579179137520-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: d8db1495-89d5-4a6f-94d8-df3afe6b6dd9
+      target: '17579179137520'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 17579179137520-false-1757917227892-target
+      selected: false
+      source: '17579179137520'
+      sourceHandle: 'false'
+      target: '1757917227892'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1757920028074-source-1757920034309-target
+      selected: false
+      source: '1757920028074'
+      sourceHandle: source
+      target: '1757920034309'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 17579179137520-true-1757920028074-target
+      selected: false
+      source: '17579179137520'
+      sourceHandle: 'true'
+      target: '1757920028074'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 17579173554440-true-1757920463049-target
+      selected: false
+      source: '17579173554440'
+      sourceHandle: 'true'
+      target: '1757920463049'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1757920463049-source-1757920479819-target
+      selected: false
+      source: '1757920463049'
+      sourceHandle: source
+      target: '1757920479819'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 17579178627670-true-1757920514125-target
+      selected: false
+      source: '17579178627670'
+      sourceHandle: 'true'
+      target: '1757920514125'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1757920514125-source-1757920522350-target
+      selected: false
+      source: '1757920514125'
+      sourceHandle: source
+      target: '1757920522350'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1757672847277-false-1758010715501-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: 'false'
+      target: '1758010715501'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1758018291277-source-1758014571378-target
+      selected: false
+      source: '1758018291277'
+      sourceHandle: source
+      target: '1758014571378'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1757916566763-true-1758018291277-target
+      selected: false
+      source: '1757916566763'
+      sourceHandle: 'true'
+      target: '1758018291277'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1757916861724-true-1758018291277-target
+      selected: false
+      source: '1757916861724'
+      sourceHandle: 'true'
+      target: '1758018291277'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1758012390269-source-1758090440425-target
+      selected: false
+      source: '1758012390269'
+      sourceHandle: source
+      target: '1758090440425'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: 1758090440425-source-1758089565634-target
+      selected: false
+      source: '1758090440425'
+      sourceHandle: source
+      target: '1758089565634'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: rag
+      id: 1758089565634-true-1757647893965-target
+      selected: false
+      source: '1758089565634'
+      sourceHandle: 'true'
+      target: '1757647893965'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 1757672847277-1e41b396-cddb-40bc-8757-a2baf2f67692-1758012390269-target
+      selected: false
+      source: '1757672847277'
+      sourceHandle: 1e41b396-cddb-40bc-8757-a2baf2f67692
+      target: '1758012390269'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: assigner
+        targetType: if-else
+      id: 17581636153740-source-17581631510290-target
+      selected: false
+      source: '17581636153740'
+      sourceHandle: source
+      target: '17581631510290'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1758089565634-false-1758187635574-target
+      selected: false
+      source: '1758089565634'
+      sourceHandle: 'false'
+      target: '1758187635574'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1757647183402-true-1757672093084-target
+      source: '1757647183402'
+      sourceHandle: 'true'
+      target: '1757672093084'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: tool
+      id: 17579170931180-true-1758854775405-target
+      source: '17579170931180'
+      sourceHandle: 'true'
+      target: '1758854775405'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1758854775405-source-1757919864956-target
+      source: '1758854775405'
+      sourceHandle: source
+      target: '1757919864956'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 寮€濮?
+        type: start
+        variables:
+        - label: ole
+          max_length: 256
+          options: []
+          required: false
+          type: text-input
+          variable: ole_cardData
+      height: 90
+      id: '1757640048870'
+      position:
+        x: 30
+        y: 406.5
+      positionAbsolute:
+        x: 30
+        y: 406.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: gsm
+        auth_label: ''
+        cus_tool_configurations:
+          areaCode: china
+          envid: UAT
+        default_value:
+        - key: text
+          type: string
+          value: ''
+        - key: json
+          type: array[object]
+          value: '[]'
+        desc: ''
+        error_strategy: default-value
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 鐢ㄦ埛宸ュ彿
+            ja_JP: 鐢ㄦ埛宸ュ彿
+            pt_BR: 鐢ㄦ埛宸ュ彿
+            zh_Hans: 鐢ㄦ埛宸ュ彿
+          label:
+            en_US: userId
+            ja_JP: userId
+            pt_BR: userId
+            zh_Hans: userId
+          llm_description: 鐢ㄦ埛宸ュ彿
+          max: null
+          min: null
+          name: userId
+          options: []
+          placeholder:
+            en_US: 鐢ㄦ埛宸ュ彿
+            ja_JP: 鐢ㄦ埛宸ュ彿
+            pt_BR: 鐢ㄦ埛宸ュ彿
+            zh_Hans: 鐢ㄦ埛宸ュ彿
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          userId: ''
+        provider_app_id: ''
+        provider_id: 6c54da1d-6fd7-4abf-802a-0c91c975311d
+        provider_name: 鏍规嵁userId鑾峰彇4A鐢ㄦ埛淇℃伅
+        provider_source: ''
+        provider_type: api
+        selected: false
+        title: 鏍规嵁宸ュ彿鏌ヨ鐢ㄦ埛v3
+        tool_configurations: {}
+        tool_description: '鎺ュ彛浣跨敤璇存槑锛歨ttps://gsm.myoas.com/apiMarket/apiMarketDetail?groupId=oppo-4a&id=71&type=doc&docsId=4653
+
+          鎺ュ彛杩斿洖瀛楁锛歨ttps://gsm.myoas.com/apiMarket/apiMarketDetail?groupId=oppo-4a&id=71&type=doc&docsId=3616'
+        tool_label: 鏍规嵁宸ュ彿鏌ヨ鐢ㄦ埛v3
+        tool_name: G-MagicBox-M4A-API0007
+        tool_parameters:
+          userId:
+            type: mixed
+            value: '{{#sys.user_id#}}'
+        type: tool
+        version: '2'
+      height: 90
+      id: '1757643815906'
+      position:
+        x: 334
+        y: 406.5
+      positionAbsolute:
+        x: 334
+        y: 406.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(input_text):\n    \"\"\"\n    浠庤緭鍏ョ殑JSON鏂囨湰涓彁鍙栧憳宸ヤ俊鎭痋n\
+          \    \n    Args:\n        input_text (str): JSON鏍煎紡鐨勫憳宸ユ暟鎹枃鏈琝n        \n  \
+          \  Returns:\n        dict: 鍖呭惈鍛樺伐闆嗗悎ID銆佸憳宸D銆佸憳宸ョ被鍨嬨€佸伐浣滃湴鐨凧SON瀵硅薄\n    \"\"\"\n \
+          \   try:\n        # 瑙ｆ瀽JSON\n        data = json.loads(input_text)\n    \
+          \    \n        # 妫€鏌ユ槸鍚︽湁data瀛楁\n        if 'data' not in data:\n         \
+          \   return {\"error\": \"杈撳叆鏁版嵁涓己灏慸ata瀛楁\"}\n            \n        employee_data\
+          \ = data['data']\n        \n        # 鎻愬彇鎵€闇€瀛楁\n        result = {\n     \
+          \       \"鍛樺伐闆嗗悎ID\": employee_data.get(\"businessUnit\", \"\"),\n       \
+          \     \"鍛樺伐ID\": employee_data.get(\"id\", \"\"),\n            \"鍛樺伐绫诲瀷缂栫爜\"\
+          : employee_data.get(\"userClass\", \"\"),\n            \"鍛樺伐绫诲瀷\": employee_data.get(\"\
+          userClassDesc\", \"\"),\n            \"鎵€灞炵粍缁囪矾寰勭紪鐮乗": employee_data.get(\"\
+          directDepartIdPath\", \"\"),\n            \"鎵€灞炵粍缁囪矾寰刓": employee_data.get(\"\
+          directDepartNamePath\", \"\"),\n            \"宸ヤ綔鍦扮紪鐮乗": employee_data.get(\"\
+          workLocaltion\", \"\"),\n            \"宸ヤ綔鍦癨": employee_data.get(\"workLocaltionDesc\"\
+          , \"\")\n        }\n        \n        return {\"result\":result,\n     \
+          \   \"setid\": employee_data.get(\"businessUnit\", \"\"),\n            \"\
+          userClass\": employee_data.get(\"userClass\", \"\"),\n            \"userClassDesc\"\
+          : employee_data.get(\"userClassDesc\", \"\"),\n            \"deptPath\"\
+          : employee_data.get(\"directDepartIdPath\", \"\"),\n            \"deptPathDesc\"\
+          : employee_data.get(\"directDepartNamePath\", \"\"),\n            \"workLocaltion\"\
+          : employee_data.get(\"workLocaltion\", \"\"),\n            \"workLocaltionDesc\"\
+          : employee_data.get(\"workLocaltionDesc\", \"\")\n        }\n    except\
+          \ json.JSONDecodeError as e:\n        return {\"error\": f\"JSON瑙ｆ瀽閿欒: {str(e)}\"\
+          }\n    except Exception as e:\n        return {\"error\": f\"澶勭悊閿欒: {str(e)}\"\
+          }"
+        code_language: python3
+        desc: ''
+        outputs:
+          deptPath:
+            children: null
+            type: string
+          deptPathDesc:
+            children: null
+            type: string
+          result:
+            children: null
+            type: object
+          setid:
+            children: null
+            type: string
+          userClass:
+            children: null
+            type: string
+          userClassDesc:
+            children: null
+            type: string
+          workLocaltion:
+            children: null
+            type: string
+          workLocaltionDesc:
+            children: null
+            type: string
+        selected: false
+        title: 鐢ㄦ埛淇℃伅鎻愬彇
+        type: code
+        variables:
+        - value_selector:
+          - '1757643815906'
+          - text
+          variable: input_text
+      height: 54
+      id: '1757643968751'
+      position:
+        x: 638
+        y: 406.5
+      positionAbsolute:
+        x: 638
+        y: 406.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: c16fa913-0704-47da-ab04-4b3339e6cd39
+            value: OPP10
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - setid
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 鏄惁OPPO
+        type: if-else
+      height: 126
+      id: '1757647183402'
+      position:
+        x: 942
+        y: 406.5
+      positionAbsolute:
+        x: 942
+        y: 406.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - L1-1h3egddgowa8wiknw3vn7pn21lg0us93htw0
+        desc: ''
+        enhanced_generation:
+          enabled: false
+          model:
+            completion_params:
+              temperature: 0.7
+            mode: chat
+            name: ''
+            provider: ''
+          source_tracking_enabled: false
+          user_instruction: ''
+        query_variable_selector:
+        - sys
+        - query
+        recall_config:
+          context_top_n: 3
+          context_window_size: 3
+          sort: relevance
+          top_k: 5
+        retrieval_mode: single
+        selected: false
+        title: Ozone RAG
+        type: rag
+        variables: []
+      height: 96
+      id: '1757647893965'
+      position:
+        x: 3636.2330337977673
+        y: 2136.3381571894947
+      positionAbsolute:
+        x: 3636.2330337977673
+        y: 2136.3381571894947
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1757666454059.text#}}'
+        desc: ''
+        selected: false
+        title: 鐭ヨ瘑搴撴绱㈠洖澶?
+        type: answer
+        variables: []
+      height: 104
+      id: '1757647922955'
+      position:
+        x: 4274.090651823241
+        y: 2136.3381571894947
+      positionAbsolute:
+        x: 4274.090651823241
+        y: 2136.3381571894947
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: AndesGPT-32B
+          provider: aisphere/ole/ole
+        prompt_template:
+        - id: 99fa50f9-bc63-4ae3-a04b-30d8fa5b9814
+          role: system
+          text: ''
+        - id: c0de8354-ad64-4ae3-8753-2c5583b6a1c3
+          role: user
+          text: '# 浠ヤ笅鍐呭鏄熀浜庣敤鎴峰彂閫佺殑娑堟伅鐨勬悳绱㈢粨鏋?
+
+            {{#1757647893965.result#}}
+
+            鍦ㄦ垜缁欎綘鐨勬悳绱㈢粨鏋滀腑锛屾瘡涓粨鏋滈兘鏄痆file X begin]...[file X end]鏍煎紡鐨勶紝X浠ｈ〃姣忕瘒鏂囩珷鐨勬暟瀛楃储寮曘€傚鏋滃紩鐢ㄧ殑鏉ユ簮鏂囦欢鏈夋煡鐪嬮摼鎺ワ紝璇峰湪绛旀鏈熬鎸夋瘡绡囨枃浠剁殑鏁板瓧绱㈠紩椤哄簭鍒楀嚭鎵€鏈夊紩鐢ㄦ枃浠剁殑鏌ョ湅閾炬帴<a
+            needAuth /target="_blank" href="PC绔摼鎺ュ湴鍧€" mobile_url="绉诲姩绔摼鎺ュ湴鍧€">鏂囦欢鍚嶇О<\a>銆?
+
+            鍦ㄥ洖绛旀椂锛岃娉ㄦ剰浠ヤ笅鍑犵偣锛?
+
+            - 骞堕潪鎼滅储缁撴灉鐨勬墍鏈夊唴瀹归兘涓庣敤鎴风殑闂瀵嗗垏鐩稿叧锛屼綘闇€瑕佺粨鍚堥棶棰橈紝瀵规悳绱㈢粨鏋滆繘琛岀攧鍒€佺瓫閫夈€?
+
+            - 瀵逛簬鍒椾妇绫荤殑闂锛堝鍒椾妇鎵€鏈夎埅鐝俊鎭級锛屽敖閲忓皢绛旀鎺у埗鍦?0涓鐐逛互鍐咃紝骞跺憡璇夌敤鎴峰彲浠ユ煡鐪嬫悳绱㈡潵婧愩€佽幏寰楀畬鏁翠俊鎭€備紭鍏堟彁渚涗俊鎭畬鏁淬€佹渶鐩稿叧鐨勫垪涓鹃」锛涘闈炲繀瑕侊紝涓嶈涓诲姩鍛婅瘔鐢ㄦ埛鎼滅储缁撴灉鏈彁渚涚殑鍐呭銆?
+
+            - 瀵逛簬鍒涗綔绫荤殑闂锛堝鍐欒鏂囷級锛屼綘闇€瑕佽В璇诲苟姒傛嫭鐢ㄦ埛鐨勯鐩姹傦紝閫夋嫨鍚堥€傜殑鏍煎紡锛屽厖鍒嗗埄鐢ㄦ悳绱㈢粨鏋滃苟鎶藉彇閲嶈淇℃伅锛岀敓鎴愮鍚堢敤鎴疯姹傘€佹瀬鍏锋€濇兂娣卞害銆佸瘜鏈夊垱閫犲姏涓庝笓涓氭€х殑绛旀銆備綘鐨勫垱浣滅瘒骞呴渶瑕佸敖鍙兘寤堕暱锛屽浜庢瘡涓€涓鐐圭殑璁鸿堪瑕佹帹娴嬬敤鎴风殑鎰忓浘锛岀粰鍑哄敖鍙兘澶氳搴︾殑鍥炵瓟瑕佺偣锛屼笖鍔″繀淇℃伅閲忓ぇ銆佽杩拌灏姐€?
+
+            - 濡傛灉鍥炵瓟寰堥暱锛岃灏介噺缁撴瀯鍖栥€佸垎娈佃惤鎬荤粨銆傚鏋滈渶瑕佸垎鐐逛綔绛旓紝灏介噺鎺у埗鍦?涓偣浠ュ唴锛屽苟鍚堝苟鐩稿叧鐨勫唴瀹广€?
+
+            - 瀵逛簬瀹㈣绫荤殑闂瓟锛屽鏋滈棶棰樼殑绛旀闈炲父绠€鐭紝鍙互閫傚綋琛ュ厖涓€鍒颁袱鍙ョ浉鍏充俊鎭紝浠ヤ赴瀵屽唴瀹广€?
+
+            - 浣犻渶瑕佹牴鎹敤鎴疯姹傚拰鍥炵瓟鍐呭閫夋嫨鍚堥€傘€佺編瑙傜殑鍥炵瓟鏍煎紡锛岀‘淇濆彲璇绘€у己銆?
+
+            - 浣犵殑鍥炵瓟搴旇缁煎悎澶氫釜鐩稿叧缃戦〉鏉ュ洖绛旓紝涓嶈兘閲嶅寮曠敤涓€涓綉椤点€?
+
+            - 闄ら潪鐢ㄦ埛瑕佹眰锛屽惁鍒欎綘鍥炵瓟鐨勮瑷€闇€瑕佸拰鐢ㄦ埛鎻愰棶鐨勮瑷€淇濇寔涓€鑷淬€?
+
+            # 褰撳墠鐢ㄦ埛淇℃伅涓猴細
+
+            - 宸ュ彿锛歿{#sys.user_id#}}
+
+            # 鐢ㄦ埛娑堟伅涓猴細
+
+            {{#sys.query#}}
+
+
+            '
+        selected: false
+        title: 鐭ヨ瘑搴撴€荤粨
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1757666454059'
+      position:
+        x: 3957.6835662894
+        y: 2136.3381571894947
+      positionAbsolute:
+        x: 3957.6835662894
+        y: 2136.3381571894947
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0
+          mode: chat
+          name: AISphere-DeepSeek-V3_1
+          provider: aisphere/ole/ole
+        prompt_template:
+        - id: 1601dda6-68eb-4768-8c89-735c6f7884a9
+          role: system
+          text: ''
+        - id: 30a07178-56b3-4686-822d-bb1f4616b46d
+          role: user
+          text: "# HR澶氳疆瀵硅瘽鎰忓浘鍒嗙被鍣╘n浣犳槸涓撻棬澶勭悊HR棰嗗煙鐨勪笂涓嬫枃鎰熺煡鎰忓浘鍒嗙被鍣ㄣ€?*涓ユ牸瑕佹眰锛氫粎杈撳嚭鍗曚釜鍒嗙被缂栧彿锛岀姝换浣曞叾浠栧唴瀹?*\n\
+            \n## 鏍稿績鍒嗙被鍘熷垯\n**浼樺厛绾ф帓搴?*锛? > 2 > 3 > 4 > 15 > 16 > 17锛堟暟瀛楄秺灏忎紭鍏堢骇瓒婇珮锛? \n**鍐茬獊澶勭悊琛ュ厖瑙勫垯**锛氳嫢杈撳叆鍚屾椂鍖呭惈澶氱被鍏抽敭璇嶏紝闇€鍏堝垽鏂€屾牳蹇冩剰鍥俱€嶁€斺€斿嵆鐢ㄦ埛鏈€缁堣瑙ｅ喅鐨勯渶姹傛湰璐紝鑰岄潪浠呬緷璧栧叧閿瘝鍑虹幇椤哄簭锛涘綋銆岃柂璧勬墸闄?钖叕璁＄畻銆嶆剰鍥炬槑纭椂锛屼紭鍏堢骇楂樹簬銆岃鍋囥€嶇被鏍囩銆俓n\
+            **鍒ゆ柇鏄惁涓衡€滃埗搴︾被闂鈥濓紝杩欑被闂鍒掑垎涓?5绫伙細\n   鑻ラ棶棰樼鍚堜互涓嬩换涓€鐗瑰緛锛岀洿鎺ュ綊绫讳负鈥滃埗搴︾被鈥濓細\n   - 璇㈤棶鈥滄椂闂存爣鍑嗏€濓細濡傗€淴X鎯呭喌锛堝嚭宸?璇峰亣/鍔犵彮鍚庯級鐨勬渶鏅?鏈€鏃╂墦鍗℃椂闂粹€濃€淴X鏃舵闇€鍑犵偣鎵撳崱鈥濓紱\n\
+            \   - 璇㈤棶鈥滆鍒欏悗鏋溾€濓細濡傗€滆繜鍒?鏈墦鍗＄殑褰卞搷鈥濃€滆繚鍙峏X瑕佹眰浼氭€庢牱鈥濓紱\n   - 璇㈤棶鈥滄潯浠舵槸鍚﹀厑璁糕€濓細濡傗€淴X鎯呭喌锛堝懆鏃ュ姞鐝級鑳藉惁鏅氭墦鍗♀€濃€淴X鎯呭舰鏄惁绗﹀悎鎵撳崱瑙勫垯鈥濄€?*\n\
+            \n## 涓婁笅鏂囧鐞嗘満鍒禱n### 澶氳疆瀵硅瘽鍒嗘瀽\n1. **璁板繂绐楀彛**锛氬垎鏋愭渶杩?杞畬鏁村璇濓紙鍘嗗彶杈撳叆+褰撳墠杈撳叆锛塡n2. **鎸囦唬娑堣В**锛氳瘑鍒唬璇嶆寚鍚戯紙\"\
+            杩欎釜\"銆乗"閭ｄ釜\"銆乗"瀹僜"绛夛級锛岃嫢鍘嗗彶鎻愬強\"璇峰亣\"锛屽綋鍓嶉棶\"鎵ｅ伐璧刓"锛屽垯\"杩欎釜\"鎸囧悜\"璇峰亣琛屼负鐨勮柂璧勫奖鍝峔"\n3.\
+            \ **杞姌妫€娴?*锛氳瘑鍒瘽棰樺垏鎹俊鍙疯瘝\n   - **寮鸿浆鎶?*锛氫絾鏄€佷笉杩囥€佸彟澶栥€佸浜嗐€佽繕鏈夈€侀『渚块棶涓媆n   - **寮辫浆鎶?*锛氱劧鍚庛€佹帴鐫€銆佽繕鎯抽棶\n\
+            \   - **鐗规畩澶勭悊**锛氳嫢杞姌鍓嶄负\"璇峰亣鍜ㄨ\"锛岃浆鎶樺悗涓篭"钖祫闂\"锛屾寜杞姌鍚庡唴瀹圭殑鏍稿績鎰忓浘鍒嗙被锛堜紭鍏?5绫伙級\n4. 銆愭柊澧炰笂涓嬫枃澶勭悊瑙勫垯銆戯細\n\
+            -鍒ゆ柇鏄惁鈥滃悓涓€浜嬪姟鈥濓細鐪嬫柊闂鏄惁鍥寸粫鈥滀笂涓€杞殑鏍稿績浜嬪姟鈥濓紙濡備笂涓€杞槸鈥滃紑鏀跺叆璇佹槑鈥濓紝鏂伴棶棰樷€滃勾鏀跺叆鐗堚€濆氨鏄悓涓€浜嬪姟锛涗笂涓€杞槸鈥滆鍋囨墦鍗♀€濓紝鏂伴棶棰樷€滃嚭宸墦鍗♀€濆氨鏄笉鍚屼簨鍔★級锛沑n\
+            - 鍚屼竴浜嬪姟锛堝鈥滃紑鏀跺叆璇佹槑鈥濃啋鈥滃勾鏀跺叆鐗堚€濓級锛氬繀椤诲叧鑱斾笂涓嬫枃锛岀洿鎺ユ帹杩涗簨鍔★紝涓嶉噸澶嶉棶鈥滄偍瑕佸姙浠€涔堚€濓紱\n-涓嶅悓浜嬪姟锛堝鈥滆鍋囨墦鍗♀€濃啋鈥滃嚭宸墦鍗♀€濓級锛氱嫭绔嬪垎鏋愭柊闂鍦烘櫙锛屽拷鐣ヤ笂涓€杞瓟妗堬紝鎸夋柊鍦烘櫙缁欒鍒欙紱\n\
+            -鍏抽敭鎻愰啋锛氬彧鏈夆€滃悓涓€浜嬪姟鐨勮拷闂€濇墠鐢ㄤ笂涓嬫枃锛屼笉鍚屼簨鍔＄殑鏂伴棶棰樺潥鍐充笉绮樿繛鍘嗗彶绛旀銆?*\n銆愬悓涓€浜嬪姟绀轰緥銆戯細\n- 鐢ㄦ埛锛氳寮€鏀跺叆璇佹槑鈫掓櫤鑳戒綋锛氳骞存敹鍏ョ増杩樻槸鏈堟敹鍏ョ増锛熲啋鐢ㄦ埛锛氬勾鏀跺叆鐗堚啋鏅鸿兘浣擄細骞存敹鍏ョ増闇€鎻愪緵XXX锛堝叧鑱斾笂涓嬫枃锛塡n\
+            \n### 鎰忓浘鍒ゆ柇鍐崇瓥鏍戯紙鏂板钖祫鎰忓浘鍒ゆ柇鑺傜偣锛塡n褰撳墠杈撳叆 鈫?\n鈹溾攢 鍖呭惈寮鸿浆鎶樿瘝锛焅n鈹? 鈹溾攢 鏄?鈫?鎸夊綋鍓嶈緭鍏ョ嫭绔嬪垎绫伙紙閲嶇偣鍒嗘瀽杞姌鍚庡唴瀹圭殑鏍稿績鎰忓浘锛塡n\
+            鈹? 鈹斺攢 鍚?鈫?缁х画鍒嗘瀽\n鈹溾攢 褰撳墠杈撳叆鏄惁鍖呭惈銆岃柂璧勬墸闄?钖叕璁＄畻銆嶇浉鍏冲叧閿瘝锛焅n鈹? 鈹溾攢 鏄?鈫?鏍稿績鎰忓浘涓鸿柂閰挩璇紝褰掔被15绫伙紙鍗充娇鍚鍋囧叧閿瘝锛塡n\
+            鈹? 鈹斺攢 鍚?鈫?缁х画鍒嗘瀽\n鈹溾攢 褰撳墠杈撳叆鎰忓浘鏄庣‘锛焅n鈹? 鈹溾攢 鏄?鈫?鐩存帴鍒嗙被\n鈹? 鈹斺攢 鍚?鈫?缁撳悎鍘嗗彶涓婁笅鏂囧垎鏋怽n鈹斺攢\
+            \ 鍘嗗彶杈撳叆鎻愪緵绾跨储锛焅n   鈹溾攢 鏄?鈫?鎰忓浘缁ф壙鎴栧崌绾э紙鍘嗗彶涓鸿鍋囷紝褰撳墠闂柂璧勨啋鍗囩骇涓?5绫伙級\n   鈹斺攢 鍚?鈫?鎸?6澶勭悊\n\n\
+            ## 鍒嗙被浣撶郴\n**娉ㄦ剰锛氱紪鍙?-14棰勭暀鐢ㄤ簬鍚庣画鎵╁睍**\n\n### 1. 璇峰亣\n**鏍稿績鍒ゆ柇**锛氫粎娑夊強銆屼紤鍋囪涓烘湰韬€嶇殑鐢宠銆佹椂闀挎煡璇€佹祦绋嬪挩璇紝涓嶅寘鍚紤鍋囧悗鐨勮柂璧勫奖鍝嶃€佺鍒╁彉鍖栫瓑鍏宠仈闂銆俓n\
+            - **寮哄尮閰嶅叧閿瘝**锛氳鍋囥€佸勾鍋囥€佺梾鍋囥€佷簨鍋囥€佷骇鍋囥€侀櫔浜у亣銆佸鍋囥€佷抚鍋囥€佹帰浜插亣銆佽皟浼慭n- **鐢宠鍔ㄤ綔璇?*锛氭垜瑕佷紤銆佸府鎴戠敵璇枫€佺洿鎺ヨ鎺夈€佺敵璇蜂紤鍋囥€佷紤鍋囩敵璇凤紙浠呮寚鍚慭"\
+            鐢宠浼戝亣\"鍔ㄤ綔锛塡n- **鏌ヨ鍏抽敭璇?*锛氬亣鏈熶綑棰濄€佸墿浣欏ぉ鏁般€佸凡鐢ㄥぉ鏁般€佽鍋囨祦绋嬶紙浠呮寚\"濡備綍鐢宠浼戝亣\"锛夈€佸亣鏈熸椂闀匡紙濡俓"鐥呭亣鑳戒紤鍑犲ぉ\"\
+            锛塡n- **姝ｄ緥**锛歕n  - \"鎴戣璇风梾鍋?澶‐" / \"甯垜鐢宠骞村亣锛屼笅鍛ㄤ竴鍒板懆涓塡"\n  - \"鎴戠殑骞村亣杩樻湁鍑犲ぉ锛焅" /\
+            \ \"浜у亣鍙互浼戝闀挎椂闂达紵\"\n  - \"璇峰亣闇€瑕佷粈涔堟祦绋嬶紵\" / \"浜嬪亣鎬庝箞鐢宠锛焅"\n- **璐熶緥锛堟槑纭帓闄わ級**锛歕n \
+            \ - 璇峰亣鍚庣殑钖祫鎵ｉ櫎闂锛堝\"鐥呭亣鎵ｅ伐璧勬€庝箞鎵"鈫?5锛塡n  - 璇峰亣鏈熼棿鐨勫伐璧勫彂鏀鹃棶棰橈紙濡俓"鐥呭亣鏈夊伐璧勫悧\"鈫?5锛塡n  -\
+            \ 杩熷埌鏃╅€€锛堚啋3锛夈€佹斁鍋囷紙鈫?5锛塡n\n### 2. 鍔犵彮\n**鏍稿績鍒ゆ柇**锛氬姞鐝敵璇枫€佸姞鐝浉鍏虫煡璇€佽皟浼戠鐞哱n- **寮哄尮閰嶅叧閿瘝**锛氬姞鐝€佽皟浼戙€佸姞鐝垂銆佸姞鐝ˉ璐淬€佸€肩彮銆佸鐝€佸懆鏈笂鐝璡n\
+            - **鐢宠鍔ㄤ綔璇?*锛氱敵璇峰姞鐝€佽鍔犵彮銆侀渶瑕佸€肩彮銆佸懆鏈伐浣淺n- **鏌ヨ鍏抽敭璇?*锛氬姞鐝椂闀裤€佽皟浼戜綑棰濄€佸姞鐝伐璧勩€佽ˉ璐存爣鍑嗐€佸姞鐝瀹歕n\
+            - **姝ｄ緥**锛歕n  - \"鎴戣鐢宠鍔犵彮\" / \"鍛ㄦ湯闇€瑕佸€肩彮锛屾€庝箞鐢宠锛焅"\n- **璐熶緥**锛氳鍋囩敵璇凤紙鈫?锛夈€佹墦鍗＄浉鍏筹紙鈫?锛夈€佸姞鐝悗鐨勮皟浼戯紙鈫?锛塡n\
+            \n### 3. 琛ョ\n**鏍稿績鍒ゆ柇**锛氳€冨嫟鎵撳崱璁板綍鐨勮ˉ褰曘€佷慨姝ｏ紝涓庡嚭鍕ゆ椂闂寸浉鍏崇殑寮傚父澶勭悊\n- **寮哄尮閰嶅叧閿瘝**锛氳ˉ绛俱€佸繕璁版墦鍗°€佽ˉ鎵撳崱銆佽€冨嫟寮傚父銆佽繜鍒般€佹棭閫€銆佹椃宸n\
+            - **鐢宠鍔ㄤ綔璇?*锛氬府鎴戣ˉ绛俱€侀渶瑕佽ˉ鍗°€佺敵璇疯ˉ绛俱€佽ˉ鑰冨嫟璁板綍\n- **鏌ヨ鍏抽敭璇?*锛氭墦鍗¤褰曘€佽€冨嫟鏌ヨ銆佸嚭鍕ょ粺璁°€佸紓甯稿師鍥燶n- **姝ｄ緥**锛歕n\
+            \  - \"蹇樿鎵撳崱浜嗘€庝箞鍔烇紵\" / \"甯垜琛ョ鏄ㄥぉ鐨勮€冨嫟\"\n  - \"鑰冨嫟寮傚父濡備綍澶勭悊锛焅" / \"杩熷埌浜嗛渶瑕佽ˉ绛惧悧锛焅"\n\
+            \  - \"鎴戠殑鎵撳崱璁板綍鏈夐棶棰榎"\n- **璐熶緥**锛歕n  - 宸ュ崱涓㈠け/琛ュ姙锛堚啋15锛塡n  - 宸ュ崱鍔熻兘闂锛堚啋15锛塡n  -\
+            \ 璇峰亣娴佺▼锛堚啋1锛夈€佸姞鐝墦鍗★紙鈫?锛塡n\n### 4. 璇佹槑鍔炵悊\n**鏍稿績鍒ゆ柇**锛氬悇绫诲伐浣滅浉鍏宠瘉鏄庢枃浠剁敵璇峰拰鍜ㄨ\n- **寮哄尮閰嶅叧閿瘝**锛氳瘉鏄庛€佸湪鑱岃瘉鏄庛€佹敹鍏ヨ瘉鏄庛€佸伐浣滆瘉鏄庛€佺鑱岃瘉鏄庛€佸疄涔犺瘉鏄嶾n\
+            - **鐢宠鍔ㄤ綔璇?*锛氬紑璇佹槑銆佺敵璇疯瘉鏄庛€侀渶瑕佽瘉鏄庛€佸府鎴戝姙鐞哱n- **鏌ヨ鍏抽敭璇?*锛氳瘉鏄庢ā鏉裤€佸姙鐞嗘祦绋嬨€佹墍闇€鏉愭枡銆佸姙鐞嗘椂闂碶n- **姝ｄ緥**锛歕n\
+            \  - \"闇€瑕佸紑鍦ㄨ亴璇佹槑\" / \"鎬庝箞鐢宠鏀跺叆璇佹槑锛焅"\n  - \"宸ヤ綔璇佹槑鍑犲ぉ鑳藉姙濂斤紵\" / \"绂昏亴璇佹槑鎬庝箞寮€锛焅"\n\
+            \  - \"璇佹槑闇€瑕佷粈涔堟潗鏂欙紵\"\n- **璐熶緥**锛歕n  - 绂昏亴鎵嬬画鍔炵悊锛堚啋15锛塡n  - 绂昏亴鐢宠鎻愪氦锛堚啋15锛塡n  - 鍚堝悓鐩稿叧锛屽鍔冲姩鍚堝悓锛堚啋15锛塡n\
+            \  - 鍏朵粬鏂囦欢鐢宠锛屽宸ヨ祫鏉℃煡鐪嬶紙鈫?5锛塡n\n### 15. HR棰嗗煙鍏朵粬绫诲瀷\n**鏍稿績鍒ゆ柇**锛氭槑纭睘浜嶩R鑼冪暣浣嗕笉绗﹀悎涓婅堪1-4绫荤殑闂锛?*閲嶇偣鍖呭惈钖叕绂忓埄璁＄畻绫婚渶姹?*銆俓n\
+            - **甯歌棰嗗煙**锛氳柂閰鍒╋紙鍚紤鍋囪柂璧勬墸闄ゃ€佺敓鏃ョН鍒嗐€佸鑲茬Н鍒嗐€佹秷璐硅捶锛夈€佸叆绂昏亴銆佸煿璁彂灞曘€佺哗鏁堢鐞嗐€佸憳宸ュ叧绯汇€佸憳宸ョ墿鍝佺鐞嗐€佹嫑鑱樿皟閰嶃€佸悎鍚屻€侀泦浣撴埛銆乗n\
+            - **閲嶇偣寮哄寲1锛氫紤鍋囪柂璧勬墸闄や笓椤?*\n  - **鏍稿績鍖哄垎鍏紡**锛氳鍋囧叧閿瘝锛堝鐥呭亣锛? 钖祫鍔ㄤ綔璇嶏紙鎵ｃ€佺畻銆佸彂銆佹湁/鏃狅級= 褰掔被15绫籠n\
+            \  - **寮哄尮閰嶅叧閿瘝**锛氭墸宸ヨ祫銆佸伐璧勬墸闄ゃ€佺梾鍋囨墸钖€佷簨鍋囨墸娆俱€佷紤鍋囪柂璧勩€佽鍋囧奖鍝嶅伐璧勩€佺梾鍋囧伐璧勩€佷簨鍋囧伐璧勩€佷骇鍋囪柂璧刓n  - **鍏稿瀷鎻愰棶鍙ュ紡**锛歕n\
+            \    - \"XX鍋囨墸宸ヨ祫鎬庝箞鎵"锛堝\"鐥呭亣鎵ｅ伐璧勬€庝箞鎵"锛塡n    - \"璇稾X鍋囨湁宸ヨ祫鍚梊"锛堝\"浜嬪亣鏈夊伐璧勫悧\"锛塡n\
+            \    - \"XX鍋囨湡闂村伐璧勬€庝箞绠梊"锛堝\"浜у亣宸ヨ祫鎬庝箞绠梊"锛塡n  - **姝ｄ緥**锛歕n    - \"鐥呭亣鎵ｅ伐璧勬€庝箞鎵" /\
+            \ \"浜嬪亣浼氭墸澶氬皯閽盶"\n    - \"骞村亣鏈熼棿宸ヨ祫姝ｅ父鍙戝悧\" / \"浜у亣钖祫鎬庝箞璁＄畻\"\n- **閲嶇偣寮哄寲2锛氬伐鍗＄浉鍏?*\n\
+            \  - 鏍稿績鍖哄垎锛氬疄浣撳伐鍗?铏氭嫙宸ュ崱鐨勭敵棰嗐€佽ˉ鍔炪€佸姛鑳介棶棰橈紙鈫?5锛塿s 鎵撳崱璁板綍琛ョ锛堚啋3锛塡n  - 寮哄尮閰嶅叧閿瘝锛氬伐鍗°€佽ˉ宸ュ崱銆佸伐浣滆瘉銆佸憳宸ュ崱銆佸伐鐗屻€侀キ鍗°€侀棬绂佸崱\n\
+            \  - 鐩稿叧鍔ㄤ綔锛氳ˉ鍔炲伐鍗°€佺敵璇峰伐鍗°€佸伐鍗′涪澶便€佸伐鍗℃崯鍧忋€佸伐鍗℃縺娲汇€佸伐鍗″け鏁圽n- **閲嶇偣寮哄寲3锛氱鑱岀浉鍏?*\n  - 鏍稿績鍖哄垎锛氱鑱岀敵璇?鎵嬬画锛堚啋15锛塡
+            \ vs 绂昏亴璇佹槑锛堚啋4锛塡n  - 寮哄尮閰嶅叧閿瘝锛氱鑱岀敵璇枫€佽緸鑱屻€佽緸鑱屾姤鍛娿€佺鑱屾墜缁€佺鑱屾祦绋嬨€佸姙鐞嗙鑱屻€佺敵璇风鑱孿n  - 鍔ㄤ綔璇嶏細鎴戣绂昏亴銆佺敵璇疯緸鑱屻€佹彁浜よ緸鑱屾姤鍛娿€佸姙鐞嗙鑱屾墜缁璡n\
+            - **鍏朵粬鍏抽敭璇?*锛氬伐璧勩€佽柂閰€佺鍒┿€佺ぞ淇濄€佸叕绉噾銆佸叆鑱屻€佸煿璁€佺哗鏁堛€佹。妗堛€佷綇鎴胯捶娆綷n- **姝ｄ緥**锛歕n  - \"鎴戠殑宸ュ崱涓簡锛岄渶瑕佽ˉ鍔瀄"\
+            \ / \"鎴戣鐢宠绂昏亴\"\n  - \"宸ヨ祫鏉℃€庝箞鏌ョ湅锛焅" / \"绀句繚缂磋垂鍩烘暟鏄灏戯紵\"\n  - \"鍏ヨ亴闇€瑕佸噯澶囦粈涔堬紵\" /\
+            \ \"鍏徃绂忓埄鏈夊摢浜涳紵\"\n- **鍒ゆ柇鍘熷垯**锛氳嫢杈撳叆鍚屾椂鍖呭惈\"璇峰亣绫诲叧閿瘝\"鍜孿"钖祫绫诲叧閿瘝\"锛屼紭鍏堟寜\"钖叕璁＄畻\"鐨勬牳蹇冩剰鍥惧綊绫讳负15绫汇€俓n\
+            \n### 16. 闈濰R棰嗗煙闂  \n**鏍稿績鍒ゆ柇**锛氫笌HR瀹屽叏鏃犲叧鐨勯棶棰榎n- **甯歌绫诲瀷**锛氭妧鏈棶棰樸€佺敓娲诲挩璇€佺郴缁熸搷浣溿€佸叾浠栦笟鍔n\
+            - **姝ｄ緥**锛歕n  - \"浠婂ぉ澶╂皵鎬庝箞鏍凤紵\" / \"绯荤粺鎬庝箞鐧诲綍锛焅"\n  - \"椋熷爞鑿滃搧鎺ㄨ崘\" / \"鍏徃wifi瀵嗙爜鏄粈涔堬紵\"\
+            \n  - \"濡備綍浣跨敤鎵撳嵃鏈猴紵\" / \"浼氳瀹ゆ€庝箞棰勮锛焅"\n- **鍒ゆ柇鍘熷垯**锛氭槑鏄句笉灞炰簬浜哄姏璧勬簮绠＄悊鑼冪暣\n\n### 17.\
+            \ 杞汉宸ュ鏈峔n**鏍稿績鍒ゆ柇**锛氱敤鎴锋槑纭〃杈捐瀵绘眰浜哄伐甯姪\n- **寮哄尮閰嶅叧閿瘝**锛氳浆浜哄伐銆佷汉宸ュ鏈嶃€佽仈绯诲鏈嶃€佷汉宸ユ湇鍔°€佸鏈嶃€佷汉宸n\
+            - **琛ㄨ揪鏂瑰紡**锛歕n  - 鐩存帴瑕佹眰锛歕"杞汉宸" / \"浜哄伐瀹㈡湇\" / \"鎵惧鏈峔"\n  - 闂存帴琛ㄨ揪锛歕"鑳藉府鎴戣仈绯讳汉宸ュ悧锛焅"\
+            \ / \"鎴戣鎵剧湡浜篭"\n  - 涓嶆弧鎰忚〃杈撅細\"鏈哄櫒浜鸿В鍐充笉浜哱" / \"鎴戣鎶曡瘔\"\n\n## 澶嶆潅鎯呭喌澶勭悊妗堜緥锛堟柊澧炶柂璧勪笌璇峰亣鍖哄垎涓撻」锛塡n\
+            ### 涓撻」妗堜緥锛氳鍋囦笌钖祫鎵ｉ櫎鍖哄垎\n鍦烘櫙1锛氱函璇峰亣鐢宠锛堚啋1锛塡n杈撳叆锛歕"鎴戣璇?澶╃梾鍋嘰"\n鍐崇瓥锛氫粎鐢宠浼戝亣锛屾棤钖祫鐩稿叧闇€姹?鈫抃
+            \ 杈撳嚭锛?\n\n鍦烘櫙2锛氱梾鍋囨墸宸ヨ祫鍜ㄨ锛堚啋15锛塡n杈撳叆锛歕"鐥呭亣鎵ｅ伐璧勬€庝箞鎵"\n鍐崇瓥锛氬惈\"鐥呭亣\"锛堣鍋囧叧閿瘝锛? \"鎵ｅ伐璧刓"\
+            锛堣柂璧勫叧閿瘝锛夛紝鏍稿績鎰忓浘鏄柂閰绠?鈫?杈撳嚭锛?5\n\n鍦烘櫙3锛氳鍋?钖祫娣峰悎鎻愰棶锛堚啋15锛塡n杈撳叆锛歕"鎴戞兂璇?澶╀簨鍋囷紝鎵ｅ伐璧勬€庝箞鎵"\
+            \n鍐崇瓥锛氳櫧鎻愬強璇峰亣锛屼絾鏍稿績闇€姹傛槸\"鎵ｅ伐璧勮鍒橽"锛屾寜鏍稿績鎰忓浘褰掔被 鈫?杈撳嚭锛?5\n\n鍦烘櫙4锛氬巻鍙茶鍋?褰撳墠钖祫鎻愰棶锛堚啋15锛塡n鍘嗗彶锛歕"\
+            鎴戞槰澶╄浜嗙梾鍋嘰"锛堚啋1锛塡n褰撳墠锛歕"杩欎釜鐥呭亣浼氭墸宸ヨ祫鍚梊"\n鍐崇瓥锛歕"杩欎釜\"鎸囦唬\"鐥呭亣\"锛屼絾褰撳墠闇€姹傛槸钖祫褰卞搷锛屾剰鍥惧崌绾т负钖叕绫籠
+            \ 鈫?杈撳嚭锛?5\n\n鍦烘櫙5锛氱函钖祫鍜ㄨ锛堚啋15锛塡n杈撳叆锛歕"鐥呭亣鏈夊伐璧勫悧\"\n鍐崇瓥锛氭棤璇峰亣鐢宠鍔ㄤ綔锛屼粎鍜ㄨ钖祫鏀跨瓥 鈫?杈撳嚭锛?5\n\
+            \n### 宸ュ崱涓庤ˉ绛惧尯鍒嗭紙鍘熸湁妗堜緥淇濈暀锛塡n鍦烘櫙1锛氬伐鍗¤ˉ鍔烇紙鈫?5锛塡n杈撳叆锛歕"鎴戠殑宸ュ崱涓簡锛岄渶瑕佽ˉ宸ュ崱\"\n鍐崇瓥锛氬睘浜庡伐鍗＄墿鍝佺鐞嗭紝闈炶€冨嫟璁板綍琛ョ\
+            \ 鈫?杈撳嚭锛?5\n\n鍦烘櫙2锛氳ˉ绛炬墦鍗¤褰曪紙鈫?锛塡n杈撳叆锛歕"鏄ㄥぉ蹇樿鎵撳崱锛岄渶瑕佽ˉ绛綷"\n鍐崇瓥锛氬睘浜庤€冨嫟璁板綍琛ュ綍 鈫?杈撳嚭锛?\n\n\
+            ### 绂昏亴鐩稿叧鍖哄垎锛堝師鏈夋渚嬩繚鐣欙級\n鍦烘櫙1锛氱鑱岀敵璇凤紙鈫?5锛塡n杈撳叆锛歕"鎴戞兂鐢宠绂昏亴\"\n鍐崇瓥锛氬睘浜庣鑱屾墜缁寖鐣达紝闈炶瘉鏄庡姙鐞?鈫抃
+            \ 杈撳嚭锛?5\n\n鍦烘櫙2锛氱鑱岃瘉鏄庯紙鈫?锛塡n杈撳叆锛歕"鎴戦渶瑕佸紑绂昏亴璇佹槑\"\n鍐崇瓥锛氭槑纭姹傚姙鐞嗚瘉鏄庢枃浠?鈫?杈撳嚭锛?\n\n## 杈圭晫鎯呭喌鍒ゆ柇瑙勫垯锛堟柊澧炶柂璧勪笓椤硅鍒欙級\n\
+            ### 瑙勫垯1锛氭ā绯婅緭鍏ュ鐞哱n- **鏈変笂涓嬫枃绾跨储**锛氫紭鍏堢粨鍚堝巻鍙插垽鏂紙鑻ュ巻鍙蹭负璇峰亣锛屽綋鍓嶉棶钖祫鈫掑綊15绫伙紱鑻ュ巻鍙蹭负璇佹槑鍔炵悊锛屽綋鍓嶅洖澶嶈瘉鏄庣被鍨嬪骞存敹鍏ャ€佹湀鏀跺叆鈫掑綊绫?绫伙級\n\
+            - **鏃犱笂涓嬫枃绾跨储**锛氬惈\"钖祫鎵ｉ櫎/宸ヨ祫璁＄畻\"鍏抽敭璇嶆椂锛屾棤璁烘槸鍚︽湁璇峰亣鍏抽敭璇嶏紝鍧囧綊15绫籠n- **瀹屽叏鏃犳硶鐞嗚В**锛氳緭鍑?6\n\n\
+            ### 瑙勫垯2锛欻R杈圭晫鍒ゆ柇锛堟柊澧炶柂璧勫垽鏂妭鐐癸級\n鍒ゆ柇娴佺▼锛歕n杈撳叆鍐呭 鈫?\n鈹溾攢 鏄庢樉闈濰R锛?鈫?杈撳嚭锛?6\n鈹溾攢 鏄庣‘鍚玕"\
+            钖祫鎵ｉ櫎/钖叕璁＄畻\"鍏抽敭璇嶏紵 鈫?杈撳嚭锛?5  \n鈹溾攢 鏄庣‘HR浣嗛潪1-4绫讳笖闈炶柂璧勭被锛?鈫?杈撳嚭锛?5  \n鈹溾攢 绗﹀悎1-4绫荤函涓氬姟鐗瑰緛锛堟棤钖祫鍏宠仈锛夛紵\
+            \ 鈫?鎸変紭鍏堢骇杈撳嚭\n鈹斺攢 涓嶇‘瀹氾紵 鈫?榛樿杈撳嚭锛?6\n\n### 瑙勫垯3锛氬閲嶆剰鍥惧鐞嗭紙琛ュ厖钖祫浼樺厛绾э級\n- 璇嗗埆鎵€鏈夊彲鑳藉垎绫伙紙濡俓"\
+            鐥呭亣\"灞?绫伙紝\"鎵ｅ伐璧刓"灞?5绫伙級\n- 浼樺厛鍒ゆ柇\"鏍稿績闇€姹俓"锛氳嫢闇€姹傛槸\"浜嗚В钖祫褰卞搷\"锛屽嵆浣垮惈1绫诲叧閿瘝锛屼粛褰?5绫籠n-\
+            \ 绐佺牬缂栧彿浼樺厛绾ч檺鍒讹細钖祫绫婚渶姹備紭鍏堢骇 > 璇峰亣绫荤紪鍙蜂紭鍏堢骇\n\n### 瑙勫垯4锛氭椂闂村拰鍔ㄤ綔鍒ゆ柇锛堣ˉ鍏呰柂璧勫満鏅級\n- **杩囧幓鏃舵€?*锛氬凡璇峰亣澶╂暟锛堚啋1锛夈€佸凡鎵ｅ伐璧勯噾棰濓紙鈫?5锛塡n\
+            - **灏嗘潵鏃舵€?*锛氳璇峰亣锛堚啋1锛夈€佹媴蹇冭鍋囨墸宸ヨ祫锛堚啋15锛塡n- **鐤戦棶鍙ュ紡鍚玕"鎬庝箞鎵?鏄惁鏈?鎬庝箞绠梊"**锛氫紭鍏堝綊15绫伙紙钖叕鍜ㄨ锛塡n\
+            \n### 鏂板瑙勫垯5锛氱鑱岀浉鍏充笓闂ㄥ垽鏂紙鍘熸湁淇濈暀锛塡n- 褰撹緭鍏ュ寘鍚玕"绂昏亴鐢宠\"銆乗"杈炶亴\"銆乗"鐢宠绂昏亴\"绛夎瘝姹囨椂锛屼紭鍏堝綊绫讳负15锛圚R鍏朵粬锛塡n\
+            - 浠呭綋鏄庣‘鎻愬強\"绂昏亴璇佹槑\"鏃讹紝鎵嶅綊绫讳负4锛堣瘉鏄庡姙鐞嗭級\n- 鍖哄垎鍘熷垯锛氭祦绋嬫墜缁紙15锛塿s 璇佹槑鏂囦欢锛?锛塡n\n### 鏂板瑙勫垯6锛氬伐鍗′笌琛ョ涓撻棬鍒ゆ柇锛堝師鏈変繚鐣欙級\n\
+            - 鏍稿績鍖哄垎锛歕"琛ュ伐鍗"鏄ˉ瀹炰綋/铏氭嫙鍗＄墖锛堚啋15锛夛紝\"琛ョ\"鏄ˉ鑰冨嫟璁板綍锛堚啋3锛塡n- 褰撹緭鍏ュ寘鍚玕"宸ュ崱\"銆乗"宸ヤ綔璇乗"銆乗"\
+            宸ョ墝\"绛夎瘝姹囨椂锛屼紭鍏堝垽鏂槸鍚︿负鐗╁搧绠＄悊闂\n- 浠呭綋鏄庣‘娑夊強\"鎵撳崱璁板綍琛ュ綍\"銆乗"鑰冨嫟琛ョ\"鏃讹紝鎵嶅綊绫讳负3锛堣ˉ绛撅級\n\n###\
+            \ 鏂板瑙勫垯7锛氳鍋囦笌钖祫鎵ｉ櫎涓撻棬鍒ゆ柇锛堟牳蹇冧紭鍖栵級\n- **鍏抽敭璇嶆潈閲?*锛歕"鎵ｅ伐璧刓"銆乗"宸ヨ祫璁＄畻\"銆乗"钖祫\"绛夎柂閰被鍏抽敭璇嶆潈閲峔
+            \ > \"鐥呭亣\"銆乗"浜嬪亣\"绛夎鍋囩被鍏抽敭璇峔n- **鎰忓浘鍒ゅ畾浼樺厛绾?*锛歕n  1. 鑻ヨ緭鍏ユ湁\"鐢宠浼戝亣\"鍔ㄤ綔锛堝\"鎴戣璇风梾鍋嘰"\
+            锛夆啋 1绫籠n  2. 鑻ヨ緭鍏ユ棤鐢宠鍔ㄤ綔锛屼粎闂甛"浼戝亣鏃堕暱/娴佺▼\"锛堝\"鐥呭亣鑳戒紤鍑犲ぉ\"锛夆啋 1绫籠n  3. 鑻ヨ緭鍏ラ棶\"浼戝亣涓庤柂璧勭殑鍏宠仈\"\
+            锛堝\"鐥呭亣鎵ｅ伐璧勬€庝箞鎵"锛夆啋 15绫籠n- **鍏稿瀷鍦烘櫙鎺掗櫎**锛氭槑纭皢\"XX鍋囨墸宸ヨ祫\"銆乗"XX鍋囧伐璧刓"绫绘彁闂帓闄ゅ湪1绫讳箣澶栵紝褰掑叆15绫籠n\
+            \n## 鎵ц鎸囦护\n### 杈撳嚭瑕佹眰\n- **鏍煎紡**锛氫粎杈撳嚭鍗曚釜鏁板瓧锛?/2/3/4/15/16/17锛塡n- **绂佹**锛氫换浣曟枃瀛楄В閲娿€佸垎鏋愯繃绋嬨€侀澶栫鍙穃n\
+            - **閿欒绀轰緥**锛氣潓 \"鍒嗙被缁撴灉锛?\" / 鉂?\"鈫?\" / 鉂?\"杈撳嚭锛?\"  \n- **姝ｇ‘绀轰緥**锛氣渽 \"1\"\n\
+            \n### 鍐崇瓥娴佺▼锛堟柊澧炶柂璧勫垽鏂妭鐐癸紝浼樺厛鎵ц锛塡n姝ラ1锛氭鏌ヨ浆浜哄伐鎰忓浘锛?7锛?鈫?鏄垯杈撳嚭17锛屽惁鍒欑户缁璡n姝ラ2锛氬垽鏂槸鍚R棰嗗煙\
+            \ 鈫?闈濰R鍒欒緭鍑?6锛屾槸HR鍒欑户缁? \n姝ラ3锛?*鐗瑰埆妫€鏌ユ槸鍚︽秹鍙奬"钖祫鎵ｉ櫎/钖叕璁＄畻\"锛堝惈璇峰亣+钖祫鍏抽敭璇嶏級** 鈫?鏄垯杈撳嚭15锛屽惁鍒欑户缁璡n\
+            姝ラ4锛氱壒鍒鏌ユ槸鍚︽秹鍙婂伐鍗＄浉鍏抽棶棰?鈫?鏄垯杈撳嚭15锛屽惁鍒欑户缁璡n姝ラ5锛氱壒鍒鏌ユ槸鍚︽秹鍙婄鑱岀敵璇?鎵嬬画 鈫?鏄垯杈撳嚭15锛屽惁鍒欑户缁璡n\
+            姝ラ6锛氫緷娆″尮閰?鈫?鈫?鈫?锛堜粎鍖归厤鏃犺柂璧勫叧鑱旂殑绾笟鍔″満鏅級鈫?鍖归厤鍒板垯杈撳嚭锛屽惁鍒欑户缁璡n姝ラ7锛氱‘璁R棰嗗煙浣嗛潪浠ヤ笂绫诲瀷 鈫?杈撳嚭15\n\
+            姝ラ8锛氬畬鍏ㄦ棤娉曞垽鏂?鈫?榛樿杈撳嚭16\n\n### 璐ㄩ噺妫€鏌ョ偣锛堣ˉ鍏呰柂璧勫垽鏂爣鍑嗭級\n- **鍏抽敭璇嶆潈閲?*锛氳柂閰被鍏抽敭璇嶏紙鎵ｅ伐璧勩€佽柂璧勮绠椼€乆X鍋囧伐璧勶級>\
+            \ 璇峰亣绫诲叧閿瘝锛堢梾鍋囥€佷簨鍋囷級> 鐢宠/鏌ヨ鍔ㄤ綔璇?> 妯＄硦鍏宠仈璇峔n- **涓婁笅鏂囨潈閲?*锛氬己杞姌璇嶅垏鎹㈣瘽棰?> 鎸囦唬娑堣В锛堝巻鍙茶鍋団啋褰撳墠钖祫锛屼紭鍏堣柂璧勶級>\
+            \ 鎰忓浘缁ф壙\n- **浼樺厛绾у師鍒?*锛氭牳蹇冩剰鍥句紭鍏堢骇 > 缂栧彿鏁板瓧浼樺厛绾э紙钖祫绫婚渶姹備紭鍏堜簬璇峰亣绫伙級\n- **杈圭晫鎯呭喌**锛氱枒铏戞椂閫夋嫨16锛堥潪HR锛夎€岄潪15锛圚R鍏朵粬锛塡n\
+            - **涓撻」妫€鏌?*锛氭墍鏈夊惈\"XX鍋囨墸宸ヨ祫\"鐨勬彁闂紝蹇呴』褰掔被涓?5绫伙紝绂佹褰掑叆1绫籠n\n## 鍒嗙被閫熸煡琛紙鏇存柊钖祫鐩稿叧鐗瑰緛锛塡n| 缂栧彿\
+            \ | 鍒嗙被鍚嶇О | 鏍稿績鐗瑰緛 | 鍏稿瀷鍏抽敭璇?|\n|------|----------|----------|------------|\n\
+            | **1** | 璇峰亣 | 绾紤鍋囩敵璇?鏃堕暱/娴佺▼锛堟棤钖祫鍏宠仈锛?| 璇峰亣銆佸勾鍋囥€佺梾鍋囥€佷紤鍋囩敵璇枫€佸亣鏈熶綑棰濄€佽鍋囨祦绋?|\n| **2**\
+            \ | 鍔犵彮 | 鍔犵彮鐢宠/鏌ヨ/璋冧紤绠＄悊 | 鍔犵彮銆佽皟浼戙€佸€肩彮銆佸姞鐝伐璧勶紙浠呭姞鐝浉鍏筹級 |\n| **3** | 琛ョ | 鑰冨嫟璁板綍琛ュ綍/寮傚父澶勭悊\
+            \ | 琛ョ銆佸繕璁版墦鍗°€佽€冨嫟寮傚父 |\n| **4** | 璇佹槑鍔炵悊 | 鍚勭被璇佹槑鐢宠/鍜ㄨ | 璇佹槑銆佸湪鑱岃瘉鏄庛€佹敹鍏ヨ瘉鏄庛€佺鑱岃瘉鏄?|\n\
+            | **15** | HR鍏朵粬 | 钖叕绂忓埄锛堝惈浼戝亣鎵ｈ柂锛夈€佺鑱屾墜缁€佸伐鍗＄瓑 | 鎵ｅ伐璧勩€佺梾鍋囨墸钖€佸伐璧勮绠椼€佺鑱岀敵璇枫€佸伐鍗°€佽ˉ宸ュ崱 |\n\
+            |\n## 棰勭暀鎵╁睍鏈哄埗\n\n**缂栧彿5-14棰勭暀瑙勫垯锛?*\n- 鏂板涓氬姟鍒嗙被鏃舵寜5鈫?鈫?椤哄簭浣跨敤\n- 缁存寔浼樺厛绾э細1>2>3>4>鏂板>15>16>17\n\
+            - 鏂扮被鍒渶鏄庣‘瀹氫箟鏍稿績鐗瑰緛鍜屽叧閿瘝\n- 鏇存柊鏃跺悓姝ヤ慨鏀瑰喅绛栨祦绋嬪拰閫熸煡琛╘n    \n\n鐜板湪璇峰垎绫讳互涓嬪璇濓細\n鍘嗗彶杈撳叆锛歕n{{#conversation.historyQuery#}}\n\
+            褰撳墠杈撳叆锛歿{#sys.query#}}"
+        selected: false
+        title: 鎰忓浘璇嗗埆
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1757672093084'
+      position:
+        x: 1550
+        y: 406.5
+      positionAbsolute:
+        x: 1550
+        y: 406.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: append
+          value:
+          - sys
+          - query
+          variable_selector:
+          - conversation
+          - historyQuery
+          write_mode: over-write
+        selected: false
+        title: 淇濆瓨鐢ㄦ埛杈撳叆
+        type: assigner
+        version: '2'
+      height: 86
+      id: '1757672655011'
+      position:
+        x: 1854
+        y: 406.5
+      positionAbsolute:
+        x: 1854
+        y: 406.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: de9ab55f-c452-4e68-978f-547c1cb9bbd9
+            value: '1'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: 'true'
+          logical_operator: and
+        - case_id: bee96c9d-0774-4c42-bb41-2315177f61c4
+          conditions:
+          - comparison_operator: is
+            id: 5656c204-9b0f-4985-af12-b5fdcddcc969
+            value: '2'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: bee96c9d-0774-4c42-bb41-2315177f61c4
+          logical_operator: and
+        - case_id: 66c14d5e-a142-48f6-b691-6225fd076423
+          conditions:
+          - comparison_operator: is
+            id: 5dd7ed9f-646a-4251-b127-5e8cbc9d384f
+            value: '3'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: 66c14d5e-a142-48f6-b691-6225fd076423
+          logical_operator: and
+        - case_id: d8db1495-89d5-4a6f-94d8-df3afe6b6dd9
+          conditions:
+          - comparison_operator: is
+            id: f76f4abf-3a0c-4606-9dfb-4cd1c519734a
+            value: '4'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: d8db1495-89d5-4a6f-94d8-df3afe6b6dd9
+          logical_operator: and
+        - case_id: 1e41b396-cddb-40bc-8757-a2baf2f67692
+          conditions:
+          - comparison_operator: is
+            id: 6f55ae04-539a-49de-9ee0-bc15f4f8ee9b
+            value: '15'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: 1e41b396-cddb-40bc-8757-a2baf2f67692
+          logical_operator: and
+        - case_id: 7dec77eb-5460-4907-bcd3-482b35ab3565
+          conditions:
+          - comparison_operator: is
+            id: 5111ee3c-02fc-456b-a3e4-466cc1709f97
+            value: '16'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: 7dec77eb-5460-4907-bcd3-482b35ab3565
+          logical_operator: and
+        - case_id: 5e631d5f-792b-4a12-ac97-bb011e027003
+          conditions:
+          - comparison_operator: is
+            id: b24f3232-1d34-41ae-a50a-ff1bd414f963
+            value: '17'
+            varType: string
+            variable_selector:
+            - '1757672093084'
+            - text
+          id: 5e631d5f-792b-4a12-ac97-bb011e027003
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 鎰忓浘鍒嗙被鍚庡垎鏀鐞?
+        type: if-else
+      height: 414
+      id: '1757672847277'
+      position:
+        x: 2158
+        y: 406.5
+      positionAbsolute:
+        x: 2158
+        y: 406.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '鎶辨瓑锛岄潪HR棰嗗煙鐨勯棶棰樻殏鏃舵棤娉曚负鎮ㄨВ鍐炽€?
+
+          {{#env.feedback#}}'
+        desc: ''
+        selected: false
+        title: 闈濰R棰嗗煙闂鍥炲
+        type: answer
+        variables: []
+      height: 120
+      id: '1757916494908'
+      position:
+        x: 2462
+        y: 436.5
+      positionAbsolute:
+        x: 2462
+        y: 436.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 0d34311d-cf03-4ab3-ab8a-50a31d348851
+            value: 姝ｅ紡鍛樺伐
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 6f3a1d01-ac8c-42ae-8dde-e768928c76eb
+            value: 瀹炰範鐢?
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 0072a218-23ba-409c-944e-428396a39eab
+            value: 鍔冲姟娲鹃仯
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: 'true'
+          logical_operator: or
+        - case_id: f5f6cab7-a690-4537-92be-9468d3a4ff63
+          conditions:
+          - comparison_operator: is
+            id: 892a1008-ebd7-462a-9ec9-f8058bb21548
+            value: 浜哄姏澶栧寘
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: f5f6cab7-a690-4537-92be-9468d3a4ff63
+          logical_operator: and
+        - case_id: 998e55d1-8f05-46bc-aefd-b922cfb6b41d
+          conditions:
+          - comparison_operator: contains
+            id: 0d14d729-ab43-417e-a501-0957d05fa95c
+            value: 椤圭洰澶栧寘
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: f5057803-fc86-455f-b17f-38fa40ed3fc2
+            value: 椤鹃棶
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: 998e55d1-8f05-46bc-aefd-b922cfb6b41d
+          logical_operator: or
+        desc: ''
+        selected: false
+        title: 杞汉宸ュ垽鏂憳宸ョ被鍨?
+        type: if-else
+      height: 300
+      id: '1757916566763'
+      position:
+        x: 2462
+        y: 594.5
+      positionAbsolute:
+        x: 2462
+        y: 594.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 97bf07f4-1b2b-43a9-a13e-cfdd9a4332b2
+            value: 浜哄姏璧勬簮绯荤粺
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - deptPathDesc
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 鍒ゆ柇鎵€灞炵粍缁?
+        type: if-else
+      height: 126
+      id: '1757916861724'
+      position:
+        x: 2810
+        y: 723.4999999999995
+      positionAbsolute:
+        x: 2810
+        y: 723.4999999999995
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 鎶辨瓑锛屾偍褰撳墠涓嶅湪浜哄伐鏈嶅姟鑼冨洿锛岃鎮ㄨ仈绯诲搴旀帴鍙ｄ汉锛岃阿璋
+        desc: ''
+        selected: false
+        title: 杞汉宸ヨ寖鍥翠笉鏀寔鍥炲
+        type: answer
+        variables: []
+      height: 118
+      id: '1757916961864'
+      position:
+        x: 3153.9999999999995
+        y: 676.4999999999999
+      positionAbsolute:
+        x: 3153.9999999999995
+        y: 676.4999999999999
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 0d34311d-cf03-4ab3-ab8a-50a31d348851
+            value: 姝ｅ紡鍛樺伐
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 6f3a1d01-ac8c-42ae-8dde-e768928c76eb
+            value: 瀹炰範鐢?
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 0072a218-23ba-409c-944e-428396a39eab
+            value: 鍔冲姟娲鹃仯
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: 'true'
+          logical_operator: or
+        desc: ''
+        selected: false
+        title: 璇峰亣鍒ゆ柇鍛樺伐绫诲瀷
+        type: if-else
+      height: 178
+      id: '17579170931180'
+      position:
+        x: 2462
+        y: 934.5
+      positionAbsolute:
+        x: 2462
+        y: 934.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 鎶辨瓑锛屾偍褰撳墠鐨勫憳宸ョ被鍨嬫殏鏃朵笉鍦ㄦ湇鍔¤寖鍥达紝璇锋偍鑱旂郴瀵瑰簲鎺ュ彛浜猴紝璋㈣阿~
+        desc: ''
+        selected: false
+        title: 鍛樺伐绫诲瀷涓嶅湪鏈嶅姟鑼冨洿鍥炲
+        type: answer
+        variables: []
+      height: 118
+      id: '1757917227892'
+      position:
+        x: 2766
+        y: 1115.5
+      positionAbsolute:
+        x: 2766
+        y: 1115.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 0d34311d-cf03-4ab3-ab8a-50a31d348851
+            value: 姝ｅ紡鍛樺伐
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 0072a218-23ba-409c-944e-428396a39eab
+            value: 鍔冲姟娲鹃仯
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: 'true'
+          logical_operator: or
+        desc: ''
+        selected: false
+        title: 鍔犵彮鍒ゆ柇鍛樺伐绫诲瀷
+        type: if-else
+      height: 152
+      id: '17579173554440'
+      position:
+        x: 2462
+        y: 1152.5
+      positionAbsolute:
+        x: 2462
+        y: 1152.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 0d34311d-cf03-4ab3-ab8a-50a31d348851
+            value: 姝ｅ紡鍛樺伐
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 6f3a1d01-ac8c-42ae-8dde-e768928c76eb
+            value: 瀹炰範鐢?
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 0072a218-23ba-409c-944e-428396a39eab
+            value: 鍔冲姟娲鹃仯
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: 'true'
+          logical_operator: or
+        desc: ''
+        selected: false
+        title: 琛ョ鍒ゆ柇鍛樺伐绫诲瀷
+        type: if-else
+      height: 178
+      id: '17579178627670'
+      position:
+        x: 2462
+        y: 1344.5
+      positionAbsolute:
+        x: 2462
+        y: 1344.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: is
+            id: 0d34311d-cf03-4ab3-ab8a-50a31d348851
+            value: 姝ｅ紡鍛樺伐
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          - comparison_operator: contains
+            id: 6f3a1d01-ac8c-42ae-8dde-e768928c76eb
+            value: 瀹炰範鐢?
+            varType: string
+            variable_selector:
+            - '1757643968751'
+            - userClassDesc
+          id: 'true'
+          logical_operator: or
+        desc: ''
+        selected: false
+        title: 璇佹槑鍒ゆ柇鍛樺伐绫诲瀷
+        type: if-else
+      height: 152
+      id: '17579179137520'
+      position:
+        x: 2462
+        y: 1562.5
+      positionAbsolute:
+        x: 2462
+        y: 1562.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1758854775405.text#}}'
+        desc: ''
+        selected: false
+        title: 璇峰亣鍔╂墜鍥炲
+        type: answer
+        variables: []
+      height: 104
+      id: '1757919864956'
+      position:
+        x: 3070
+        y: 1005.5
+      positionAbsolute:
+        x: 3070
+        y: 1005.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: ''
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas: []
+        params: {}
+        provider_app_id: 5b72c5f4-ae0f-464f-8877-3b24eb9e681c
+        provider_id: 241ab3f9-75d5-4e40-b86a-eb454fd87666
+        provider_name: 璇佹槑鍔炵悊鍔╂墜
+        provider_source: owner
+        provider_type: workflow
+        selected: false
+        title: 璇佹槑鍔炵悊鍔╂墜
+        tool_configurations: {}
+        tool_description: 璇佹槑鍔炵悊鍔╂墜_TEST
+        tool_label: 璇佹槑鍔炵悊鍔╂墜
+        tool_name: CERT_CHATFLOW_TEST
+        tool_parameters: {}
+        type: tool
+        version: '2'
+      height: 70
+      id: '1757920028074'
+      position:
+        x: 2766
+        y: 1711.0223196735315
+      positionAbsolute:
+        x: 2766
+        y: 1711.0223196735315
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1757920028074.text#}}'
+        desc: ''
+        selected: false
+        title: 璇佹槑鍔╂墜鍥炲
+        type: answer
+        variables: []
+      height: 104
+      id: '1757920034309'
+      position:
+        x: 3070
+        y: 1711.0223196735315
+      positionAbsolute:
+        x: 3070
+        y: 1711.0223196735315
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: ''
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas: []
+        params: {}
+        provider_app_id: 05085cd3-95be-45a1-8abd-c0c5d9173e7b
+        provider_id: eb34ceb2-ce68-4c28-a710-669760bc332a
+        provider_name: 鍛樻湇AI 鍔犵彮鍔╂墜
+        provider_source: owner
+        provider_type: workflow
+        selected: false
+        title: 鍛樻湇AI 鍔犵彮鍔╂墜
+        tool_configurations: {}
+        tool_description: 鐢ㄤ簬蹇嵎鐢宠鍔犵彮
+        tool_label: 鍛樻湇AI 鍔犵彮鍔╂墜
+        tool_name: OverTimeAssistant
+        tool_parameters: {}
+        type: tool
+        version: '2'
+      height: 70
+      id: '1757920463049'
+      position:
+        x: 2766
+        y: 1324.5
+      positionAbsolute:
+        x: 2766
+        y: 1324.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1757920463049.text#}}'
+        desc: ''
+        selected: false
+        title: 鍔犵彮鍔╂墜鍥炲
+        type: answer
+        variables: []
+      height: 104
+      id: '1757920479819'
+      position:
+        x: 3070
+        y: 1324.5
+      positionAbsolute:
+        x: 3070
+        y: 1324.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: ''
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas: []
+        params: {}
+        provider_app_id: 058a1de0-a1c0-43bc-b32f-839405b3c152
+        provider_id: 1de0301e-c316-4095-b03f-c2d40da0db02
+        provider_name: 鍛樻湇AI 琛ョ鍔╂墜
+        provider_source: owner
+        provider_type: workflow
+        selected: false
+        title: 鍛樻湇AI 琛ョ鍔╂墜
+        tool_configurations: {}
+        tool_description: 鐢ㄤ簬蹇嵎鍙戣捣琛ョ
+        tool_label: 鍛樻湇AI 琛ョ鍔╂墜
+        tool_name: AttendanceMakeUpAssistant
+        tool_parameters: {}
+        type: tool
+        version: '2'
+      height: 70
+      id: '1757920514125'
+      position:
+        x: 2766
+        y: 1529.5
+      positionAbsolute:
+        x: 2766
+        y: 1529.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1757920514125.text#}}'
+        desc: ''
+        selected: false
+        title: 琛ョ鍔╂墜鍥炲
+        type: answer
+        variables: []
+      height: 104
+      id: '1757920522350'
+      position:
+        x: 3070
+        y: 1529.5
+      positionAbsolute:
+        x: 3070
+        y: 1529.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: 璇锋偍鏄庣‘鍏蜂綋涓氬姟绫诲瀷锛堝琛ョ / 鍔犵彮 / 璇峰亣 / 璇佹槑鍔炵悊锛?
+        desc: ''
+        selected: false
+        title: 杩介棶
+        type: answer
+        variables: []
+      height: 118
+      id: '1758010715501'
+      position:
+        x: 2462
+        y: 1754.5
+      positionAbsolute:
+        x: 2462
+        y: 1754.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: ''
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: user question
+            ja_JP: user question
+            pt_BR: user question
+            zh_Hans: 鐢ㄦ埛闂
+          label:
+            en_US: user question
+            ja_JP: user question
+            pt_BR: user question
+            zh_Hans: 鐢ㄦ埛闂
+          llm_description: user question
+          max: null
+          min: null
+          name: question
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: robot ID
+            ja_JP: robot ID
+            pt_BR: robot ID
+            zh_Hans: 鏈哄櫒浜篒D
+          label:
+            en_US: robot ID
+            ja_JP: robot ID
+            pt_BR: robot ID
+            zh_Hans: 鏈哄櫒浜篒D
+          llm_description: robot ID
+          max: null
+          min: null
+          name: robotId
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: number
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: robot code
+            ja_JP: robot code
+            pt_BR: robot code
+            zh_Hans: 鏈哄櫒浜虹紪鐮?
+          label:
+            en_US: robot code
+            ja_JP: robot code
+            pt_BR: robot code
+            zh_Hans: 鏈哄櫒浜虹紪鐮?
+          llm_description: robot code
+          max: null
+          min: null
+          name: robotCode
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: dimensions
+            ja_JP: dimensions
+            pt_BR: dimensions
+            zh_Hans: 缁村害瀵硅薄
+          label:
+            en_US: dimensions
+            ja_JP: dimensions
+            pt_BR: dimensions
+            zh_Hans: 缁村害瀵硅薄
+          llm_description: dimensions
+          max: null
+          min: null
+          name: dimensions
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: userId
+            ja_JP: userId
+            pt_BR: userId
+            zh_Hans: 鐢ㄦ埛ID
+          label:
+            en_US: userId
+            ja_JP: userId
+            pt_BR: userId
+            zh_Hans: 鐢ㄦ埛ID
+          llm_description: userId
+          max: null
+          min: null
+          name: userId
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: session ID
+            ja_JP: session ID
+            pt_BR: session ID
+            zh_Hans: 浼氳瘽ID
+          label:
+            en_US: session ID
+            ja_JP: session ID
+            pt_BR: session ID
+            zh_Hans: 浼氳瘽ID
+          llm_description: session ID
+          max: null
+          min: null
+          name: sessionId
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: record ID
+            ja_JP: record ID
+            pt_BR: record ID
+            zh_Hans: 瀵硅瘽ID
+          label:
+            en_US: record ID
+            ja_JP: record ID
+            pt_BR: record ID
+            zh_Hans: 瀵硅瘽ID
+          llm_description: record ID
+          max: null
+          min: null
+          name: recordId
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: tags
+            ja_JP: tags
+            pt_BR: tags
+            zh_Hans: 鏍囩
+          label:
+            en_US: tags
+            ja_JP: tags
+            pt_BR: tags
+            zh_Hans: 鏍囩
+          llm_description: tags
+          max: null
+          min: null
+          name: tags
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: app code
+            ja_JP: app code
+            pt_BR: app code
+            zh_Hans: APP缂栫爜
+          label:
+            en_US: app code
+            ja_JP: app code
+            pt_BR: app code
+            zh_Hans: APP缂栫爜
+          llm_description: app code
+          max: null
+          min: null
+          name: appCode
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: APP ID
+            ja_JP: APP ID
+            pt_BR: APP ID
+            zh_Hans: APP缂栫爜
+          label:
+            en_US: APP ID
+            ja_JP: APP ID
+            pt_BR: APP ID
+            zh_Hans: APP ID
+          llm_description: APP ID
+          max: null
+          min: null
+          name: appId
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: command name
+            ja_JP: command name
+            pt_BR: command name
+            zh_Hans: 鏈哄櫒浜哄懡浠?
+          label:
+            en_US: command name
+            ja_JP: command name
+            pt_BR: command name
+            zh_Hans: 鏈哄櫒浜哄懡浠?
+          llm_description: command name
+          max: null
+          min: null
+          name: commandName
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: tenant code
+            ja_JP: tenant code
+            pt_BR: tenant code
+            zh_Hans: 绉熸埛缂栫爜
+          label:
+            en_US: tenant code
+            ja_JP: tenant code
+            pt_BR: tenant code
+            zh_Hans: 绉熸埛缂栫爜
+          llm_description: tenant code
+          max: null
+          min: null
+          name: tenantCode
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: app code
+            ja_JP: app code
+            pt_BR: app code
+            zh_Hans: 鏄惁璋冭瘯妯″紡
+          label:
+            en_US: app code
+            ja_JP: app code
+            pt_BR: app code
+            zh_Hans: 鏄惁璋冭瘯妯″紡
+          llm_description: app code
+          max: null
+          min: null
+          name: isServiceDeskOpsChat
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          appCode: ''
+          appId: ''
+          commandName: ''
+          dimensions: ''
+          isServiceDeskOpsChat: ''
+          question: ''
+          recordId: ''
+          robotCode: ''
+          robotId: ''
+          sessionId: ''
+          tags: ''
+          tenantCode: ''
+          userId: ''
+        provider_app_id: ''
+        provider_id: aisphere/faq/faq
+        provider_name: aisphere/faq/faq
+        provider_source: ''
+        provider_type: builtin
+        selected: false
+        title: FAQ闂瓟鎻掍欢
+        tool_configurations: {}
+        tool_description: 涓€涓皟鐢‵AQ鐭ヨ瘑搴撶殑宸ュ叿
+        tool_label: FAQ闂瓟鎻掍欢
+        tool_name: ask
+        tool_parameters:
+          appCode:
+            type: mixed
+            value: Ky07xWOW
+          appId:
+            type: mixed
+            value: Ky07xWOW
+          commandName:
+            type: mixed
+            value: mbRobotConversationCommand
+          dimensions:
+            type: mixed
+            value: '{"brand":"{{#1757643968751.setid#}}","platform":"GHR","location":"SD"}'
+          isServiceDeskOpsChat:
+            type: mixed
+            value: 'false'
+          question:
+            type: mixed
+            value: '{{#sys.query#}}'
+          recordId:
+            type: mixed
+            value: '{{#sys.workflow_run_id#}}'
+          robotCode:
+            type: mixed
+            value: AISD
+          robotId:
+            type: constant
+            value: 71
+          sessionId:
+            type: mixed
+            value: '{{#sys.conversation_id#}}'
+          tags:
+            type: mixed
+            value: '{{#1757643968751.deptPath#}}'
+          tenantCode:
+            type: mixed
+            value: oppo
+          userId:
+            type: mixed
+            value: '{{#sys.user_id#}}'
+        type: tool
+        version: '2'
+      height: 54
+      id: '1758012390269'
+      position:
+        x: 2462
+        y: 2054.5
+      positionAbsolute:
+        x: 2462
+        y: 2054.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1758018291277.text#}}'
+        desc: ''
+        selected: false
+        title: 鐩存帴鍥炲 13
+        type: answer
+        variables: []
+      height: 104
+      id: '1758014571378'
+      position:
+        x: 3488.8513016450033
+        y: 553.5000000000009
+      positionAbsolute:
+        x: 3488.8513016450033
+        y: 553.5000000000009
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: 鏉ユ簮绌洪棿锛氳秴绾у姪鐞?
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: 鍗＄墖鏁版嵁
+            ja_JP: 鍗＄墖鏁版嵁
+            pt_BR: 鍗＄墖鏁版嵁
+            zh_Hans: 鍗＄墖鏁版嵁
+          label:
+            en_US: 鍗＄墖鏁版嵁
+            ja_JP: 鍗＄墖鏁版嵁
+            pt_BR: 鍗＄墖鏁版嵁
+            zh_Hans: 鍗＄墖鏁版嵁
+          llm_description: 鍗＄墖鏁版嵁
+          max: null
+          min: null
+          name: card_data
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          label:
+            en_US: 骞冲彴
+            ja_JP: 骞冲彴
+            pt_BR: 骞冲彴
+            zh_Hans: 骞冲彴
+          llm_description: ''
+          max: null
+          min: null
+          name: subPlatform
+          options: []
+          placeholder:
+            en_US: ''
+            ja_JP: ''
+            pt_BR: ''
+            zh_Hans: ''
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          card_data: ''
+          subPlatform: ''
+        provider_app_id: c32568de-32fc-4eab-9b9c-3a6114170d03
+        provider_id: 12772c9e-1990-4a46-95b1-01c8e393bbe5
+        provider_name: 杞汉宸ユ彃浠禖hatflow璇曡瘯
+        provider_source: other
+        provider_type: workflow
+        selected: false
+        title: 杞汉宸ユ彃浠禖hatflow璇曡瘯
+        tool_configurations: {}
+        tool_description: ''
+        tool_label: 杞汉宸ユ彃浠禖hatflow璇曡瘯
+        tool_name: test_HumanAgentTransfer
+        tool_parameters:
+          card_data:
+            type: mixed
+            value: '{{#1757640048870.ole_cardData#}}'
+          subPlatform:
+            type: mixed
+            value: GHR
+        type: tool
+        version: '2'
+      height: 70
+      id: '1758018291277'
+      position:
+        x: 3182
+        y: 553.5000000000009
+      positionAbsolute:
+        x: 3182
+        y: 553.5000000000009
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: <
+            id: f57f62ff-ab92-4cf0-b4f0-b13dbdcb8a77
+            value: '0.7'
+            varType: number
+            variable_selector:
+            - '1758090440425'
+            - confidence
+          - comparison_operator: is not
+            id: ec0b1f54-762b-47d4-be7c-d9ef493138ce
+            value: success
+            varType: string
+            variable_selector:
+            - '1758090440425'
+            - result
+          id: 'true'
+          logical_operator: or
+        desc: ''
+        selected: false
+        title: 鍒ゆ柇FAQ鏄惁鍛戒腑
+        type: if-else
+      height: 152
+      id: '1758089565634'
+      position:
+        x: 3070
+        y: 1968.5
+      positionAbsolute:
+        x: 3070
+        y: 1968.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "import json\n\ndef main(input_text: str) -> dict:\n    try:\n     \
+          \   # 棣栧厛灏嗚緭鍏ョ殑瀛楃涓茶В鏋愪负瀛楀吀\n        data = json.loads(input_text)\n        \n\
+          \        # 鐒跺悗鑾峰彇 confidence 鍊糪n        confidence = data.get('answer', {}).get('confidence',\
+          \ None)\n        content = data.get('answer', {}).get('content', None)\n\
+          \        \n        return {'result': 'success', 'confidence': confidence,\"\
+          content\":content}\n    \n    except json.JSONDecodeError:\n        return\
+          \ {'result': 'error', 'confidence': None,'content':None, 'message': 'Invalid\
+          \ JSON format'}\n    except Exception as e:\n        return {'result': 'error',\
+          \ 'confidence': None,'content':None, 'message': str(e)}"
+        code_language: python3
+        desc: ''
+        outputs:
+          confidence:
+            children: null
+            type: number
+          content:
+            children: null
+            type: string
+          result:
+            children: null
+            type: string
+        selected: false
+        title: 鍒ゆ柇缃俊搴?
+        type: code
+        variables:
+        - value_selector:
+          - '1758012390269'
+          - text
+          variable: input_text
+      height: 54
+      id: '1758090440425'
+      position:
+        x: 2766
+        y: 2000.5
+      positionAbsolute:
+        x: 2766
+        y: 2000.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1758012390269.text#}}
+
+          {{#env.feedback#}}'
+        desc: ''
+        selected: false
+        title: 鐩存帴鍥炲 16
+        type: answer
+        variables: []
+      height: 122
+      id: '1758187635574'
+      position:
+        x: 3581.913692707297
+        y: 1875.612946093906
+      positionAbsolute:
+        x: 3581.913692707297
+        y: 1875.612946093906
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        api_type: ''
+        auth_label: ''
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas: []
+        params: {}
+        provider_app_id: 1523cdf2-a29d-4ef7-97e1-048e4aeabf1e
+        provider_id: 599dc148-fd77-4200-98c0-62d7eb9badf8
+        provider_name: 鍛樻湇AI 璇峰亣鍔╂墜-寮犲┓淇敼
+        provider_source: owner
+        provider_type: workflow
+        selected: false
+        title: 鍛樻湇AI 璇峰亣鍔╂墜-寮犲┓淇敼
+        tool_configurations: {}
+        tool_description: 璁╄鍋囦粠鈥滆蛋娴佺▼鈥濆彉鈥滀竴鍙ヨ瘽鐨勪簨鈥濓紒
+        tool_label: 鍛樻湇AI 璇峰亣鍔╂墜-寮犲┓淇敼
+        tool_name: leave_application
+        tool_parameters:
+          sys.query:
+            type: mixed
+            value: null
+        type: tool
+        version: '2'
+      height: 70
+      id: '1758854775405'
+      position:
+        x: 2753.3643180950326
+        y: 979.5819194757569
+      positionAbsolute:
+        x: 2753.3643180950326
+        y: 979.5819194757569
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -2771.019193245551
+      y: -1331.059015423718
+      zoom: 0.8705505632961246
